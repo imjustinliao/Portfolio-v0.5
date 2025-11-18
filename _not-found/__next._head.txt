@@ -1,7 +1,0 @@
-1:"$Sreact.fragment"
-2:I[97367,["/Portfolio-v0.5/_next/static/chunks/ff1a16fafef87110.js","/Portfolio-v0.5/_next/static/chunks/247eb132b7f7b574.js","/Portfolio-v0.5/_next/static/chunks/d76f9f3797ec9937.js"],"ViewportBoundary"]
-4:I[97367,["/Portfolio-v0.5/_next/static/chunks/ff1a16fafef87110.js","/Portfolio-v0.5/_next/static/chunks/247eb132b7f7b574.js","/Portfolio-v0.5/_next/static/chunks/d76f9f3797ec9937.js"],"MetadataBoundary"]
-5:"$Sreact.suspense"
-0:{"buildId":"Ie7Q0nHwzUZ6Oob0xdK-3","rsc":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],null]}],"loading":null,"isPartial":false}
-3:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
-6:[["$","title","0",{"children":"Justin Liao"}],["$","meta","1",{"name":"description","content":"Digital home for Justin Liao — Tech Designer and Philosopher."}]]
