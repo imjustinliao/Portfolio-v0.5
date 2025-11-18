@@ -2,7 +2,7 @@
 
 Portfolio for Justin Liao — Tech Designer and Philosopher.
 
-## 🚀 Tech Stack
+## Tech Stack
 
 - **React 19** - Modern UI library
 - **TypeScript 5.9** - Type-safe JavaScript
@@ -74,76 +74,18 @@ Portfolio for Justin Liao — Tech Designer and Philosopher.
 
 ## 🚢 Deployment
 
-### Option 1: Deploy to Custom Domain (justinliao.me)
+The project is pre-configured to deploy to GitHub Pages at: `https://imjustinliao.github.io/Portfolio-v0.5`
 
-#### Initial Setup
+### Quick Deploy
 
-1. **Build the project**
-   ```bash
-   npm run build
-   ```
-
-2. **Create CNAME file for custom domain**
-   ```bash
-   echo "justinliao.me" > dist/CNAME
-   ```
-
-3. **Commit and push your changes**
+1. **Commit and push your changes**
    ```bash
    git add .
    git commit -m "Update portfolio"
    git push origin main
    ```
 
-4. **Deploy to GitHub Pages**
-   ```bash
-   npm run deploy
-   ```
-
-5. **Configure Custom Domain on GitHub**
-   - Go to your repository on GitHub
-   - Navigate to **Settings** > **Pages**
-   - Under "Custom domain", enter: `justinliao.me`
-   - Click **Save**
-   - Wait for DNS check to complete
-
-6. **Configure DNS with your domain provider**
-   - Add an **A record** pointing to GitHub's IPs:
-     - `185.199.108.153`
-     - `185.199.109.153`
-     - `185.199.110.153`
-     - `185.199.111.153`
-   - Add a **CNAME record** for `www` pointing to `imjustinliao.github.io`
-
-7. **Wait for propagation** (can take up to 24 hours)
-
-#### Subsequent Deployments
-
-After the initial setup, just run:
-
-```bash
-# 1. Make your changes to the code
-# 2. Build and deploy
-npm run build
-echo "justinliao.me" > dist/CNAME  # Re-create CNAME
-npm run deploy
-
-# 3. Commit your source changes
-git add .
-git commit -m "Update portfolio"
-git push origin main
-```
-
-### Option 2: Deploy to GitHub Pages (without custom domain)
-
-If you want to deploy to `https://imjustinliao.github.io/Portfolio-v0.5` instead:
-
-1. **Update `vite.config.ts`** - Change base to:
-   ```typescript
-   base: '/Portfolio-v0.5/',
-   ```
-
-2. **Deploy**
+2. **Build and deploy**
    ```bash
    npm run build
    npm run deploy
@@ -151,19 +93,76 @@ If you want to deploy to `https://imjustinliao.github.io/Portfolio-v0.5` instead
 
 3. **Configure GitHub Pages**
    - Go to repository **Settings** > **Pages**
-   - Select branch: `gh-pages`
+   - Select branch: `gh-pages`, folder: `/ (root)`
    - Click **Save**
+
+Your site will be live at: `https://imjustinliao.github.io/Portfolio-v0.5`
+
+### Optional: Set Up Custom Domain (justinliao.me)
+
+To use your custom domain instead:
+
+1. **Create CNAME file before deploying**
+   ```bash
+   npm run build
+   echo "justinliao.me" > dist/CNAME
+   npm run deploy
+   ```
+
+2. **Configure Custom Domain on GitHub**
+   - Go to your repository on GitHub
+   - Navigate to **Settings** > **Pages**
+   - Under "Custom domain", enter: `justinliao.me`
+   - Click **Save**
+   - Wait for DNS check to complete
+
+3. **Configure DNS with your domain provider**
+   - Add an **A record** pointing to GitHub's IPs:
+     - `185.199.108.153`
+     - `185.199.109.153`
+     - `185.199.110.153`
+     - `185.199.111.153`
+   - Add a **CNAME record** for `www` pointing to `imjustinliao.github.io`
+
+4. **Wait for DNS propagation** (15 minutes to 24 hours)
+
+Once DNS is configured, both URLs will work:
+- `https://imjustinliao.github.io/Portfolio-v0.5` (GitHub Pages URL)
+- `https://justinliao.me` (Custom domain)
+
+### Updating Your Site
+
+After initial deployment, to make updates:
+
+```bash
+# Make your code changes
+# Then build and deploy
+npm run build
+npm run deploy
+
+# Commit source code
+git add .
+git commit -m "Update portfolio"
+git push origin main
+```
+
+> **Note**: If you're using a custom domain, add `echo "justinliao.me" > dist/CNAME` before `npm run deploy`
 
 ## 🧭 Routing
 
 The project uses **HashRouter** for GitHub Pages compatibility:
 
 - **Local Development**: 
-  - Homepage: `http://localhost:5173/#/`
-  - About: `http://localhost:5173/#/about`
-  - Thinking: `http://localhost:5173/#/thinking`
+  - Homepage: `http://localhost:5173/Portfolio-v0.5/#/`
+  - About: `http://localhost:5173/Portfolio-v0.5/#/about`
+  - Thinking: `http://localhost:5173/Portfolio-v0.5/#/thinking`
 
-- **Custom Domain (justinliao.me)**:
+- **GitHub Pages**:
+  - Homepage: `https://imjustinliao.github.io/Portfolio-v0.5/#/`
+  - About: `https://imjustinliao.github.io/Portfolio-v0.5/#/about`
+  - Thinking: `https://imjustinliao.github.io/Portfolio-v0.5/#/thinking`
+
+- **Custom Domain** (if configured):
   - Homepage: `https://justinliao.me`
   - About: `https://justinliao.me/#/about`
   - Thinking: `https://justinliao.me/#/thinking`
@@ -250,7 +249,6 @@ ISC
 Justin Liao
 - GitHub: [@imjustinliao](https://github.com/imjustinliao)
 - Website: [justinliao.me](https://justinliao.me)
-- Company: [reunifylabs.com](https://reunifylabs.com)
 
 ---
 
