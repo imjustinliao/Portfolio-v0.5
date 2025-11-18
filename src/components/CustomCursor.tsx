@@ -39,7 +39,7 @@ export default function CustomCursor() {
     <>
       {/* Blurred white lighting effect - largest layer */}
       <div
-        className="fixed pointer-events-none z-[9998] will-change-transform"
+        className="fixed pointer-events-none z-[5] will-change-transform"
         style={{
           left: `${mousePosition.x}px`,
           top: `${mousePosition.y}px`,
@@ -71,7 +71,7 @@ export default function CustomCursor() {
             top: '0',
             width: '0px',
             height: '0px',
-            animation: 'dopplerRing1 2s ease-out infinite',
+            animation: 'dopplerRing1 3s ease-out infinite',
           }}
         />
         
@@ -83,7 +83,7 @@ export default function CustomCursor() {
             top: '0',
             width: '0px',
             height: '0px',
-            animation: 'dopplerRing2 2s ease-out infinite 0.66s',
+            animation: 'dopplerRing2 3s ease-out infinite 0.8s',
           }}
         />
 
@@ -95,7 +95,7 @@ export default function CustomCursor() {
             top: '0',
             width: '0px',
             height: '0px',
-            animation: 'dopplerRing3 2s ease-out infinite 1.33s',
+            animation: 'dopplerRing3 3s ease-out infinite 2s',
           }}
         />
 

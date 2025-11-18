@@ -39,7 +39,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-10 w-full flex justify-center bg-transparent">
-      <div className="relative flex items-center justify-between w-full h-[75px] mx-auto pl-[30px] border-b border-white backdrop-blur-[8px] before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-b before:from-[rgba(217,217,217,0.2)] before:via-[rgba(0,0,0,0.2)] before:to-[rgba(255,255,255,0.2)] before:z-0 max-[1024px]:h-[72px] max-[900px]:h-[68px] max-[900px]:gap-3 max-[600px]:h-[62px] max-[600px]:px-[clamp(16px,5vw,26px)]">
+      <div className="relative flex items-center justify-between w-full h-[clamp(60px,8vh,90px)] mx-auto pl-[3vw] pr-[3vw] min-[901px]:pr-0 border-b border-white backdrop-blur-[8px] before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-b before:from-[rgba(217,217,217,0.2)] before:via-[rgba(0,0,0,0.2)] before:to-[rgba(255,255,255,0.2)] before:z-0">
         
         {/* Brand Section */}
         <div 
@@ -48,45 +48,66 @@ export default function Navbar() {
         >
           <Link 
             to="/" 
-            className="text-[27px] font-semibold text-white tracking-[0.04em] leading-none no-underline drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] max-[1024px]:text-[25px] max-[600px]:text-[23px]"
+            className="text-[clamp(23px,3vw,27px)] font-semibold text-white tracking-[0.04em] leading-none no-underline outline-none drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
           >
             Justin Liao
           </Link>
-          <span className="text-[17px] font-normal text-[#d9d9d9] leading-[1.2] tracking-[0.02em] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] max-[1024px]:text-base max-[900px]:hidden">
+          <span className="text-[clamp(15px,2vw,17px)] font-normal text-[#d9d9d9] leading-[1.2] tracking-[0.02em] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] max-[900px]:hidden">
             <span className="font-bold text-white mr-1 drop-shadow-[inherit]">Tech</span>
             Designer | Philosopher
           </span>
         </div>
 
-        {/* Desktop Navigation Links */}
-        <nav 
-          className="flex items-center gap-[27px] relative z-[1] max-[900px]:hidden" 
-          aria-label="Primary"
-        >
-          {navLinks.map((link) => {
-            const isActive = currentPath === normalizePath(link.href)
-            return (
-              <Link
-                key={link.href}
-                to={link.href}
-                className={`no-underline text-xl font-normal text-white leading-none transition-opacity duration-[250ms] ease-in-out drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:opacity-100 hover:drop-shadow-[0_0_4px_rgba(255,255,255,0.5)] focus-visible:opacity-100 focus-visible:drop-shadow-[0_0_4px_rgba(255,255,255,0.5)] ${
-                  isActive ? 'font-normal drop-shadow-[0_0_4px_rgba(255,255,255,0.55)]' : ''
-                }`}
-              >
-                {link.label}
-              </Link>
-            )
-          })}
-          
+        {/* Right Side Actions */}
+        <div className="flex items-center gap-4 sm:gap-6 h-full">
+          {/* Desktop Navigation Links */}
+          <nav 
+            className="flex items-center gap-[27px] relative z-[1] max-[900px]:hidden" 
+            aria-label="Primary"
+          >
+            {navLinks.map((link) => {
+              const isActive = currentPath === normalizePath(link.href)
+              return (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className={`no-underline text-xl font-normal text-white leading-none transition-opacity duration-[250ms] ease-in-out drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] outline-none hover:opacity-100 hover:drop-shadow-[0_0_4px_rgba(255,255,255,0.5)] focus-visible:opacity-100 focus-visible:drop-shadow-[0_0_4px_rgba(255,255,255,0.5)] ${
+                    isActive ? 'font-normal drop-shadow-[0_0_4px_rgba(255,255,255,0.55)]' : ''
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
+            })}
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            type="button"
+            className={`hidden items-center justify-center border-none bg-transparent p-0 cursor-pointer relative z-[1] max-[900px]:flex flex-shrink-0`}
+            aria-expanded={isMenuOpen}
+            aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            onClick={toggleMenu}
+          >
+            <img
+              src={`${baseUrl}UI/Menu Icon.svg`}
+              alt=""
+              width={30}
+              height={30}
+              aria-hidden="true"
+              className="w-[30px] h-[30px] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] flex-shrink-0"
+            />
+          </button>
+
           {/* Reunify Labs Logo */}
           <a
-            className="w-[75px] h-[calc(75px-1px)] ml-3 flex-shrink-0 flex items-center justify-center relative bg-gradient-to-br from-[rgba(255,255,255,0.1)] to-[rgba(80,80,80,0.04)] border-l border-[rgba(255,255,255,0.35)] backdrop-blur-[18px] backdrop-saturate-[140%] shadow-[inset_0_0_25px_rgba(0,0,0,0.4)] no-underline hover:shadow-[inset_0_0_25px_rgba(0,0,0,0.4),0_0_4px_rgba(255,255,255,0.5)] focus-visible:shadow-[inset_0_0_25px_rgba(0,0,0,0.4),0_0_4px_rgba(255,255,255,0.5)] max-[1024px]:w-[72px] max-[1024px]:h-[calc(72px-1px)] max-[900px]:w-[68px] max-[900px]:h-[calc(68px-1px)] max-[600px]:w-[62px] max-[600px]:h-[calc(62px-1px)]"
+            className="h-[calc(100%-1px)] aspect-square flex-shrink-0 flex items-center justify-center relative bg-gradient-to-br from-[rgba(255,255,255,0.1)] to-[rgba(80,80,80,0.04)] backdrop-blur-[18px] backdrop-saturate-[140%] shadow-[inset_0_0_25px_rgba(0,0,0,0.4)] no-underline outline-none hover:shadow-[inset_0_0_25px_rgba(0,0,0,0.4),0_0_4px_rgba(255,255,255,0.5)] focus-visible:shadow-[inset_0_0_25px_rgba(0,0,0,0.4),0_0_4px_rgba(255,255,255,0.5)] max-[900px]:hidden"
             href="https://reunifylabs.com"
             target="_blank"
             rel="noreferrer"
             aria-label="Reunify Labs"
           >
-            <div className="relative w-[calc(75px-28px)] h-[calc(75px-28px)] rounded-[10px] flex items-center justify-center overflow-hidden p-2 bg-[rgba(255, 255, 255, 0)] shadow-[inset_0_0_12px_rgba(0,0,0,0.15),0_10px_20px_rgba(0,0,0,0.25)] max-[1024px]:w-[calc(72px-28px)] max-[1024px]:h-[calc(72px-28px)] max-[900px]:w-[calc(68px-28px)] max-[900px]:h-[calc(68px-28px)] max-[600px]:w-[calc(62px-28px)] max-[600px]:h-[calc(62px-28px)]">
+            <div className="relative w-full h-full rounded-[10px] flex items-center justify-center overflow-hidden p-3 bg-[rgba(255, 255, 255, 0)] shadow-[inset_0_0_12px_rgba(0,0,0,0.15),0_10px_20px_rgba(0,0,0,0.25)]">
               <img 
                 src={`${baseUrl}UI/rw.svg`}
                 alt="Reunify Labs logo" 
@@ -94,25 +115,7 @@ export default function Navbar() {
               />
             </div>
           </a>
-        </nav>
-
-        {/* Mobile Menu Button */}
-        <button
-          type="button"
-          className={`hidden items-center justify-center border-none bg-transparent p-0 cursor-pointer max-[900px]:flex`}
-          aria-expanded={isMenuOpen}
-          aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          onClick={toggleMenu}
-        >
-          <img
-            src={`${baseUrl}UI/Menu Icon.svg`}
-            alt=""
-            width={30}
-            height={30}
-            aria-hidden="true"
-            className="w-[30px] h-[30px] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
-          />
-        </button>
+        </div>
 
         {/* Mobile Dropdown Menu */}
         {isMenuOpen && (

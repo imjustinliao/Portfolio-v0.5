@@ -7,6 +7,15 @@
   cursor: none !important;
 }
 
+/* Prevent any default focus/active outlines that might appear as rectangles */
+a, button, input, textarea, select {
+  outline: none;
+}
+
+a:focus, button:focus, input:focus, textarea:focus, select:focus {
+  outline: none;
+}
+
 /* Doppler ring animations - using box-shadow for perfectly smooth circles */
 @keyframes dopplerRing1 {
   0% {

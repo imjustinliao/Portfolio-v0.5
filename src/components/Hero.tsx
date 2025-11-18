@@ -16,10 +16,12 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative w-full min-h-[calc(100vh-180px)] flex items-center justify-center py-4 lg:py-8 max-lg:flex-col max-lg:gap-12 px-4 md:px-6 lg:px-8 xl:px-12">
-      <div className="w-full max-w-[1400px] flex items-center justify-between max-lg:flex-col max-lg:gap-12 lg:gap-8 xl:gap-16">
+    <section className="relative w-full min-h-[calc(100vh-180px)] flex items-center justify-center py-[4vh] max-lg:flex-col max-lg:gap-[5vh] px-[3vw]">
+      <div className="w-full flex items-center justify-between max-lg:flex-col max-lg:gap-[5vh]">
         {/* Text Section - Flexible positioning */}
-        <div className="flex flex-col w-full max-w-[90%] sm:max-w-[520px] md:max-w-[540px] lg:max-w-[560px] xl:max-w-[580px] max-lg:items-center max-lg:text-center flex-shrink-0">
+        {/* Text Section - Flexible positioning */}
+        {/* Adjust w-[45vw] to change desktop text width. Adjust max-lg:w-[90vw] for mobile. */}
+        <div className="flex flex-col w-[45vw] max-lg:w-[90vw] max-lg:items-center max-lg:text-center flex-shrink-0">
         {/* Hi I'm */}
         <h1 className="text-[clamp(36px,4.8vw,42px)] sm:text-[clamp(42px,5.2vw,52px)] md:text-[clamp(48px,5.5vw,60px)] lg:text-[clamp(54px,5.5vw,67px)] font-light leading-[1.1] text-white tracking-[-0.02em]">
           Hi, I'm
@@ -75,9 +77,11 @@ export default function Hero() {
         </div>
 
         {/* Image Section - Flexible positioning */}
-        <div className="flex flex-col items-end gap-[clamp(16px,1.8vw,20px)] sm:gap-[clamp(18px,2vw,24px)] lg:gap-6 max-lg:items-center flex-shrink-0">
+        {/* Adjust w-[40vw] to change desktop image section width. */}
+        <div className="flex flex-col items-end gap-[2vh] max-lg:items-center flex-shrink-0 w-[40vw] max-lg:w-[90vw]">
         {/* Image Container */}
-        <div className="w-[clamp(240px,70vw,320px)] h-[clamp(240px,70vw,320px)] sm:w-[clamp(300px,60vw,400px)] sm:h-[clamp(300px,60vw,400px)] md:w-[clamp(360px,50vw,460px)] md:h-[clamp(360px,50vw,460px)] lg:w-[clamp(420px,45vw,500px)] lg:h-[clamp(420px,45vw,500px)] xl:w-[clamp(480px,45vw,553px)] xl:h-[clamp(480px,45vw,553px)] rounded-[15px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.4)] relative">
+        {/* Adjust w-[35vw] to change desktop image size. Adjust max-lg:w-[80vw] for mobile. */}
+        <div className="w-[35vw] max-lg:w-[80vw] aspect-square rounded-[15px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.4)] relative">
           {images.map((image, index) => (
             <img
               key={image}
