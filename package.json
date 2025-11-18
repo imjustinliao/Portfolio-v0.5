@@ -1,0 +1,32 @@
+{
+  "name": "portfolio-v0.5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NEXT_DISABLE_SWC_NATIVE_PACKAGES=1 next dev",
+    "build": "cross-env NEXT_DISABLE_SWC_NATIVE_PACKAGES=1 next build",
+    "start": "cross-env NEXT_DISABLE_SWC_NATIVE_PACKAGES=1 next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imjustinliao/Portfolio-v0.5.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/imjustinliao/Portfolio-v0.5/issues"
+  },
+  "homepage": "https://github.com/imjustinliao/Portfolio-v0.5#readme",
+  "dependencies": {
+    "@next/swc-wasm-nodejs": "^16.0.3",
+    "next": "^16.0.3",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0"
+  }
+}
