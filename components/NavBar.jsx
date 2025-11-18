@@ -60,12 +60,17 @@ export default function NavBar() {
               </Link>
             );
           })}
-          <div className={styles.logoMount} aria-hidden="true">
-            <div className={styles.logoBackground} />
+          <a
+            className={styles.logoMount}
+            href="https://reunifylabs.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Reunify Labs"
+          >
             <div className={styles.logoPlaceholder}>
-              <Image src="/UI/R.svg" alt="Logo" fill sizes="48px" />
+              <Image src="/UI/rw.svg" alt="Reunify Labs logo" fill sizes="48px" />
             </div>
-          </div>
+          </a>
         </nav>
         <button
           type="button"
