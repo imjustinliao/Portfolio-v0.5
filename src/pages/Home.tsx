@@ -1,7 +1,9 @@
+import Hero from '../components/Hero'
+
 export default function Home() {
   return (
     <section className="page-shell" aria-label="Home">
-      {/* Add your home page content here */}
+      <Hero />
     </section>
   )
 }

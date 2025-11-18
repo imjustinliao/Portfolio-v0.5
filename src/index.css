@@ -2,6 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Hide default cursor */
+* {
+  cursor: none !important;
+}
+
+/* Doppler ring animations - using box-shadow for perfectly smooth circles */
+@keyframes dopplerRing1 {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+    opacity: 1;
+  }
+  100% {
+    box-shadow: 0 0 0 70px rgba(255, 255, 255, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes dopplerRing2 {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    opacity: 1;
+  }
+  100% {
+    box-shadow: 0 0 0 70px rgba(255, 255, 255, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes dopplerRing3 {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3);
+    opacity: 1;
+  }
+  100% {
+    box-shadow: 0 0 0 70px rgba(255, 255, 255, 0);
+    opacity: 0;
+  }
+}
+
 :root {
   --nav-height: 84px;
   --page-max-width: 1512px;

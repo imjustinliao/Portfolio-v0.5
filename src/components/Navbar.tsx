@@ -86,7 +86,7 @@ export default function Navbar() {
             rel="noreferrer"
             aria-label="Reunify Labs"
           >
-            <div className="relative w-[calc(75px-28px)] h-[calc(75px-28px)] rounded-[10px] flex items-center justify-center overflow-hidden p-2 bg-[rgba(255,255,255,0.92)] shadow-[inset_0_0_12px_rgba(0,0,0,0.15),0_10px_20px_rgba(0,0,0,0.25)] max-[1024px]:w-[calc(72px-28px)] max-[1024px]:h-[calc(72px-28px)] max-[900px]:w-[calc(68px-28px)] max-[900px]:h-[calc(68px-28px)] max-[600px]:w-[calc(62px-28px)] max-[600px]:h-[calc(62px-28px)]">
+            <div className="relative w-[calc(75px-28px)] h-[calc(75px-28px)] rounded-[10px] flex items-center justify-center overflow-hidden p-2 bg-[rgba(255, 255, 255, 0)] shadow-[inset_0_0_12px_rgba(0,0,0,0.15),0_10px_20px_rgba(0,0,0,0.25)] max-[1024px]:w-[calc(72px-28px)] max-[1024px]:h-[calc(72px-28px)] max-[900px]:w-[calc(68px-28px)] max-[900px]:h-[calc(68px-28px)] max-[600px]:w-[calc(62px-28px)] max-[600px]:h-[calc(62px-28px)]">
               <img 
                 src={`${baseUrl}UI/rw.svg`}
                 alt="Reunify Labs logo" 

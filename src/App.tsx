@@ -1,6 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import Navbar from './components/Navbar'
+import CustomCursor from './components/CustomCursor'
 import Home from './pages/Home'
 import About from './pages/About'
 import Thinking from './pages/Thinking'
@@ -18,6 +19,7 @@ function ScrollToTop() {
 export default function App() {
   return (
     <div className="site-wrapper">
+      <CustomCursor />
       <ScrollToTop />
       <Navbar />
       <main>
