@@ -26,6 +26,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const location = useLocation()
   const currentPath = normalizePath(location.pathname)
+  const baseUrl = import.meta.env.BASE_URL
 
   useEffect(() => {
     const handleResize = () => setIsMenuOpen(false)
@@ -87,7 +88,7 @@ export default function Navbar() {
           >
             <div className="relative w-[calc(75px-28px)] h-[calc(75px-28px)] rounded-[10px] flex items-center justify-center overflow-hidden p-2 bg-[rgba(255,255,255,0.92)] shadow-[inset_0_0_12px_rgba(0,0,0,0.15),0_10px_20px_rgba(0,0,0,0.25)] max-[1024px]:w-[calc(72px-28px)] max-[1024px]:h-[calc(72px-28px)] max-[900px]:w-[calc(68px-28px)] max-[900px]:h-[calc(68px-28px)] max-[600px]:w-[calc(62px-28px)] max-[600px]:h-[calc(62px-28px)]">
               <img 
-                src="/UI/rw.svg" 
+                src={`${baseUrl}UI/rw.svg`}
                 alt="Reunify Labs logo" 
                 className="w-full h-full object-contain"
               />
@@ -104,7 +105,7 @@ export default function Navbar() {
           onClick={toggleMenu}
         >
           <img
-            src="/UI/Menu Icon.svg"
+            src={`${baseUrl}UI/Menu Icon.svg`}
             alt=""
             width={30}
             height={30}
@@ -157,7 +158,7 @@ export default function Navbar() {
               rel="noreferrer"
             >
               <img
-                src="/UI/r.svg"
+                src={`${baseUrl}UI/r.svg`}
                 alt=""
                 width={28}
                 height={28}
