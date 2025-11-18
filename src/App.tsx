@@ -1,0 +1,33 @@
+import { Routes, Route, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
+import Navbar from './components/Navbar'
+import Home from './pages/Home'
+import About from './pages/About'
+import Thinking from './pages/Thinking'
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [pathname])
+  
+  return null
+}
+
+export default function App() {
+  return (
+    <div className="site-wrapper">
+      <ScrollToTop />
+      <Navbar />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/thinking" element={<Thinking />} />
+        </Routes>
+      </main>
+    </div>
+  )
+}
+

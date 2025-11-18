@@ -1,32 +1,46 @@
 {
   "name": "portfolio-v0.5",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Digital home for Justin Liao — Tech Designer and Philosopher.",
+  "type": "module",
   "scripts": {
-    "dev": "cross-env NEXT_DISABLE_SWC_NATIVE_PACKAGES=1 next dev",
-    "build": "cross-env NEXT_DISABLE_SWC_NATIVE_PACKAGES=1 next build",
-    "start": "cross-env NEXT_DISABLE_SWC_NATIVE_PACKAGES=1 next start"
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/imjustinliao/Portfolio-v0.5.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["portfolio", "react", "typescript", "vite"],
+  "author": "Justin Liao",
   "license": "ISC",
-  "type": "module",
   "bugs": {
     "url": "https://github.com/imjustinliao/Portfolio-v0.5/issues"
   },
-  "homepage": "https://github.com/imjustinliao/Portfolio-v0.5#readme",
   "dependencies": {
-    "@next/swc-wasm-nodejs": "^16.0.3",
-    "next": "^16.0.3",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.1.1"
   },
   "devDependencies": {
-    "cross-env": "^10.1.0"
+    "@eslint/js": "^9.18.0",
+    "@types/react": "^19.0.6",
+    "@types/react-dom": "^19.0.2",
+    "@vitejs/plugin-react": "^5.0.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.18.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "gh-pages": "^6.3.0",
+    "globals": "^15.14.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "~5.9.2",
+    "typescript-eslint": "^8.19.1",
+    "vite": "^7.0.0"
   }
 }

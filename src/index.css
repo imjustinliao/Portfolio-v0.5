@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --nav-height: 84px;
   --page-max-width: 1512px;
@@ -19,7 +23,7 @@ body {
 }
 
 body {
-  font-family: var(--font-family, "Helvetica Neue", Helvetica, Arial, sans-serif);
+  font-family: var(--font-family);
   color: var(--brand-color);
   background-color: var(--background-color);
   position: relative;
@@ -48,10 +52,17 @@ body::after {
   z-index: -2;
 }
 
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .site-wrapper {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 main {
@@ -88,3 +99,4 @@ main {
     min-height: 50vh;
   }
 }
+
