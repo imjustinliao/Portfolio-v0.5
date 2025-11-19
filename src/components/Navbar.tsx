@@ -66,12 +66,14 @@ export default function Navbar() {
         className={`
           pointer-events-auto
           relative flex items-center justify-between w-full mx-auto pl-[3vw] pr-[3vw] min-[901px]:pr-0 
-          min-[901px]:border-b min-[901px]:border-white backdrop-blur-[8px] 
+          backdrop-blur-[8px] 
           before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-b before:from-transparent before:via-[rgba(0,0,0,0.2)] before:to-[rgba(255,255,255,0.2)] before:z-0
           transition-all duration-500 ease-in-out
           ${isScrolled ? 'h-[60px]' : 'h-[clamp(60px,8vh,90px)]'}
         `}
       >
+        {/* Continuous Glowing Bottom Border */}
+        <div className="absolute bottom-0 left-0 w-full h-[1px] bg-white/20 block"></div>
         
         {/* Brand Section - Ghost Element to maintain layout */}
         <div className="inline-flex items-center gap-[clamp(16px,2vw,28px)] py-[10px] opacity-0 pointer-events-none select-none" aria-hidden="true">

@@ -187,10 +187,12 @@ body::before {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  /* background-attachment: fixed; Removed for mobile performance */
   opacity: 0.5;
   z-index: -1;
   pointer-events: none;
+  /* Ensure smooth rendering on mobile */
+  will-change: transform; 
 }
 
 body::after {

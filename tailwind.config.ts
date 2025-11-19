@@ -17,6 +17,19 @@ const config: Config = {
       maxWidth: {
         page: '1512px',
       },
+      keyframes: {
+        shimmer: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+        'flow-beam': {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(200%)' },
+        }
+      },
+      animation: {
+        'flow-beam': 'flow-beam 6s linear infinite',
+      },
     },
   },
   plugins: [],
