@@ -24,26 +24,75 @@ const normalizePath = (value: string): string => {
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [lastScrollY, setLastScrollY] = useState(0)
   const location = useLocation()
   const currentPath = normalizePath(location.pathname)
   const baseUrl = import.meta.env.BASE_URL
 
   useEffect(() => {
     const handleResize = () => setIsMenuOpen(false)
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      
+      // Only trigger if we've scrolled more than 10px to avoid jitter
+      if (Math.abs(currentScrollY - lastScrollY) > 10) {
+        if (currentScrollY > lastScrollY && currentScrollY > 50) {
+          // Scrolling down and past threshold
+          setIsScrolled(true)
+        } else if (currentScrollY < lastScrollY) {
+          // Scrolling up
+          setIsScrolled(false)
+        }
+        setLastScrollY(currentScrollY)
+      }
+    }
+
     window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+    window.addEventListener('scroll', handleScroll)
+    
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [lastScrollY])
 
   const closeMenu = () => setIsMenuOpen(false)
   const toggleMenu = () => setIsMenuOpen((prev) => !prev)
 
   return (
-    <header className="sticky top-0 z-10 w-full flex justify-center bg-transparent">
-      <div className="relative flex items-center justify-between w-full h-[clamp(60px,8vh,90px)] mx-auto pl-[3vw] pr-[3vw] min-[901px]:pr-0 min-[901px]:border-b min-[901px]:border-white backdrop-blur-[8px] before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-b before:from-transparent before:via-[rgba(0,0,0,0.2)] before:to-[rgba(255,255,255,0.2)] before:z-0">
+    <header className="sticky top-0 z-10 w-full flex justify-center bg-transparent pointer-events-none">
+      <div 
+        className={`
+          pointer-events-auto
+          relative flex items-center justify-between w-full mx-auto pl-[3vw] pr-[3vw] min-[901px]:pr-0 
+          min-[901px]:border-b min-[901px]:border-white backdrop-blur-[8px] 
+          before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-b before:from-transparent before:via-[rgba(0,0,0,0.2)] before:to-[rgba(255,255,255,0.2)] before:z-0
+          transition-all duration-500 ease-in-out
+          ${isScrolled ? 'h-[60px]' : 'h-[clamp(60px,8vh,90px)]'}
+        `}
+      >
         
-        {/* Brand Section */}
+        {/* Brand Section - Ghost Element to maintain layout */}
+        <div className="inline-flex items-center gap-[clamp(16px,2vw,28px)] py-[10px] opacity-0 pointer-events-none select-none" aria-hidden="true">
+          <span className="text-[clamp(23px,3vw,27px)] font-semibold tracking-[0.04em] leading-none">Justin Liao</span>
+          <span className="text-[clamp(15px,2vw,17px)] font-normal leading-[1.2] tracking-[0.02em] max-[900px]:hidden">
+            <span className="font-bold mr-1">Tech</span>
+            Designer | Philosopher
+          </span>
+        </div>
+
+        {/* Brand Section - Actual Animated Element */}
         <div 
-          className="inline-flex items-center gap-[clamp(16px,2vw,28px)] relative z-[1] py-[10px]" 
+          className={`
+            absolute top-1/2 -translate-y-1/2 z-[20]
+            inline-flex items-center gap-[clamp(16px,2vw,28px)] py-[10px]
+            transition-all duration-700 cubic-bezier(0.4, 0, 0.2, 1)
+            ${isScrolled 
+              ? 'left-1/2 -translate-x-1/2' 
+              : 'left-[3vw]'
+            }
+          `}
           onClick={closeMenu}
         >
           <Link 
@@ -52,7 +101,13 @@ export default function Navbar() {
           >
             Justin Liao
           </Link>
-          <span className="text-[clamp(15px,2vw,17px)] font-normal text-[#d9d9d9] leading-[1.2] tracking-[0.02em] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] max-[900px]:hidden">
+          <span 
+            className={`
+              text-[clamp(15px,2vw,17px)] font-normal text-[#d9d9d9] leading-[1.2] tracking-[0.02em] drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] max-[900px]:hidden
+              transition-all duration-700 ease-in-out origin-left
+              ${isScrolled ? 'opacity-0 w-0 scale-x-0 overflow-hidden' : 'opacity-100 w-auto scale-x-100'}
+            `}
+          >
             <span className="font-bold text-white mr-1 drop-shadow-[inherit]">Tech</span>
             Designer | Philosopher
           </span>
@@ -62,7 +117,11 @@ export default function Navbar() {
         <div className="flex items-center gap-4 sm:gap-6 h-full">
           {/* Desktop Navigation Links */}
           <nav 
-            className="flex items-center gap-[27px] relative z-[1] max-[900px]:hidden" 
+            className={`
+              flex items-center gap-[27px] relative z-[1] max-[900px]:hidden
+              transition-all duration-300 ease-in-out
+              ${isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'}
+            `}
             aria-label="Primary"
           >
             {navLinks.map((link) => {
@@ -84,7 +143,11 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             type="button"
-            className={`hidden items-center justify-center border-none bg-transparent p-0 cursor-pointer relative z-[1] max-[900px]:flex flex-shrink-0`}
+            className={`
+              hidden items-center justify-center border-none bg-transparent p-0 cursor-pointer relative z-[1] max-[900px]:flex flex-shrink-0
+              transition-all duration-300 ease-in-out
+              ${isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'}
+            `}
             aria-expanded={isMenuOpen}
             aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             onClick={toggleMenu}
@@ -101,7 +164,11 @@ export default function Navbar() {
 
           {/* Reunify Labs Logo */}
           <a
-            className="h-[calc(100%-1px)] aspect-square flex-shrink-0 flex items-center justify-center relative bg-gradient-to-br from-[rgba(255,255,255,0.1)] to-[rgba(80,80,80,0.04)] backdrop-blur-[18px] backdrop-saturate-[140%] shadow-[inset_0_0_25px_rgba(0,0,0,0.4)] no-underline outline-none hover:shadow-[inset_0_0_25px_rgba(0,0,0,0.4),0_0_4px_rgba(255,255,255,0.5)] focus-visible:shadow-[inset_0_0_25px_rgba(0,0,0,0.4),0_0_4px_rgba(255,255,255,0.5)] max-[900px]:hidden"
+            className={`
+              h-[calc(100%-1px)] aspect-square flex-shrink-0 flex items-center justify-center relative bg-gradient-to-br from-[rgba(255,255,255,0.1)] to-[rgba(80,80,80,0.04)] backdrop-blur-[18px] backdrop-saturate-[140%] shadow-[inset_0_0_25px_rgba(0,0,0,0.4)] no-underline outline-none hover:shadow-[inset_0_0_25px_rgba(0,0,0,0.4),0_0_4px_rgba(255,255,255,0.5)] focus-visible:shadow-[inset_0_0_25px_rgba(0,0,0,0.4),0_0_4px_rgba(255,255,255,0.5)] max-[900px]:hidden
+              transition-all duration-300 ease-in-out
+              ${isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'}
+            `}
             href="https://reunifylabs.com"
             target="_blank"
             rel="noreferrer"

@@ -50,6 +50,107 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
   }
 }
 
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowing-border-spin {
+  0% {
+    background: conic-gradient(
+      from 90deg at 50% 50%,
+      transparent 0deg,
+      transparent 360deg
+    );
+  }
+  100% {
+    background: conic-gradient(
+      from 90deg at 50% 50%,
+      #ff0080 0deg,
+      #ff8c00 60deg,
+      #ffff00 120deg,
+      #00ff00 180deg,
+      #00ffff 240deg,
+      #0080ff 300deg,
+      #ff0080 360deg
+    );
+    transform: rotate(-360deg);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 1s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.animate-glow-border {
+  position: relative;
+  overflow: visible;
+}
+
+.animate-glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  padding: 3px;
+  background: conic-gradient(
+    from 90deg at 50% 50%,
+    #ff0080 0deg,
+    #ff8c00 60deg,
+    #ffff00 120deg,
+    #00ff00 180deg,
+    #00ffff 240deg,
+    #0080ff 300deg,
+    #ff0080 360deg
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: glowing-border-spin 2s ease-in-out forwards;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.8;
+  filter: blur(2px);
+}
+
 :root {
   --nav-height: 84px;
   --page-max-width: 1512px;

@@ -1,4 +1,4 @@
-
+import { useState, useEffect, useRef } from 'react'
 
 interface ExperienceItem {
   company: string
@@ -125,16 +125,40 @@ const skills = [
 ]
 
 export default function Resume() {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.disconnect() // Only animate once
+        }
+      },
+      { threshold: 0.1 } // Trigger when 10% visible
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className="w-full px-[3vw] pb-20">
+    <section ref={sectionRef} className="w-full px-[3vw] pb-20">
       {/* Horizontal Line - Aligned with content */}
       <div className="w-full h-[1px] bg-[#C9C9C9] mt-[clamp(80px,15vh,140px)] mb-[clamp(20px,3vh,30px)]" />
 
       {/* 3 Column Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-16">
         
         {/* Education Column */}
-        <div className="flex flex-col gap-8">
+        <div 
+          className={`flex flex-col gap-8 opacity-0 ${isVisible ? 'animate-fade-in-up' : ''}`}
+          style={{ animationDelay: '0.2s' }}
+        >
           <h3 className="text-[clamp(20px,2vw,24px)] font-normal text-white font-['Helvetica_Neue',_sans-serif]">
             Education
           </h3>
@@ -150,7 +174,10 @@ export default function Resume() {
         </div>
 
         {/* Experience Column */}
-        <div className="flex flex-col gap-8">
+        <div 
+          className={`flex flex-col gap-8 opacity-0 ${isVisible ? 'animate-fade-in-up' : ''}`}
+          style={{ animationDelay: '0.4s' }}
+        >
           <h3 className="text-[clamp(20px,2vw,24px)] font-normal text-white font-['Helvetica_Neue',_sans-serif]">
             Experience
           </h3>
@@ -167,7 +194,10 @@ export default function Resume() {
         </div>
 
         {/* Skills Column */}
-        <div className="flex flex-col gap-8">
+        <div 
+          className={`flex flex-col gap-8 opacity-0 ${isVisible ? 'animate-fade-in-up' : ''}`}
+          style={{ animationDelay: '0.6s' }}
+        >
           <h3 className="text-[clamp(20px,2vw,24px)] font-normal text-white font-['Helvetica_Neue',_sans-serif]">
             Skills
           </h3>

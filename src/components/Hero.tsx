@@ -22,7 +22,7 @@ export default function Hero() {
         {/* Text Section - Flexible positioning */}
         {/* Text Section - Flexible positioning */}
         {/* Adjust w-[45vw] to change desktop text width. Adjust max-lg:w-[90vw] for mobile. */}
-        <div className="flex flex-col w-[45vw] max-lg:w-[90vw] max-lg:items-center max-lg:text-center flex-shrink-0">
+        <div className="flex flex-col w-[45vw] max-lg:w-[90vw] max-lg:items-center max-lg:text-center flex-shrink-0 animate-slide-in-left opacity-0" style={{ animationDelay: '0.2s' }}>
         {/* Hi I'm */}
         <h1 className="text-[clamp(36px,4.8vw,42px)] sm:text-[clamp(42px,5.2vw,52px)] md:text-[clamp(48px,5.5vw,60px)] lg:text-[clamp(54px,5.5vw,67px)] font-light leading-[1.1] text-white tracking-[-0.02em]">
           Hi, I'm
@@ -79,7 +79,7 @@ export default function Hero() {
 
         {/* Image Section - Flexible positioning */}
         {/* Adjust w-[40vw] to change desktop image section width. */}
-        <div className="flex flex-col items-end gap-[2vh] max-lg:items-center flex-shrink-0 w-[40vw] max-lg:w-[90vw]">
+        <div className="flex flex-col items-end gap-[2vh] max-lg:items-center flex-shrink-0 w-[40vw] max-lg:w-[90vw] animate-slide-in-right opacity-0" style={{ animationDelay: '0.4s' }}>
         {/* Image Container */}
         {/* Adjust w-[35vw] to change desktop image size. Adjust max-lg:w-[80vw] for mobile. */}
         <div 
