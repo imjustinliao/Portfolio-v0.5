@@ -32,7 +32,18 @@ export default function Navbar() {
   const baseUrl = import.meta.env.BASE_URL
 
   useEffect(() => {
-    const handleResize = () => setIsMenuOpen(false)
+    // Only close menu on resize if width changes significantly (orientation change or desktop resize)
+    // This prevents closing on mobile scroll (address bar resize)
+    let lastWidth = window.innerWidth
+    
+    const handleResize = () => {
+      const currentWidth = window.innerWidth
+      if (Math.abs(currentWidth - lastWidth) > 50) {
+        setIsMenuOpen(false)
+        lastWidth = currentWidth
+      }
+    }
+
     const handleScroll = () => {
       // If menu is open, don't process scroll events for navbar hiding
       if (isMenuOpen) return
@@ -238,8 +249,7 @@ export default function Navbar() {
               <img
                 src={`${baseUrl}UI/r.svg`}
                 alt=""
-                width={28}
-                height={28}
+                className="w-7 h-7 object-contain"
                 aria-hidden="true"
               />
               <span className="text-lg font-semibold text-[#000c2c]">
