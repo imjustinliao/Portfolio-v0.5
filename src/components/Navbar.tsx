@@ -147,11 +147,12 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   to={link.href}
-                  className={`no-underline text-xl font-normal text-white leading-none transition-opacity duration-[250ms] ease-in-out drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] outline-none hover:opacity-100 hover:drop-shadow-[0_0_4px_rgba(255,255,255,0.5)] focus-visible:opacity-100 focus-visible:drop-shadow-[0_0_4px_rgba(255,255,255,0.5)] ${
+                  className={`group relative no-underline text-xl font-normal text-white leading-none transition-opacity duration-[250ms] ease-in-out drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] outline-none hover:opacity-100 hover:drop-shadow-[0_0_4px_rgba(255,255,255,0.5)] focus-visible:opacity-100 focus-visible:drop-shadow-[0_0_4px_rgba(255,255,255,0.5)] ${
                     isActive ? 'font-normal drop-shadow-[0_0_4px_rgba(255,255,255,0.55)]' : ''
                   }`}
                 >
                   {link.label}
+                  <span className={`absolute left-0 -bottom-1 h-[1px] bg-white transition-all duration-300 ease-out ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
                 </Link>
               )
             })}
@@ -226,7 +227,7 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     to={link.href}
-                    className={`no-underline text-[25px] font-[350] text-center drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:opacity-75 focus-visible:opacity-75 ${
+                    className={`group relative no-underline text-[25px] font-[350] text-center drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:opacity-75 focus-visible:opacity-75 ${
                       isActive 
                         ? 'text-white font-normal' 
                         : 'text-[rgba(255,255,255,0.7)]'
@@ -235,6 +236,8 @@ export default function Navbar() {
                     role="menuitem"
                   >
                     {link.label}
+                    {/* Underline only on desktop/tablet, hidden on mobile */}
+                    <span className={`hidden md:block absolute left-0 -bottom-1.5 h-[1px] bg-white transition-all duration-300 ease-out ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
                   </Link>
                 )
               })}

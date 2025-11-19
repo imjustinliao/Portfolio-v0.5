@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 
 // Placeholder tracks - user will upload files to /audio/
 const tracks = [
+  '/audio/super.mp3',
   '/audio/memories.mp3',
   '/audio/line.mp3',
   '/audio/nights.mp3',
