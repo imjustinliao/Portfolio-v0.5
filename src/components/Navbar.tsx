@@ -34,6 +34,9 @@ export default function Navbar() {
   useEffect(() => {
     const handleResize = () => setIsMenuOpen(false)
     const handleScroll = () => {
+      // If menu is open, don't process scroll events for navbar hiding
+      if (isMenuOpen) return
+
       const currentScrollY = window.scrollY
       
       // Only trigger if we've scrolled more than 10px to avoid jitter
@@ -56,7 +59,7 @@ export default function Navbar() {
       window.removeEventListener('resize', handleResize)
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [lastScrollY])
+  }, [lastScrollY, isMenuOpen])
 
   const closeMenu = () => setIsMenuOpen(false)
   const toggleMenu = () => setIsMenuOpen((prev) => !prev)
