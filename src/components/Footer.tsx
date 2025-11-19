@@ -306,7 +306,7 @@ export default function Footer() {
                 relative overflow-hidden transition-all duration-300 ease-out
                 flex flex-col items-center py-[11px]
                 ${glassStyle}
-                ${isMobileMenuOpen ? 'h-[400px] rounded-[35px] w-[70px] justify-between' : 'h-[70px] w-[70px] rounded-full justify-center'}
+                ${isMobileMenuOpen ? 'h-[400px] rounded-[35px] w-[50px] justify-between' : 'h-[50px] w-[50px] rounded-full justify-center'}
             `}
         >
             <GlowingBorder />
@@ -343,7 +343,7 @@ export default function Footer() {
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
                 {/* Plus Icon that rotates to X */}
-                 <span className={`text-white text-4xl font-thin transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-45' : 'rotate-0'}`}>+</span>
+                 <span className={`text-white text-3xl font-thin transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-45' : 'rotate-0'}`}>+</span>
             </button>
         </div>
       </div>

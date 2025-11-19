@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { Link, useLocation } from 'react-router-dom'
 
 interface NavLink {
@@ -187,11 +188,13 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Dropdown Menu */}
-        {isMenuOpen && (
+        {isMenuOpen && createPortal(
           <div 
-            className="fixed inset-0 w-full h-screen flex flex-col justify-start items-center pt-24 px-6 pb-8 bg-gradient-to-br from-[rgba(0,0,0,0.85)] to-[rgba(33,33,33,0.5)] backdrop-blur-[45px] backdrop-saturate-[190%] backdrop-contrast-[110%] shadow-[inset_0_0_70px_rgba(0,0,0,0.8)] z-[30] border border-[rgba(255,255,255,0.12)] before:content-[''] before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_25%_18%,rgba(255,255,255,0.25),transparent_58%),radial-gradient(circle_at_70%_10%,rgba(255,255,255,0.12),transparent_45%)] before:pointer-events-none"
+            className="fixed inset-0 w-full h-screen flex flex-col justify-start items-center pt-24 px-6 pb-8 bg-gradient-to-br from-[rgba(0,0,0,0.2)] to-[rgba(33,33,33,0.35)] backdrop-blur-[15px] backdrop-saturate-[190%] backdrop-contrast-[110%] shadow-[inset_0_0_70px_rgba(0,0,0,0.8)] z-[7999] border border-[rgba(255,255,255,0.12)] before:content-[''] before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_25%_18%,rgba(255,255,255,0.25),transparent_58%),radial-gradient(circle_at_70%_10%,rgba(255,255,255,0.12),transparent_45%)] before:pointer-events-none"
             role="dialog"
             aria-modal="true"
+            // Prevent clicks inside the menu from closing it (unless it's a link)
+            onClick={(e) => e.stopPropagation()}
           >
             <button
               type="button"
@@ -240,7 +243,8 @@ export default function Navbar() {
                 Reunify Labs
               </span>
             </a>
-          </div>
+          </div>,
+          document.body
         )}
       </div>
     </header>
