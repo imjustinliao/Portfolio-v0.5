@@ -39,7 +39,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-10 w-full flex justify-center bg-transparent">
-      <div className="relative flex items-center justify-between w-full h-[clamp(60px,8vh,90px)] mx-auto pl-[3vw] pr-[3vw] min-[901px]:pr-0 border-b border-white backdrop-blur-[8px] before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-b before:from-[rgba(217,217,217,0.2)] before:via-[rgba(0,0,0,0.2)] before:to-[rgba(255,255,255,0.2)] before:z-0">
+      <div className="relative flex items-center justify-between w-full h-[clamp(60px,8vh,90px)] mx-auto pl-[3vw] pr-[3vw] min-[901px]:pr-0 min-[901px]:border-b min-[901px]:border-white backdrop-blur-[8px] before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-b before:from-transparent before:via-[rgba(0,0,0,0.2)] before:to-[rgba(255,255,255,0.2)] before:z-0">
         
         {/* Brand Section */}
         <div 

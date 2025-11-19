@@ -5,6 +5,7 @@ const images = ['i1.JPG', 'i2.JPG', 'i3.JPG']
 
 export default function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(1) // Start at second image
+  const [isImageHovered, setIsImageHovered] = useState(false)
   const baseUrl = import.meta.env.BASE_URL
 
   // Auto-rotate images every 5 seconds
@@ -81,7 +82,12 @@ export default function Hero() {
         <div className="flex flex-col items-end gap-[2vh] max-lg:items-center flex-shrink-0 w-[40vw] max-lg:w-[90vw]">
         {/* Image Container */}
         {/* Adjust w-[35vw] to change desktop image size. Adjust max-lg:w-[80vw] for mobile. */}
-        <div className="w-[35vw] max-lg:w-[80vw] aspect-square rounded-[15px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.4)] relative">
+        <div 
+          className="w-[35vw] max-lg:w-[80vw] aspect-square rounded-[15px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.4)] relative"
+          onMouseEnter={() => setIsImageHovered(true)}
+          onMouseLeave={() => setIsImageHovered(false)}
+        >
+          {/* Layer 1: Images */}
           {images.map((image, index) => (
             <img
               key={image}
@@ -92,6 +98,13 @@ export default function Hero() {
               }`}
             />
           ))}
+          
+          {/* Layer 2: Frosted Liquid Glass Overlay (CSS Based) */}
+          {/* Matches Footer.tsx glassStyle: border, gradient, backdrop-blur */}
+          <div 
+            className="absolute inset-0 z-[1] transition-opacity duration-800 ease-out border border-[rgba(255,255,255,0.3)] bg-gradient-to-br from-[rgba(255,255,255,0.2)] to-[rgba(255,255,255,0.05)] backdrop-blur-[10px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] rounded-[15px]"
+            style={{ opacity: isImageHovered ? 0 : 1 }}
+          />
         </div>
 
         {/* Carousel Dots - Responsive positioning */}
@@ -103,7 +116,7 @@ export default function Hero() {
               className={`w-[21px] h-[7px] rounded-[15px] transition-all duration-300 ease-out cursor-pointer border-none ${
                 index === currentImageIndex 
                   ? 'bg-[#92C3FF] shadow-[0_0_12px_rgba(146,195,255,0.7),0_0_4px_rgba(146,195,255,0.9)]' 
-                  : 'bg-white/60 hover:bg-white/100 hover:shadow-[0_0_8px_rgba(255,255,255,0.4)]'
+                  : 'bg-white hover:bg-white hover:shadow-[0_0_8px_rgba(255,255,255,0.4)]'
               }`}
               aria-label={`Go to image ${index + 1}`}
             />
