@@ -193,7 +193,8 @@ export default function ProjectCard({ project, isExpanded, onExpand, isHovered, 
             backdrop-blur-[8px] 
             transition-all duration-500 ease-out
             flex flex-col
-            p-[clamp(20px,3vw,32px)]
+            px-[clamp(24px,3.5vw,36px)]
+            py-[clamp(48px,3vw,64px)]
             ${isExpanded ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}
           `}
           style={{
@@ -228,7 +229,8 @@ export default function ProjectCard({ project, isExpanded, onExpand, isHovered, 
 
           {/* Main Content Layout: Centered Block */}
           {/* Centered vertically in the container, with consistent gap between Top, Middle, Bottom */}
-          <div className="flex-1 flex flex-col w-full h-full relative justify-center gap-[clamp(16px,2vw,24px)]"> 
+          {/* Main Content Layout: Centered Block */}
+          <div className="flex-1 flex flex-col w-full h-full relative justify-center gap-6"> 
             
             {/* Top Row: Title (Left) & Delta (Right) */}
             {/* Added relative to create positioning context for absolute Delta */}
@@ -247,18 +249,16 @@ export default function ProjectCard({ project, isExpanded, onExpand, isHovered, 
             </div>
 
             {/* Middle Group: Description & Links */}
-            {/* Gap matches parent gap for uniform spacing */}
-            <div className="flex flex-col w-full shrink-0 gap-[clamp(16px,2vw,24px)]">
+            <div className="flex flex-col w-full shrink-0 gap-6">
               
               {/* Description Container */}
-              <div 
-                className="relative pl-4 pr-[clamp(56px,6vw,64px)] flex items-start shrink-0 h-[3.2em] md:h-[4.8em]"
-              >
-                {/* White line indicator */}
-                <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-white rounded-r-[5px]" />
+              {/* Description Container */}
+              <div className="relative pr-[clamp(56px,6vw,64px)] flex items-start shrink-0 h-[3.2em] md:h-[4.8em]">
+                {/* White line indicator - Fixed height matching container */}
+                <div className="absolute left-0 top-0 h-full w-[2px] bg-white rounded-r-[5px]" />
                 
-                {/* Scrollable Text Block */}
-                <div className="w-full max-h-[3.2em] md:max-h-[4.8em] overflow-y-auto pr-1 scrollbar-hide">
+                {/* Text Block - Scrollable if exceeds height */}
+                <div className="w-full h-full overflow-y-auto pl-4 pr-2 scrollbar-thin scrollbar-thumb-white/50 scrollbar-track-transparent">
                   <p className="text-white font-normal leading-[1.6] text-[clamp(14px,1.3vw,18px)]">
                     {project.description}
                   </p>

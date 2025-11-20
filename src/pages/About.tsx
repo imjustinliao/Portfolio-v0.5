@@ -61,6 +61,7 @@ export default function About() {
     setCurrentPage(1)
     setExpandedProjectId(null)
     setHoveredProjectId(null)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [activeWorkCategory])
 
   const handleToggle = (index: number) => {

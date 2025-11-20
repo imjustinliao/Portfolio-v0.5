@@ -28,7 +28,7 @@ export const projects: Record<number, ProjectData[]> = {
     {
       id: 'high-delta-2',
       name: 'Project Two',
-      description: 'Another high-impact proatA latA cuttplatplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttnd user-centric design principles.',
+      description: 'Another high-impact proatr high-impact proatr high-impact proatr high-impact proatr high-impact proatr high-impact proatr high-impact proatr high-impact proatA latA cuttplatplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttnd user-centric design principles.',
       image: '/UI/i2.JPG',
       gif: '/UI/i2.JPG',
       links: [
