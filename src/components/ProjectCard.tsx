@@ -194,7 +194,7 @@ export default function ProjectCard({ project, isExpanded, onExpand, isHovered, 
             transition-all duration-500 ease-out
             flex flex-col
             px-[clamp(24px,3.5vw,36px)]
-            py-[clamp(32px,3vw,64px)]
+            py-[clamp(28px,3vw,40px)]
             ${isExpanded ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}
           `}
           style={{
