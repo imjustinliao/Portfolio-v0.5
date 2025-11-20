@@ -77,7 +77,7 @@ Please change the parent <Route path="${Q}"> to <Route path="${Q==="/"?"*":`${Q}
             transition-all duration-500 ease-out
             flex flex-col
             px-[clamp(24px,3.5vw,36px)]
-            py-[clamp(32px,3vw,64px)]
+            py-[clamp(28px,3vw,40px)]
             ${r?"opacity-100 visible":"opacity-0 invisible pointer-events-none"}
           `,style:{backgroundImage:"linear-gradient(to bottom right, rgba(255,255,255,0.2), rgba(255,255,255,0.05))",backdropFilter:r?"blur(8px) contrast(100%)":"none"},children:[h.jsx("button",{onClick:x,className:`
               absolute right-0 top-1/2 -translate-y-1/2
