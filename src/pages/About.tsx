@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react'
+import ProjectCard from '../components/ProjectCard'
+import GlowingBorder from '../components/GlowingBorder'
+import { projects } from '../data/projects'
 
 const slideOneContent = [
   "Throughout my life, I’m never fond of existing rules and ideologies.",
@@ -30,23 +33,41 @@ export default function About() {
   const [displayText, setDisplayText] = useState(slideOneContent)
   const [activeWorkCategory, setActiveWorkCategory] = useState(0)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  
+  // Project Pagination State
+  const [expandedProjectId, setExpandedProjectId] = useState<string | null>(null)
+  const [currentPage, setCurrentPage] = useState(1)
+  const ITEMS_PER_PAGE = 3
+
+  const currentProjects = projects[activeWorkCategory] || []
+  const totalPages = Math.ceil(currentProjects.length / ITEMS_PER_PAGE)
+  const displayedProjects = currentProjects.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE)
 
   useEffect(() => {
-    // When activeState changes, trigger animation
     setIsAnimating(true)
     
     const timeout = setTimeout(() => {
       setDisplayText(activeState === 0 ? slideOneContent : slideTwoContent)
       setIsAnimating(false)
-    }, 350) // Half of 700ms transition
+    }, 350)
 
     return () => clearTimeout(timeout)
   }, [activeState])
+
+  // Reset pagination when category changes
+  useEffect(() => {
+    setCurrentPage(1)
+    setExpandedProjectId(null)
+  }, [activeWorkCategory])
 
   const handleToggle = (index: number) => {
     if (index !== activeState) {
       setActiveState(index)
     }
+  }
+
+  const handleExpandProject = (id: string | null) => {
+    setExpandedProjectId(id)
   }
 
   return (
@@ -77,16 +98,10 @@ export default function About() {
                   <>
                     {paragraph.split("high-delta work")[0]}
                     <span className="relative group/tooltip inline-block cursor-help px-1 -mx-1 rounded-md">
-                      {/* Continuous Glowing Border Effect */}
+                      {/* Continuous Glowing Border Effect (Updated to use component) */}
                       <span className="absolute inset-0 rounded-md opacity-0 group-hover/tooltip:opacity-100 transition-opacity duration-300 pointer-events-none overflow-hidden">
                          <div className="absolute inset-0 border border-[rgba(146,195,255,0.5)] rounded-md"></div>
-                         <div 
-                           className="absolute top-0 left-0 w-[50%] h-full bg-gradient-to-r from-transparent via-[rgba(146,195,255,0.6)] to-transparent animate-flow-beam"
-                           style={{
-                             filter: 'drop-shadow(0 0 5px rgba(146,195,255,0.8))',
-                             willChange: 'transform'
-                           }}
-                         ></div>
+                         <GlowingBorder />
                       </span>
                       
                       <span className="italic text-[#92C3FF] relative z-10">high-delta work</span>
@@ -140,96 +155,135 @@ export default function About() {
         </div>
 
         {/* Divider Line */}
-        <div className="w-full h-[1px] bg-[#C9C9C9] mt-[clamp(30px,15vh,130px)] mb-[clamp(40px,8vh,80px)]" />
+        {/* Adjusted min clamp value for phone: 15px (less spacing on phone) */}
+        <div className="w-full h-[1px] bg-[#C9C9C9] mt-[clamp(15px,15vh,130px)] mb-[clamp(40px,8vh,80px)]" />
 
-        {/* Work Categories */}
-        {/* Desktop/Tablet: List view */}
-        <div className="hidden md:flex flex-col gap-2 w-full max-w-[clamp(180px,25vw,265px)]">
-          {workCategories.map((category, index) => {
-            const isSelected = activeWorkCategory === index
-            return (
-              <button
-                key={index}
-                onClick={() => setActiveWorkCategory(index)}
-                className={`
-                  relative w-full text-left py-[clamp(10px,1.2vh,14px)] px-[clamp(12px,1.5vw,20px)]
-                  text-[clamp(18px,1.8vw,24px)] font-normal text-white
-                  transition-all duration-300 ease-out
-                  group
-                  ${isSelected ? 'bg-[rgba(255,255,255,0.15)]' : 'hover:bg-[rgba(255,255,255,0.2)]'}
-                  rounded-r-[5px]
-                `}
-              >
-                {/* Left Border Selection Indicator */}
-                {isSelected && (
-                  <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-white" />
-                )}
-
-                {/* White Rectangle on Hover (Unselected) or Active */}
-                <div 
-                  className={`
-                    absolute right-4 top-1/2 -translate-y-1/2 w-[7px] h-[10px] bg-white
-                    transition-opacity duration-300
-                    ${isSelected ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}
-                  `} 
-                />
-
-                {category}
-              </button>
-            )
-          })}
-        </div>
-
-        {/* Mobile: Dropdown view */}
-        <div className="md:hidden w-full max-w-[300px] relative z-20">
-          <button
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="w-full flex items-center justify-between py-3 px-4 bg-[rgba(255,255,255,0.15)] rounded-[5px] text-white text-[20px] font-normal border border-transparent active:border-[rgba(255,255,255,0.3)] transition-all"
-          >
-            <span>{workCategories[activeWorkCategory]}</span>
-            <svg 
-              width="14" 
-              height="8" 
-              viewBox="0 0 14 8" 
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg"
-              className={`transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : 'rotate-0'}`}
-            >
-              <path d="M1 1L7 7L13 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
-
-          {/* Dropdown Menu */}
-          {/* Changed background to light transparent using rgba(255,255,255,0.1) and backdrop-blur */}
-          <div 
-            className={`
-              absolute top-full left-0 w-full mt-2 py-2
-              bg-[rgba(255,255,255,0.1)] backdrop-blur-md border border-[rgba(255,255,255,0.1)] rounded-[5px] shadow-xl
-              flex flex-col gap-1
-              origin-top transition-all duration-300 ease-out
-              ${isDropdownOpen ? 'opacity-100 scale-y-100 translate-y-0' : 'opacity-0 scale-y-0 -translate-y-2 pointer-events-none'}
-            `}
-          >
+        {/* Work Categories & Projects Grid */}
+        <div className="w-full flex flex-col md:flex-row gap-10 md:gap-0 relative items-start">
+          
+          {/* Desktop/Tablet: List view (Left Side) */}
+          <div className="hidden md:flex flex-col gap-2 w-full max-w-[clamp(180px,25vw,265px)] sticky top-24 h-fit">
             {workCategories.map((category, index) => {
-              if (index === activeWorkCategory) return null // Skip currently selected
+              const isSelected = activeWorkCategory === index
               return (
                 <button
                   key={index}
-                  onClick={() => {
-                    setActiveWorkCategory(index)
-                    setIsDropdownOpen(false)
-                  }}
-                  className="w-full text-left py-2 px-4 text-[18px] text-[rgba(255,255,255,0.8)] hover:text-white hover:bg-[rgba(255,255,255,0.1)] transition-colors"
+                  onClick={() => setActiveWorkCategory(index)}
+                  className={`
+                    relative w-full text-left py-[clamp(10px,1.2vh,14px)] px-[clamp(12px,1.5vw,20px)]
+                    text-[clamp(18px,1.8vw,24px)] font-normal text-white
+                    transition-all duration-300 ease-out
+                    group
+                    ${isSelected ? 'bg-[rgba(255,255,255,0.15)]' : 'hover:bg-[rgba(255,255,255,0.2)]'}
+                    rounded-r-[5px]
+                  `}
                 >
+                  {/* Left Border Selection Indicator */}
+                  {/* Inner stroke white 1px 15% transparent */}
+                  {isSelected && (
+                    <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-white" />
+                  )}
+
+                  {/* White Rectangle on Hover (Unselected) or Active */}
+                  <div 
+                    className={`
+                      absolute right-4 top-1/2 -translate-y-1/2 w-[7px] h-[10px] bg-white
+                      transition-opacity duration-300
+                      ${isSelected ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}
+                    `} 
+                  />
+
                   {category}
                 </button>
               )
             })}
           </div>
+
+          {/* Mobile: Dropdown view (Top) */}
+          <div className="md:hidden w-full relative z-30">
+            <button
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              className="w-full flex items-center justify-between py-3 px-4 bg-[rgba(255,255,255,0.15)] rounded-[5px] text-white text-[20px] font-normal border border-transparent active:border-[rgba(255,255,255,0.3)] transition-all"
+            >
+              <span>{workCategories[activeWorkCategory]}</span>
+              <svg 
+                width="14" 
+                height="8" 
+                viewBox="0 0 14 8" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                className={`transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : 'rotate-0'}`}
+              >
+                <path d="M1 1L7 7L13 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+
+            {/* Dropdown Menu */}
+            <div 
+              className={`
+                absolute top-full left-0 w-full mt-2 py-2
+                bg-[rgba(255,255,255,0.1)] backdrop-blur-md border border-[rgba(255,255,255,0.1)] rounded-[5px] shadow-xl
+                flex flex-col gap-1
+                origin-top transition-all duration-300 ease-out
+                ${isDropdownOpen ? 'opacity-100 scale-y-100 translate-y-0' : 'opacity-0 scale-y-0 -translate-y-2 pointer-events-none'}
+              `}
+            >
+              {workCategories.map((category, index) => {
+                if (index === activeWorkCategory) return null
+                return (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      setActiveWorkCategory(index)
+                      setIsDropdownOpen(false)
+                    }}
+                    className="w-full text-left py-2 px-4 text-[18px] text-[rgba(255,255,255,0.8)] hover:text-white hover:bg-[rgba(255,255,255,0.1)] transition-colors"
+                  >
+                    {category}
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+
+          {/* Projects List (Right Side / Bottom) */}
+          <div className="flex-1 flex flex-col gap-8 w-full md:pl-12 lg:pl-20">
+            {displayedProjects.map((project) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                isExpanded={expandedProjectId === project.id}
+                onExpand={handleExpandProject}
+              />
+            ))}
+
+            {/* Pagination Controls - Bottom Middle of Third Container */}
+            {totalPages > 0 && (
+              <div className="w-full flex justify-center items-center gap-4 mt-4 text-white/60 font-mono text-sm">
+                <button 
+                  onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                  disabled={currentPage === 1}
+                  className="hover:text-white disabled:opacity-30 disabled:hover:text-white/60 transition-colors"
+                >
+                  &lt; Prev
+                </button>
+                
+                <span>{currentPage} / {totalPages}</span>
+                
+                <button 
+                  onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                  disabled={currentPage === totalPages}
+                  className="hover:text-white disabled:opacity-30 disabled:hover:text-white/60 transition-colors"
+                >
+                  Next &gt;
+                </button>
+              </div>
+            )}
+          </div>
+
         </div>
 
       </div>
     </section>
   )
 }
-
