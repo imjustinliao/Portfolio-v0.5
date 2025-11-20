@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import React from 'react'
 
 export interface LinkData {
   icon?: React.ReactNode
@@ -23,6 +23,8 @@ interface ProjectCardProps {
   project: ProjectData
   isExpanded: boolean
   onExpand: (id: string | null) => void
+  isHovered: boolean
+  onHover: (id: string | null) => void
 }
 
 // Icons
@@ -42,23 +44,71 @@ const ReturnIcon = () => (
   </svg>
 )
 
-export default function ProjectCard({ project, isExpanded, onExpand }: ProjectCardProps) {
-  const [isHovered, setIsHovered] = useState(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
+// Social Media Icons
+const GlobeIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 15C11.866 15 15 11.866 15 8C15 4.13401 11.866 1 8 1C4.13401 1 1 4.13401 1 8C1 11.866 4.13401 15 8 15Z" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M1 8H15" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M8 1C9.99999 3.5 9.99999 12.5 8 15" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M8 1C6.00001 3.5 6.00001 12.5 8 15" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
 
+const GithubIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z"/>
+  </svg>
+)
+
+const InstagramIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="2" y="2" width="12" height="12" rx="3.5" stroke="white" strokeWidth="1.5"/>
+    <circle cx="8" cy="8" r="2.5" stroke="white" strokeWidth="1.5"/>
+    <circle cx="11.5" cy="4.5" r="0.8" fill="white"/>
+  </svg>
+)
+
+const LinkedinIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.56 2C3.56 2.98 2.76 3.78 1.78 3.78C0.8 3.78 0 2.98 0 2C0 1.02 0.8 0.22 1.78 0.22C2.76 0.22 3.56 1.02 3.56 2ZM3.56 15.56H0V5.33H3.56V15.56ZM15.56 15.56H12V9.78C12 8.33 11.33 7.56 10.22 7.56C9.11 7.56 8.44 8.33 8.44 9.78V15.56H4.89V5.33H8.44V6.67C9.11 5.56 10.22 5.11 11.56 5.11C14.22 5.11 15.56 6.89 15.56 9.78V15.56Z"/>
+  </svg>
+)
+
+const TwitterIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M9.29 7.34L15.07 0.64H13.7L8.68 6.46L4.67 0.64H0L6.06 9.42L0 16.44H1.37L6.67 10.3L10.89 16.44H15.56L9.29 7.34ZM7.41 9.52L6.8 8.64L1.87 1.59H3.97L7.96 7.3L8.57 8.18L13.7 15.52H11.6L7.41 9.52Z"/>
+  </svg>
+)
+
+// Helper to get icon based on text/url
+const getLinkIcon = (text: string, url: string) => {
+  const lowerText = text.toLowerCase()
+  const lowerUrl = url.toLowerCase()
+  
+  if (lowerText.includes('github') || lowerUrl.includes('github')) return <GithubIcon />
+  if (lowerText.includes('instagram') || lowerUrl.includes('instagram')) return <InstagramIcon />
+  if (lowerText.includes('linkedin') || lowerUrl.includes('linkedin')) return <LinkedinIcon />
+  if (lowerText.includes('twitter') || lowerText.includes('x') || lowerUrl.includes('twitter') || lowerUrl.includes('x.com')) return <TwitterIcon />
+  
+  // Default to Globe
+  return <GlobeIcon />
+}
+
+export default function ProjectCard({ project, isExpanded, onExpand, isHovered, onHover }: ProjectCardProps) {
+  
   const handleMouseEnter = () => {
     // On desktop (mouse), hover triggers hover state immediately if not expanded
-    if (!isExpanded) setIsHovered(true)
+    if (!isExpanded) onHover(project.id)
   }
 
   const handleMouseLeave = () => {
-    if (!isExpanded) setIsHovered(false)
+    if (!isExpanded) onHover(null)
   }
 
   const handleClick = () => {
     if (!isExpanded) {
       // On mobile/touch, click toggles hover state so user can see gif/expand button
-      setIsHovered(true)
+      onHover(project.id)
     }
   }
 
@@ -76,7 +126,12 @@ export default function ProjectCard({ project, isExpanded, onExpand }: ProjectCa
       className={`
         relative 
         w-full 
-        aspect-[3/2] md:aspect-[1395/458]
+        /* Aspect Ratio Tuned for Responsiveness:
+           - Mobile: Taller to fit content (3/2.5)
+           - Tablet (md): 1.6/1 - Taller to prevent cutoff (previously 1.8/1)
+           - Desktop (lg): Wide as originally designed (1395/458 approx 3/1)
+        */
+        aspect-[3/2.5] md:aspect-[1.6/1] lg:aspect-[1395/458]
         transition-all duration-500 ease-out
         ${isExpanded 
           ? 'shadow-[inset_0_0_12px_12px_rgba(255,255,255,0.75)]' 
@@ -156,7 +211,7 @@ export default function ProjectCard({ project, isExpanded, onExpand }: ProjectCa
               z-50 
               py-[clamp(8px,1.2vw,12px)] 
               pl-[clamp(12px,1.5vw,20px)] 
-              pr-[clamp(16px,2vw,32px)]
+              pr-[clamp(20px,3vw,32px)]
               text-white/80 hover:text-white 
               bg-white/20 hover:bg-white/30 backdrop-blur-md
               rounded-l-[10px] rounded-r-none
@@ -171,16 +226,19 @@ export default function ProjectCard({ project, isExpanded, onExpand }: ProjectCa
             </div>
           </button>
 
-          <div className="flex-1 flex flex-col w-full h-full relative"> 
+          {/* Main Content Layout: Centered Block */}
+          {/* Centered vertically in the container, with consistent gap between Top, Middle, Bottom */}
+          <div className="flex-1 flex flex-col w-full h-full relative justify-center gap-[clamp(16px,2vw,24px)]"> 
             
             {/* Top Row: Title (Left) & Delta (Right) */}
-            <div className="flex justify-between items-start w-full mb-[clamp(8px,1vh,16px)]">
+            {/* Added relative to create positioning context for absolute Delta */}
+            <div className="flex justify-between items-start w-full shrink-0 relative">
               <h3 className="text-white font-medium leading-tight text-[clamp(20px,2.5vw,32px)]">
                 {project.name}
               </h3>
               
-              {/* Delta Score - Top Right (Absolute positioned to corner) */}
-              <div className="absolute top-0 right-[clamp(0px,-0.5vw,-2px)] flex items-center">
+              {/* Delta Score - Top Right (Absolute positioned to corner of content block) */}
+              <div className="absolute top-0 right-[clamp(6px,0.8vw,8px)] flex items-center">
                 <DeltaIcon />
                 <span className="absolute -top-[clamp(6px,0.8vw,8px)] -right-[clamp(6px,0.8vw,8px)] text-white font-bold text-[clamp(9px,0.8vw,10px)]">
                   {project.deltaScore}
@@ -188,16 +246,23 @@ export default function ProjectCard({ project, isExpanded, onExpand }: ProjectCa
               </div>
             </div>
 
-            {/* Middle Section: Description & Links */}
-            <div className="flex flex-col gap-[clamp(12px,1.5vh,16px)] mb-auto">
-              {/* Description with left white line */}
-              <div className="relative pl-4 pr-[clamp(56px,6vw,64px)] min-h-[clamp(3em,4.5vw,4.5em)] flex flex-col justify-start">
-                {/* White line indicator - FIXED HEIGHT based on lines */}
-                <div className="absolute left-0 top-1 w-[2px] bg-white rounded-r-[5px] h-[clamp(2.5em,4vw,4.5em)]" />
+            {/* Middle Group: Description & Links */}
+            {/* Gap matches parent gap for uniform spacing */}
+            <div className="flex flex-col w-full shrink-0 gap-[clamp(16px,2vw,24px)]">
+              
+              {/* Description Container */}
+              <div 
+                className="relative pl-4 pr-[clamp(56px,6vw,64px)] flex items-start shrink-0 h-[3.2em] md:h-[4.8em]"
+              >
+                {/* White line indicator */}
+                <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-white rounded-r-[5px]" />
                 
-                <p className="text-white font-normal leading-relaxed line-clamp-2 md:line-clamp-3 text-[clamp(14px,1.3vw,18px)]">
-                  {project.description}
-                </p>
+                {/* Scrollable Text Block */}
+                <div className="w-full max-h-[3.2em] md:max-h-[4.8em] overflow-y-auto pr-1 scrollbar-hide">
+                  <p className="text-white font-normal leading-[1.6] text-[clamp(14px,1.3vw,18px)]">
+                    {project.description}
+                  </p>
+                </div>
               </div>
 
               {/* Links */}
@@ -208,9 +273,9 @@ export default function ProjectCard({ project, isExpanded, onExpand }: ProjectCa
                     href={link.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 px-[clamp(12px,1.2vw,16px)] py-[clamp(6px,0.8vh,8px)] bg-[rgba(255,255,255,0.2)] hover:bg-[rgba(255,255,255,0.3)] rounded-[25px] transition-colors text-white border border-white box-border text-[clamp(12px,1vw,14px)]"
+                    className="flex items-center gap-2 px-[clamp(12px,1.2vw,16px)] py-[clamp(4px,0.6vh,6px)] bg-[rgba(255,255,255,0.2)] hover:bg-[rgba(255,255,255,0.3)] rounded-[25px] transition-colors text-white border border-white box-border text-[clamp(12px,1vw,14px)]"
                   >
-                    {link.icon}
+                    {link.icon || getLinkIcon(link.text, link.url)}
                     <span>{link.text}</span>
                   </a>
                 ))}
@@ -218,15 +283,13 @@ export default function ProjectCard({ project, isExpanded, onExpand }: ProjectCa
             </div>
 
             {/* Bottom Row: Meta (Left) & Role (Right) */}
-            <div className="flex items-end justify-between w-full mt-auto pt-2">
-              {/* Left: Timeline & Location */}
+            <div className="flex items-end justify-between w-full shrink-0">
               <div className="flex flex-col gap-[clamp(2px,0.4vh,4px)]">
                 <p className="text-[#C9C9C9] text-[clamp(13px,1.2vw,18px)]">{project.timeline}</p>
                 <p className="text-[#C9C9C9] text-[clamp(13px,1.2vw,18px)]">{project.location}</p>
               </div>
 
-              {/* Right: Role */}
-              <p className="text-white text-right text-[clamp(13px,1.2vw,18px)] -mr-2">
+              <p className="text-white text-right text-[clamp(13px,1.2vw,18px)]">
                 {project.role}
               </p>
             </div>

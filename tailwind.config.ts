@@ -25,10 +25,15 @@ const config: Config = {
         'flow-beam': {
           '0%': { transform: 'translateX(-100%)' },
           '100%': { transform: 'translateX(200%)' },
+        },
+        blink: {
+          '0%, 100%': { opacity: '0' },
+          '50%': { opacity: '1' },
         }
       },
       animation: {
         'flow-beam': 'flow-beam 6s linear infinite',
+        blink: 'blink 0.7s ease-in-out infinite',
       },
     },
   },
@@ -36,4 +41,3 @@ const config: Config = {
 }
 
 export default config
-

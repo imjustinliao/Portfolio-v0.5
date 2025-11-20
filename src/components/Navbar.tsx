@@ -76,7 +76,7 @@ export default function Navbar() {
   const toggleMenu = () => setIsMenuOpen((prev) => !prev)
 
   return (
-    <header className="sticky top-0 z-10 w-full flex justify-center bg-transparent pointer-events-none">
+    <header className="sticky top-0 z-50 w-full flex justify-center bg-transparent pointer-events-none">
       <div 
         className={`
           pointer-events-auto

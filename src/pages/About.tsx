@@ -36,6 +36,8 @@ export default function About() {
   
   // Project Pagination State
   const [expandedProjectId, setExpandedProjectId] = useState<string | null>(null)
+  // Add hoveredProjectId state for managing exclusivity
+  const [hoveredProjectId, setHoveredProjectId] = useState<string | null>(null)
   const [currentPage, setCurrentPage] = useState(1)
   const ITEMS_PER_PAGE = 3
 
@@ -58,6 +60,7 @@ export default function About() {
   useEffect(() => {
     setCurrentPage(1)
     setExpandedProjectId(null)
+    setHoveredProjectId(null)
   }, [activeWorkCategory])
 
   const handleToggle = (index: number) => {
@@ -68,6 +71,15 @@ export default function About() {
 
   const handleExpandProject = (id: string | null) => {
     setExpandedProjectId(id)
+  }
+
+  // Handle hover state: if hovering a different card, collapse any expanded card
+  const handleHoverProject = (id: string | null) => {
+    setHoveredProjectId(id)
+    // If we hover a new card (id is not null) and it's NOT the currently expanded one, collapse the expanded one
+    if (id && expandedProjectId && id !== expandedProjectId) {
+      setExpandedProjectId(null)
+    }
   }
 
   return (
@@ -189,7 +201,7 @@ export default function About() {
                     className={`
                       absolute right-4 top-1/2 -translate-y-1/2 w-[7px] h-[10px] bg-white
                       transition-opacity duration-300
-                      ${isSelected ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}
+                      ${isSelected ? 'animate-blink' : 'opacity-0 group-hover:opacity-100'}
                     `} 
                   />
 
@@ -254,6 +266,8 @@ export default function About() {
                 project={project}
                 isExpanded={expandedProjectId === project.id}
                 onExpand={handleExpandProject}
+                isHovered={hoveredProjectId === project.id}
+                onHover={handleHoverProject}
               />
             ))}
 

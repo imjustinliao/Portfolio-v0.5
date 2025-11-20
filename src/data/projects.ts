@@ -1,4 +1,4 @@
-import { ProjectData } from '../components/ProjectCard'
+import type { ProjectData } from '../components/ProjectCard'
 
 // DATA INSTRUCTIONS:
 // 1. To ADD a new project: Copy one of the objects inside the [] (between { ... }) and paste it.
@@ -13,7 +13,7 @@ export const projects: Record<number, ProjectData[]> = {
     {
       id: 'high-delta-1',
       name: 'VibeChk',
-      description: 'A cutting-edge platA cutting-edge platA cutting-edge platA cutting-edge platA cutting-edge platA cutting-edge platform redefining how we connect and share vibes. Built with React and modern web technologies to create seamless social experiences.',
+      description: 'A cutting-edge platAplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cutt cutting-edge platA cutting-edge platA cutting-edge platA cutting-edge platA cutting-edge platform redefining how we connect and share vibes. Built with React and modern web technologies to create seamless social experiences.',
       image: '/UI/i1.JPG',
       gif: '/UI/i1.JPG', // Replace with actual GIF path when available
       links: [
@@ -28,7 +28,7 @@ export const projects: Record<number, ProjectData[]> = {
     {
       id: 'high-delta-2',
       name: 'Project Two',
-      description: 'Another high-impact project focusing on scalable solutions and user-centric design principles.',
+      description: 'Another high-impact proatA latA cuttplatplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttplatA cuttnd user-centric design principles.',
       image: '/UI/i2.JPG',
       gif: '/UI/i2.JPG',
       links: [
@@ -124,4 +124,3 @@ export const projects: Record<number, ProjectData[]> = {
     }
   ]
 }
-
