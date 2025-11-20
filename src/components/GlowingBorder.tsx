@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 
-const GlowingBorder = () => {
+const GlowingBorder = ({ infinite = false, duration = 1750 }: { infinite?: boolean; duration?: number }) => {
   const [angle, setAngle] = useState(0)
   const [opacity, setOpacity] = useState(1)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -16,8 +16,16 @@ const GlowingBorder = () => {
 
       if (startTimeRef.current === null) startTimeRef.current = time
       const elapsed = time - startTimeRef.current
-      const duration = 1400 // Slower duration as requested
-      const progress = Math.min(elapsed / duration, 1.1) // Allow it to run slightly past 1 to ensure full overlap
+
+      let progress: number
+      
+      if (infinite) {
+        // Infinite loop: 0 to 1 repeatedly
+        progress = (elapsed % duration) / duration
+      } else {
+        // Single run: 0 to 1.1
+        progress = Math.min(elapsed / duration, 1.1)
+      }
 
       // Calculate dimensions and perimeter
       const { width, height } = containerRef.current.getBoundingClientRect()
@@ -67,26 +75,30 @@ const GlowingBorder = () => {
       const angleDeg = (Math.atan2(y, x) * 180 / Math.PI) + 90
       setAngle(angleDeg)
       
-      // Fade out logic
-      // Fades while running the last part (last 25%)
-      let newOpacity = 1
-      const fadeStart = 0.75
-      
-      if (progress > fadeStart) {
-         newOpacity = 1 - (progress - fadeStart) / (1 - fadeStart)
-      }
-      
-      if (progress < 1.1) { // Allow it to run slightly past 1 to ensure full overlap
-        setOpacity(newOpacity)
-        requestRef.current = requestAnimationFrame(animate)
+      if (infinite) {
+         setOpacity(1)
+         requestRef.current = requestAnimationFrame(animate)
       } else {
-        setOpacity(0)
+        // Fade out logic for single run
+        let newOpacity = 1
+        const fadeStart = 0.75
+        
+        if (progress > fadeStart) {
+           newOpacity = 1 - (progress - fadeStart) / (1 - fadeStart)
+        }
+        
+        if (progress < 1.1) {
+          setOpacity(newOpacity)
+          requestRef.current = requestAnimationFrame(animate)
+        } else {
+          setOpacity(0)
+        }
       }
     }
 
     requestRef.current = requestAnimationFrame(animate)
     return () => cancelAnimationFrame(requestRef.current)
-  }, [])
+  }, [infinite])
 
   if (opacity <= 0) return null
 

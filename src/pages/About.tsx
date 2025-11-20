@@ -125,7 +125,8 @@ export default function About() {
                       {/* Continuous Glowing Border Effect (Updated to use component) */}
                       <span className="absolute inset-0 rounded-md opacity-0 group-hover/tooltip:opacity-100 transition-opacity duration-300 pointer-events-none overflow-hidden">
                          <div className="absolute inset-0 border border-[rgba(146,195,255,0.5)] rounded-md"></div>
-                         <GlowingBorder />
+                         {/* Shimmer Light Effect */}
+                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(146,195,255,0.4)] to-transparent animate-shimmer"></div>
                       </span>
                       
                       <span className="italic text-[#92C3FF] relative z-10">high-delta work</span>
@@ -136,6 +137,7 @@ export default function About() {
                         transition-all duration-300 ease-out transform translate-y-2 group-hover/tooltip:translate-y-0
                         border border-[rgba(255,255,255,0.3)] bg-gradient-to-br from-[rgba(255,255,255,0.2)] to-[rgba(255,255,255,0.05)] backdrop-blur-[10px] shadow-[0_4px_30px_rgba(0,0,0,0.1)]
                         text-white text-sm font-normal leading-relaxed text-left z-50 pointer-events-none">
+                        <GlowingBorder infinite={true} duration={3000} />
                         <span className="font-semibold text-white">high-delta work:</span> whether it’s good or bad, it’s something that advances the humanity forward and redefines how we work.
                       </span>
                     </span>

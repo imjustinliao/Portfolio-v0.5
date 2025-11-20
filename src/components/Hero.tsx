@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import GlowingBorder from './GlowingBorder'
 
 const images = ['i1.JPG', 'i2.JPG', 'i3.JPG']
 
@@ -86,6 +87,7 @@ export default function Hero() {
           className="w-[35vw] max-lg:w-[80vw] aspect-square rounded-[15px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.4)] relative"
           onMouseEnter={() => setIsImageHovered(true)}
           onMouseLeave={() => setIsImageHovered(false)}
+          onClick={() => setIsImageHovered(true)}
         >
           {/* Layer 1: Images */}
           {images.map((image, index) => (
@@ -105,6 +107,11 @@ export default function Hero() {
             className="absolute inset-0 z-[1] transition-opacity duration-800 ease-out border border-[rgba(255,255,255,0.3)] bg-gradient-to-br from-[rgba(255,255,255,0.2)] to-[rgba(255,255,255,0.05)] backdrop-blur-[10px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] rounded-[15px]"
             style={{ opacity: isImageHovered ? 0 : 1 }}
           />
+
+          {/* Layer 3: Infinite Glowing Border (Visible on Hover) */}
+          <div className={`absolute inset-0 pointer-events-none transition-opacity duration-500 rounded-[inherit] ${isImageHovered ? 'opacity-100' : 'opacity-0'}`}>
+            <GlowingBorder infinite={true} duration={3000} />
+          </div>
         </div>
 
         {/* Carousel Dots - Responsive positioning */}
