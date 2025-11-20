@@ -127,11 +127,11 @@ export default function ProjectCard({ project, isExpanded, onExpand, isHovered, 
         relative 
         w-full 
         /* Aspect Ratio Tuned for Responsiveness:
-           - Mobile: Taller to fit content (3/2.5)
-           - Tablet (md): 1.6/1 - Taller to prevent cutoff (previously 1.8/1)
-           - Desktop (lg): Wide as originally designed (1395/458 approx 3/1)
+           - Mobile: Taller to fit content (3/2.8)
+           - Tablet (md): 1.2/1 - Taller to prevent cutoff on tablets/narrow desktops
+           - Desktop (xl): Wide as originally designed (1395/520 approx 2.68/1) - Only on large screens
         */
-        aspect-[3/2.5] md:aspect-[1.6/1] lg:aspect-[1395/458]
+        aspect-[3/2.8] md:aspect-[1.2/1] xl:aspect-[1395/520]
         transition-all duration-500 ease-out
         ${isExpanded 
           ? 'shadow-[inset_0_0_12px_12px_rgba(255,255,255,0.75)]' 
@@ -194,7 +194,7 @@ export default function ProjectCard({ project, isExpanded, onExpand, isHovered, 
             transition-all duration-500 ease-out
             flex flex-col
             px-[clamp(24px,3.5vw,36px)]
-            py-[clamp(48px,3vw,64px)]
+            py-[clamp(32px,3vw,64px)]
             ${isExpanded ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}
           `}
           style={{
@@ -230,7 +230,7 @@ export default function ProjectCard({ project, isExpanded, onExpand, isHovered, 
           {/* Main Content Layout: Centered Block */}
           {/* Centered vertically in the container, with consistent gap between Top, Middle, Bottom */}
           {/* Main Content Layout: Centered Block */}
-          <div className="flex-1 flex flex-col w-full h-full relative justify-center gap-6"> 
+          <div className="flex-1 flex flex-col w-full h-full relative justify-center gap-[clamp(16px,2vh,24px)]"> 
             
             {/* Top Row: Title (Left) & Delta (Right) */}
             {/* Added relative to create positioning context for absolute Delta */}

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import ProjectCard from '../components/ProjectCard'
 import GlowingBorder from '../components/GlowingBorder'
 import { projects } from '../data/projects'
@@ -21,7 +21,7 @@ const slideTwoContent = [
 ]
 
 const workCategories = [
-  "High-delta Work",
+  "Leadership",
   "Intuitive Arts",
   "Technical Projects",
   "Content Creation"
@@ -40,6 +40,8 @@ export default function About() {
   const [hoveredProjectId, setHoveredProjectId] = useState<string | null>(null)
   const [currentPage, setCurrentPage] = useState(1)
   const ITEMS_PER_PAGE = 3
+
+  const projectSectionRef = useRef<HTMLDivElement>(null)
 
   const currentProjects = projects[activeWorkCategory] || []
   const totalPages = Math.ceil(currentProjects.length / ITEMS_PER_PAGE)
@@ -61,8 +63,17 @@ export default function About() {
     setCurrentPage(1)
     setExpandedProjectId(null)
     setHoveredProjectId(null)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [activeWorkCategory])
+
+  const handleCategoryClick = (index: number) => {
+    setActiveWorkCategory(index)
+    setIsDropdownOpen(false)
+    
+    // Scroll to project section instead of top of page
+    if (projectSectionRef.current) {
+      projectSectionRef.current.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
 
   const handleToggle = (index: number) => {
     if (index !== activeState) {
@@ -172,7 +183,7 @@ export default function About() {
         <div className="w-full h-[1px] bg-[#C9C9C9] mt-[clamp(15px,15vh,130px)] mb-[clamp(40px,8vh,80px)]" />
 
         {/* Work Categories & Projects Grid */}
-        <div className="w-full flex flex-col md:flex-row gap-10 md:gap-0 relative items-start">
+        <div ref={projectSectionRef} className="w-full flex flex-col md:flex-row gap-10 md:gap-0 relative items-start">
           
           {/* Desktop/Tablet: List view (Left Side) */}
           <div className="hidden md:flex flex-col gap-2 w-full max-w-[clamp(180px,25vw,265px)] sticky top-24 h-fit">
@@ -181,7 +192,7 @@ export default function About() {
               return (
                 <button
                   key={index}
-                  onClick={() => setActiveWorkCategory(index)}
+                  onClick={() => handleCategoryClick(index)}
                   className={`
                     relative w-full text-left py-[clamp(10px,1.2vh,14px)] px-[clamp(12px,1.5vw,20px)]
                     text-[clamp(18px,1.8vw,24px)] font-normal text-white
@@ -247,8 +258,7 @@ export default function About() {
                   <button
                     key={index}
                     onClick={() => {
-                      setActiveWorkCategory(index)
-                      setIsDropdownOpen(false)
+                      handleCategoryClick(index)
                     }}
                     className="w-full text-left py-2 px-4 text-[18px] text-[rgba(255,255,255,0.8)] hover:text-white hover:bg-[rgba(255,255,255,0.1)] transition-colors"
                   >
