@@ -87,8 +87,12 @@ const YoutubeIcon = () => (
 )
 
 const FigmaIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path fillRule="evenodd" clipRule="evenodd" d="M4 16C3.46957 16 2.96086 15.7893 2.58579 15.4142C2.21071 15.0391 2 14.5304 2 14C2 13.4696 2.21071 12.9609 2.58579 12.5858C2.96086 12.2107 3.46957 12 4 12H6V14C6 14.5304 5.78929 15.0391 5.41421 15.4142C5.03914 15.7893 4.53043 16 4 16ZM4 2C4.53043 2 5.03914 2.21071 5.41421 2.58579C5.78929 2.96086 6 3.46957 6 4V6H4C3.46957 6 2.96086 5.78929 2.58579 5.41421C2.21071 5.03914 2 4.53043 2 4C2 3.46957 2.21071 2.96086 2.58579 2.58579C2.96086 2.21071 3.46957 2 4 2ZM4 12C3.46957 12 2.96086 11.7893 2.58579 11.4142C2.21071 11.0391 2 10.5304 2 10C2 9.46957 2.21071 8.96086 2.58579 8.58579C2.96086 8.21071 3.46957 8 4 8H6V12H4ZM10 12C10.5304 12 11.0391 11.7893 11.4142 11.4142C11.7893 11.0391 12 10.5304 12 10C12 9.46957 11.7893 8.96086 11.4142 8.58579C11.0391 8.21071 10.5304 8 10 8V12ZM10 2C10.5304 2 11.0391 2.21071 11.4142 2.58579C11.7893 2.96086 12 3.46957 12 4C12 4.53043 11.7893 5.03914 11.4142 5.41421C11.0391 5.78929 10.5304 6 10 6H8V2H10Z" fill="white"/>
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 24C10.2091 24 12 22.2091 12 20V16H8C5.79086 16 4 17.7909 4 20C4 22.2091 5.79086 24 8 24Z"/>
+    <path d="M4 12C4 9.79086 5.79086 8 8 8H12V16H8C5.79086 16 4 14.2091 4 12Z"/>
+    <path d="M4 4C4 1.79086 5.79086 0 8 0H12V8H8C5.79086 8 4 6.20914 4 4Z"/>
+    <path d="M12 0H16C18.2091 0 20 1.79086 20 4C20 6.20914 18.2091 8 16 8H12V0Z"/>
+    <path d="M20 12C20 14.2091 18.2091 16 16 16C13.7909 16 12 14.2091 12 12C12 9.79086 13.7909 8 16 8C18.2091 8 20 9.79086 20 12Z"/>
   </svg>
 )
 
@@ -110,6 +114,10 @@ const DevPostIcon = () => (
   </svg>
 )
 
+const CanvaIcon = () => (
+  <span className="font-bold text-white" style={{ fontSize: '14px' }}>C</span>
+)
+
 // Helper to get icon based on text/url
 const getLinkIcon = (text: string, url: string) => {
   const lowerText = text.toLowerCase()
@@ -124,6 +132,7 @@ const getLinkIcon = (text: string, url: string) => {
   if (lowerText.includes('behance') || lowerUrl.includes('behance')) return <BehanceIcon />
   if (lowerText.includes('discord') || lowerUrl.includes('discord')) return <DiscordIcon />
   if (lowerText.includes('devpost') || lowerUrl.includes('devpost')) return <DevPostIcon />
+  if (lowerText.includes('canva') || lowerUrl.includes('canva')) return <CanvaIcon />
   
   // Default to Globe
   return <GlobeIcon />

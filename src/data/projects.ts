@@ -23,7 +23,42 @@ export const projects: Record<number, ProjectData[]> = {
       timeline: '9.25.25 - Present',
       location: 'TBA',
       role: 'Co-Founder & C#O',
-      deltaScore: 98
+      deltaScore: '∞'
+    },
+    {
+      id: 'tech-2',
+      name: 'DubMatch Official',
+      description: 'DubMatch is a college-only dating app my capstone teammate Andriy and I are building, inspired by what I learned from launching VibeChk — basically VibeChk 2.0, but redesigned for dating and college life. I designed and launched our website, helped grow early signups, and I’m responsible for the product vision, front-end development, and distribution. The app focuses on meeting in person first instead of endless texting, using personalized matching and real-time campus cues to make meetups feel natural and spontaneous. We’re preparing to launch on iOS for Valentine’s Day 2026, bringing back a simple, fun way for students to connect in real life.',
+      image: '/UI/i3.JPG',
+      gif: '/UI/i3.JPG',
+      links: [
+        { text: 'Official Website', url: 'https://dubmatch.com/' },
+        { text: 'Instagram', url: 'https://www.instagram.com/dubmatch25/' },
+        { text: 'TikTok', url: 'https://www.tiktok.com/@dubmatch25' },
+        { text: 'Prototype', url: 'https://www.figma.com/design/m50V6Hlxk3bKwDOwDQOw1a/DubMatch?node-id=0-1&t=6P8TPQrrmq4w7BMR-1' }
+      ],
+      timeline: '10.10.25 - Present',
+      location: 'Bothell, WA',
+      role: 'Co-founder & Lead',
+      deltaScore: 45
+    },
+    {
+      id: 'VibeChk Official',
+      name: 'VibeChk Official',
+      description: 'I co-founded VibeChk, a location-based social app that helps people meet in real life through creator discovery and coffee chat invites. I designed the entire UI in Figma, coded the front end in Swift, designed the brand through organic UGC, and handled all customer problems while Thomas focused on backend development. We launched on the App Store, grew to 100+ downloads globally, and secured 50+ early waitlist signups through videos and a simple web landing page I built. It was our first fully launched project, giving me real-world experience in prototyping, distribution, product launch, iteration, user interviews, and shipping under tight deadlines. Along the way, I started to grow my personal branding on X, LinkedIn, and Instagram through UGCs.',
+      image: '/UI/i3.JPG',
+      gif: '/UI/i3.JPG',
+      links: [
+        { text: 'Official Website', url: 'https://vibechk.io/' },
+        { text: 'App Store', url: 'https://apps.apple.com/us/app/vibechk/id6748249688' },
+        { text: 'Instagram', url: 'https://www.instagram.com/vibechkofficial/' },
+        { text: 'Twitter', url: 'https://x.com/VibeChkApp' },
+        { text: 'Prototype', url: 'https://www.figma.com/design/Nn03qPBuzJpY1aiDcmo7K5/Other-Work?node-id=0-1&p=f&t=t0mB7ZoixFzjjVBR-0' }
+      ],
+      timeline: '5.30.25 - 9.17.25',
+      location: 'Bothell, WA',
+      role: 'Co-founder & CEO',
+      deltaScore: 48
     },
     {
       id: 'high-delta-2',
@@ -183,17 +218,134 @@ export const projects: Record<number, ProjectData[]> = {
   2: [
     {
       id: 'tech-1',
-      name: 'System Core',
-      description: 'Low-level optimization engine for high-frequency data processing.',
+      name: 'Portofolio Website - v0.5',
+      description: 'This is the site you\'re on right now. I designed everything - from the menu and mute / unmute icon, logos, and layout to the glowing flow animations, music player, and custom square cursor effect. I used liquid-glass UI elements throughout the footer and nav bar, along with interactive motion and subtle lighting to create a modern, expressive vibe. It\'s still an evolving project, but v0.5 represents my first step toward building a truly AI-native personal site (for v1).',
       image: '/UI/i3.JPG',
       gif: '/UI/i3.JPG',
       links: [
-        { text: 'GitHub', url: '#' }
+        { text: 'Live Site', url: 'https://justinliao.me/' },
+        { text: 'GitHub', url: 'https://github.com/imjustinliao/Portfolio-v0.5' },
+        { text: 'Prototype', url: 'https://www.figma.com/proto/7HZt1aXQl4FfILlwF6qQ8V/Side-Projects?page-id=0%3A1&node-id=2070-1559&viewport=22129%2C21298%2C0.17&t=KjUgh41cMKPMT62U-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1834%3A1551&show-proto-sidebar=1' }
       ],
-      timeline: '2024',
-      location: 'Lab',
+      timeline: '11.16.25 - 11.20.25',
+      location: 'Localhost: justinliao',
+      role: 'Designer & Engineer',
+      deltaScore: 55
+    },
+    {
+      id: 'tech-2',
+      name: 'VolunTier App',
+      description: 'I designed VolunTier, a mobile app that helps students find volunteer opportunities aligned with their skills and goals. I led the Figma UI design across three iterations and co-developed the web app with Thomas while also launching the website to promote beta signups. The app introduces badges, impact tracking, and certificate issuance to make volunteering more fun and accessible for both students and organizers. It was my first time designing a multi-state social project with two user groups (volunteers and organizers), and it taught me how to structure complex flows into a simple, intuitive experience.',
+      image: '/UI/i3.JPG',
+      gif: '/UI/i3.JPG',
+      links: [
+        { text: 'Official Website', url: 'https://volun-tier.com/' },
+        { text: 'Prototype', url: 'https://www.figma.com/proto/A6DiJGu5UNDpXKFgrT6oBM/VolunTier?page-id=0%3A1&node-id=4601-1349&p=f&viewport=103155%2C90978%2C0.83&t=8xjwLgCmoBLleuP2-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=4601%3A1349&show-proto-sidebar=1' },
+      ],
+      timeline: 'March 2025 - May 2025',
+      location: 'Figma: justinliao',
+      role: 'UI Designer',
+      deltaScore: 28
+    },
+    {
+      id: 'tech-3',
+      name: 'UWB Innovators Hub Website - v0',
+      description: 'A website I designed and co-developed for the UWB Innovators Hub. The site serves as a platform for students to connect, collaborate, and innovate. It features sections for events, resources, and member profiles. It is responsive on all devices; this project helped me enhance my web development skills and understand the importance of user experience in design.',
+      image: '/UI/i3.JPG',
+      gif: '/UI/i3.JPG',
+      links: [
+        { text: 'Official Website', url: 'https://uwinnovators.com/' },
+        { text: 'Prototype', url: 'https://www.canva.com/design/DAGZ-3c3KJs/WC4BioaIsnv9Ls016kXRoA/edit?utm_content=DAGZ-3c3KJs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton' }
+      ],
+      timeline: '1.1.25 - 4.5.25',
+      location: 'Figma: justinliao',
+      role: 'Lead Designer',
+      deltaScore: 18
+    },
+    {
+      id: 'tech-4',
+      name: 'Desktop Organizing Script',
+      description: 'I built this Python script to keep my desktop clean by automatically organizing files from the Downloads folder into categorized folders on my Desktop. Using the watchdog library, the script monitors Downloads for new files and instantly sorts them into folders based on type, such as Images, Videos, Documents...etc. It’s a continuous process that runs in the background, making file management hands-free and time-efficient. This project taught me about file handling, automation, and real-time monitoring with the Watchdog API, creating a streamlined workspace.',
+      image: '/UI/i3.JPG',
+      gif: '/UI/i3.JPG',
+      links: [
+        { text: 'GitHub', url: 'https://github.com/imjustinliao/Desktop-Organizer' }
+      ],
+      timeline: '10.24.24 - 11.7.24',
+      location: 'Localhost: justinliao',
       role: 'Engineer',
-      deltaScore: 87
+      deltaScore: 23
+    },
+    {
+      id: 'tech-5',
+      name: 'Stock Market Browser Extension',
+      description: 'I developed this browser extension to track real-time stock prices and display key data from daily to yearly changes. Using JavaScript, HTML, and CSS, the extension pulls data from the Alpha Vantage API and ensures that the stock list is saved using the Chrome Storage API, even after closing the browser. It features automatic updates every 30 minutes during market hours and a manual refresh button for instant updates. Through this project, I gained experience with API integration, persistent data storage, and UI/UX improvements. Feel free to try it out on my GitHub repo.',
+      image: '/UI/i3.JPG',
+      gif: '/UI/i3.JPG',
+      links: [
+        { text: 'GitHub', url: 'https://github.com/imjustinliao/Stock-Market-Browser-Extension' }
+      ],
+      timeline: '10.18.24 - 10.24.24',
+      location: 'Localhost: justinliao',
+      role: 'Engineer',
+      deltaScore: 22
+    },
+    {
+      id: 'tech-6',
+      name: 'Calingual AI',
+      description: 'At Leaner Startup AI Hacks 6.0, my team placed in the top 5 for Callingual AI, an AI-powered customer support agent with emotional intelligence and multilingual voice interaction. I helped design the system architecture, ran competitor analysis, and identified a key gap: most AI agents can’t adapt emotionally. We addressed this by integrating Hume AI for emotion detection and Twilio for real-time voice, allowing dynamic tone shifts, dialect support, and more human-like conversations. I also worked on our business model, mapping subscription pricing and projected operating costs. The project gave me hands-on experience in product strategy, market validation, and designing scalable AI experiences under tight deadlines.',
+      image: '/UI/i3.JPG',
+      gif: '/UI/i3.JPG',
+      links: [
+        { text: 'Pitch Presentation', url: 'https://youtu.be/HFucELcB4kM' },
+        { text: 'Leaner Startup AI Hacks', url: 'https://leanerstartups.com/event-registration/ai-hackathon-may-2024/' }
+      ],
+      timeline: '5.19.24',
+      location: 'Seattle, WA',
+      role: 'Co-founder & Engineer',
+      deltaScore: 25
+    },
+    {
+      id: 'tech-7',
+      name: 'C$ Stalker',
+      description: 'This is a web app that simulates real-time stock trading using mainly Python and Flask. I co-developed with Ethan Leonard, I focused on front-end enhancements to create an engaging and user-friendly experience. Using IEX API, the app lets users simulate stock trading in a dynamic environment with auto-updating charts, while integrated AI chatbots from OpenAI offer instant insights and guidance for the user.',
+      image: '/UI/i3.JPG',
+      gif: '/UI/i3.JPG',
+      links: [
+        { text: 'GitHub', url: 'https://github.com/ethan-leonard/CS_Stockers' }
+      ],
+      timeline: '11.8.23 - 11.25.23',
+      location: 'Localhost: justinliao',
+      role: 'Front-end Engineer & Co-developer',
+      deltaScore: 12
+    },
+    {
+      id: 'tech-8',
+      name: 'BC ACM Website - v1',
+      description: 'I co-developed the club website for BC Computer Programming Club (now BC ACM), starting as a member in April 2023 and later being promoted to VP in July 2023. Collaborating with four leaders, I built our first ACM club website from scratch using HTML, CSS, JavaScript, Node.js, and Express.js, which increased club membership to over 250 students. I handled the front-end development and implemented Formspree for the contact page, while also guiding students in setting up collaborative Git environments and creating their portfolio websites.',
+      image: '/UI/i3.JPG',
+      gif: '/UI/i3.JPG',
+      links: [
+        { text: 'GitHub', url: 'https://github.com/bellevue-college-acm/WebDevTeam' }
+      ],
+      timeline: 'March 2023 - October 2023',
+      location: 'Localhost: justinliao',
+      role: 'Front-end Engineer & Co-developer',
+      deltaScore: 8
+    },
+    {
+      id: 'tech-9',
+      name: 'Binary, Octal, Hexadecimal Converters',
+      description: 'My coding journey began with this Binary Decimal Converter, a Python tool I created to convert between binary and decimal with flexible precision settings. Developed during my first Python bootcamp back in Taiwan, I expanded to binary-to-octal and binary-to-hexadecimal conversions as I dove deeper into the logic of base conversions. This project sharpened my mathematical thinking, problem-solving, and sparked my passion for programming.',
+      image: '/UI/i3.JPG',
+      gif: '/UI/i3.JPG',
+      links: [
+        { text: 'GitHub', url: 'https://github.com/imjustinliao/Binary-to-Decimal-Converter' }
+      ],
+      timeline: 'March 2021',
+      location: 'Localhost: justinliao',
+      role: 'Engineer',
+      deltaScore: 25
     }
   ],
 
@@ -201,17 +353,220 @@ export const projects: Record<number, ProjectData[]> = {
   3: [
     {
       id: 'content-1',
-      name: 'Design Thoughts',
-      description: 'A video essay series dissecting modern UI/UX trends.',
+      name: 'Founders x Customer',
+      description: 'This is a weekly interview series where I bring tech startup founders face-to-face with their actual customers and challenge them to sell their product on the spot. I’ll pick the founder, pick the customer, set up the meeting, and film the interaction as a way to showcase real persuasion, product thinking, and founder storytelling. It’s meant to be fun, raw, and honest. Coming soon.',
       image: '/UI/i1.JPG',
       gif: '/UI/i1.JPG',
       links: [
-        { text: 'Watch', url: '#' }
+        { text: 'YouTube', url: 'https://www.youtube.com/@imjustinliao' },
+        { text: 'Instagram', url: 'https://www.instagram.com/imjustinliao/' },
+        { text: 'LinkedIn', url: 'https://www.linkedin.com/in/justin-liao23/' }
       ],
-      timeline: '2025',
+      timeline: 'TBA',
+      location: 'YouTube | Instagram | LinkedIn',
+      role: 'Creator',
+      deltaScore: 60
+    },
+    {
+      id: 'content-2',
+      name: 'Justin\'s Life Vlogs',
+      description: 'This is a casual weekly vlog series documenting my life before I move into a new phase—what I worked on, where I went, what I ate, and who I spent time with. It’s filmed in a simple, cinematic style, more like a personal journal than polished content. It’s a way for me to look back on the small details that shaped the journey. Coming soon.',
+      image: '/UI/i2.JPG',
+      gif: '/UI/i2.JPG',
+      links: [
+        { text: 'YouTube', url: 'https://www.youtube.com/@imjustinliao' },
+        { text: 'Instagram', url: 'https://www.instagram.com/imjustinliao/' }
+      ],
+      timeline: 'TBA',
+      location: 'YouTube | Instagram',
+      role: 'Creator',
+      deltaScore: 75
+    },
+    {
+      id: 'content-3',
+      name: 'Meta OS Parody',
+      description: 'I made this parody after Meta’s OS demo failed during the Ray-Ban AI Glasses launch, mixing memes with my own personality to introduce myself to the tech/startup crowd. I filmed a one-shot scene (redid it 6+ times) pretending to be “Mark,” flipping through Forbes, saying “nonono,” then switching into Enjoy the Ride as I walked into my room singing. I edited everything in CapCut and redesigned the glasses UI in Figma—notifications, WhatsApp calls, overlays, filters, animations, and the final “Shot on iPhone” intro. I also included cameos of tech Twitter creators and friends. It took around three days to film and produce, and it ended up reaching 4.1k on X, 2.5k on LinkedIn, and 2.4k on Instagram, becoming one of my highest-quality edits so far.',
+      image: '/UI/i3.JPG',
+      gif: '/UI/i3.JPG',
+      links: [
+        { text: 'Watch', url: 'https://youtu.be/OqOVUH60g3E' },
+        { text: 'X Post', url: 'https://x.com/imjustinliao/status/1970549505209835826?s=20' },
+        { text: 'In Post', url: 'https://www.instagram.com/reel/DO9EZI4jxUf/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
+        { text: 'Li Post', url: 'https://www.linkedin.com/posts/justin-liao23_foundersjourney-activity-7376317068725448704-RQ-C?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEZqj-gBKLiytH8UF5DEfADF8Pv13_WJNX8' }
+      ],
+      timeline: '9.19.25 - 9.21.25',
+      location: 'YouTube | X | Instagram | LinkedIn',
+      role: 'Creator',
+      deltaScore: 65
+    },
+    {
+      id: 'content-4',
+      name: 'VibeChk Official Launch',
+      description: 'This was the first cinematic launch film I made for VibeChk, where I acted as the main character and co-directed the entire project. I wrote the outline, recruited 15+ friends for the scenes, and directed the story flow, audio cues, and transitions while Claire Teske and Michael Talluto handled filming and editing. The short follows a narrative I created about a burnt-out Gen Z founder waking up in a 2030 world where people meet in real life again—founders talking on the streets, creators building together, and spontaneous meetups happening everywhere. It became my most ambitious visual project so far and also my highest-engagement post, reaching 4.1k on X, 8.3k on LinkedIn, and 2.3k on Instagram, which brought in new VibeChk users and helped me network with a lot more builders.',
+      image: '/UI/i1.JPG',
+      gif: '/UI/i1.JPG',
+      links: [
+        { text: 'Watch', url: 'https://youtu.be/2xVtcuz__n4' }, 
+        { text: 'LI Post', url: 'https://www.linkedin.com/posts/justin-liao23_challengeaccepted-startups-activity-7353471282228670465-mQcV?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEZqj-gBKLiytH8UF5DEfADF8Pv13_WJNX8' },
+        { text: 'X Post', url: 'https://x.com/imjustinliao/status/1947704406964899987?s=20' },
+        { text: 'In Post', url: 'https://www.instagram.com/reel/DMawV_7PzMp/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' }
+      ],
+      timeline: '7.20.25 - 7.22.25',
+      location: 'YouTube | LinkedIn | X | Instagram',
+      role: 'Creator',
+      deltaScore: 55
+    },
+    {
+      id: 'content-5',
+      name: 'VibeChk Pre-Launch',
+      description: 'This was the pre-launch edit for VibeChk, but with more of a documentary vibe, using behind-the-scenes shots of the actors I invited while filming the main launch video. I edited it with a NEMZZZ-type beat, which is a popular track in Gen Z startup UGC, and focused on smooth, simple transitions that matched the energy. It reached about 3k views on Instagram, which was the highest on my account at the time (with only ~320 followers), and it helped other young builders discover my work and reach out.',
+      image: '/UI/i2.JPG',
+      gif: '/UI/i2.JPG',
+      links: [
+        { text: 'In Post', url: 'https://www.instagram.com/reel/DMW65F8u9td/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
+        { text: 'Li Post', url: 'https://www.linkedin.com/posts/justin-liao23_startups-technology-genzfounders-activity-7353089336680067072-8qu8?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEZqj-gBKLiytH8UF5DEfADF8Pv13_WJNX8' },
+        { text: 'X Post', url: 'https://x.com/imjustinliao/status/1947180062757036050?s=20' },
+      ],
+      timeline: '7.20.25',
+      location: 'Instagram | LinkedIn | X',
+      role: 'Creator',
+      deltaScore: 45
+    },
+    {
+      id: 'content-6',
+      name: 'VibeChk Pre-trailer',
+      description: 'I made this pre-trailer to hype the VibeChk launch and introduce the idea of “meet builders IRL,” which fits our Gen Z audience who don’t really vibe with professional LinkedIn culture. It was a full-day edit featuring the rap track Indicisive by Kidwild, a mix of smooth transitions, and a grind-mode aesthetic to show what we were building. It ended with “Launching on Tuesday” and “Comment ‘vibe’ for priority access,” which a lot of people actually did. It became my most engaging piece at the time, hitting 6.5k views on LinkedIn, 2.1k on Instagram, and 1.1k on X.',
+      image: '/UI/i3.JPG',
+      gif: '/UI/i3.JPG',
+      links: [
+        { text: 'In Post', url: 'https://www.instagram.com/reel/DMNvlFWx3tx/?utm_source=ig_web_copy_link' },
+        { text: 'Li Post', url: 'https://www.linkedin.com/posts/justin-liao23_cold-dms-and-emails-are-dead-gen-zs-are-activity-7351640380171280384-dStE?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEZqj-gBKLiytH8UF5DEfADF8Pv13_WJNX8' },
+        { text: 'X Post', url: 'https://x.com/imjustinliao/status/1945872141670625576?s=20' },
+      ],
+      timeline: '7.17.25',
+      location: 'Instagram | LinkedIn | X',
+      role: 'Creator',
+      deltaScore: 47
+    },
+    {
+      id: 'content-7',
+      name: 'Side Hustle Timelapse',
+      description: 'This was a quick 13-second timelapse I made to capture the day-and-night grind of me and Thomas building our projects. I used continuous transitions and added short lines of text like “your time is limited,” “we are creating,” and “60 days, three viral apps” to give it that Gen Z hustle-energy vibe. It was meant to be simple but motivational, and it ended up hitting around 2k views across platforms. It’s one of those edits that shows how much can be said in just a few seconds when the pacing and message line up well with the music.',
+      image: '/UI/i1.JPG',
+      gif: '/UI/i1.JPG',
+      links: [
+        { text: 'Shorts', url: 'https://youtube.com/shorts/N-KKPQ0Mra4?feature=share' },
+        { text: 'In Post', url: 'https://www.instagram.com/p/DLvg-nfBIS2/' },
+        { text: 'Li Post', url: 'https://www.linkedin.com/posts/justin-liao23_watch-us-build-3-consumer-apps-in-60-days-activity-7348035787336142850-jGGY?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEZqj-gBKLiytH8UF5DEfADF8Pv13_WJNX8' }
+      ],
+      timeline: '7.5.25',
+      location: 'YouTube | Instagram | LinkedIn ',
+      role: 'Creator',
+      deltaScore: 30
+    },
+    {
+      id: 'content-8',
+      name: '3 Viral Apps in 60 Days',
+      description: 'This was my first UGC-style video to promote my personal brand and build early hype for the VibeChk launch. I spent three days filming and editing with Thomas, shooting over 100 clips because I kept refilming until it felt right. The final cut is a one-minute cinematic edit with filters, transitions, manual voiceover, custom captions, layered sound effects, and a bunch of small details to keep it tight. It reached 2.6k views on X, 2.3k on LinkedIn, and 1.8k on Instagram, which led to random people reaching out, asking what I was building, and signing up for the waitlist.',
+      image: '/UI/i2.JPG',
+      gif: '/UI/i2.JPG',
+      links: [
+        { text: 'X Post', url: 'https://x.com/imjustinliao/status/1940804339771064778?s=20' },
+        { text: 'Li Post', url: 'https://www.linkedin.com/posts/justin-liao23_startup-founders-buildinpublic-activity-7346574112409993219-GC2z?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEZqj-gBKLiytH8UF5DEfADF8Pv13_WJNX8' },
+        { text: 'In Post', url: 'https://www.instagram.com/p/DL_cZiTxbY_/' }
+      ],
+      timeline: '6.30.25 - 7.2.25',
+      location: 'X | LinkedIn | Instagram',
+      role: 'Creator',
+      deltaScore: 51
+    },
+    {
+      id: 'content-9',
+      name: 'Demo Day Trailer',
+      description: 'I produced a cinematic trailer for Innovators Hub’s Demo Day, blending storytelling, suspense, and humor while introducing the event theme. Everything was filmed on an iPhone 15 Pro and manually edited with CapCut, the trailer introduced the Launchpad program and elevated the overall production quality for over 120+ attendees.',
+      image: '/UI/i3.JPG',
+      gif: '/UI/i3.JPG',
+      links: [
+        { text: 'Watch', url: 'https://youtu.be/vs2VFVVnW2I' },
+        { text: 'In Post', url: 'https://www.instagram.com/reel/DKiJI0uhTIo/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
+        { text: 'X Post', url: 'https://x.com/imjustinliao/status/1930396054408900970?s=20' }
+      ],
+      timeline: '5.30.25',
+      location: 'YouTube | Instagram | X',
+      role: 'Creator',
+      deltaScore: 42
+    },
+    {
+      id: 'content-10',
+      name: 'Porsche GT3RS Edits',
+      description: 'I made this Porsche GT3RS edit purely out of passion — literally two hours before a final. I grabbed different GT3RS and GT3R clips from YouTube, mixed them together, and synced everything to the phonk track Sleepwalker. The fun part was matching the music with the engine sound and timing each cut so the video feels fast, smooth, and alive. It was all done in CapCut, and even though it was a quick project, it’s still one of my favorite edits I’ve made.',
+      image: '/UI/i1.JPG',
+      gif: '/UI/i1.JPG',
+      links: [
+        { text: 'Watch', url: 'https://youtu.be/1P-xY6MPEeQ' },
+        { text: 'X Post', url: 'https://x.com/imjustinliao/status/1930396054408900970?s=20' }
+      ],
+      timeline: '3.7.25',
+      location: 'YouTube | X',
+      role: 'Creator',
+      deltaScore: 17
+    },
+    {
+      id: 'content-11',
+      name: 'Steve Jobs Motivation Edits',
+      description: 'This edit was inspired by a clip I saw on Instagram. I started by filming my laptop with my phone as Steve Jobs began speaking, then used a glitch transition to jump into full-screen for the main part of the interview. At the end, it transitions back into real life the same way it started. It was a simple idea, but it ended up being my first post on X to pass 1k views, eventually reaching 5k+, which felt big at the time since I was just starting to grow on the platform.',
+      image: '/UI/i2.JPG',
+      gif: '/UI/i2.JPG',
+      links: [
+        { text: 'Watch', url: 'https://youtu.be/DfOIJtyJ9jE' },
+        { text: 'X Post', url: 'https://x.com/imjustinliao/status/1917674643936473480?s=20' }
+      ],
+      timeline: '2.8.25',
+      location: 'YouTube | X',
+      role: 'Creator',
+      deltaScore: 19
+    },
+    {
+      id: 'content-12',
+      name: 'OPTT Stock Analysis',
+      description: 'I made this as a troll video in Fall 2024, pretending to be one of those fake YouTube stock “gurus.” It was during the time I first started investing and was bag-holding about $1k of OPTT after buying the top, so I turned the whole situation into a joke. I used the Yahoo Finance intro as a transition, added stock-market background crowd noise, and gave an overly confident breakdown of OPTT and RCAT. I shared it in the stock group I founded and somehow convinced a few friends to buy in too—some made money and some ended up bag-holding with me. It was a fun project and one of my early comedy edits around finance.',
+      image: '/UI/i3.JPG',
+      gif: '/UI/i3.JPG',
+      links: [
+        { text: 'Watch', url: 'https://youtu.be/WB9_A2mhC8U' }
+      ],
+      timeline: '12.6.24',
       location: 'YouTube',
       role: 'Creator',
-      deltaScore: 82
+      deltaScore: 15
+    },
+    {
+      id: 'content-13',
+      name: 'Motiversity Remix',
+      description: 'This was a quick comedy edit I made right after the Stanford rejection. I took motivational clips from YouTube and suddenly cut them into me giving random “life advice,” switching back and forth for comedic timing. It was all done in CapCut, and it was my first time mixing viral-style transitions with clips of myself. It ended up being one of those spontaneous edits that turned out funnier than expected.',
+      image: '/UI/i1.JPG',
+      gif: '/UI/i1.JPG',
+      links: [
+        { text: 'Watch', url: 'https://youtu.be/1ncohrdTtA4' }
+      ],
+      timeline: '3.27.24',
+      location: 'YouTube',
+      role: 'Creator',
+      deltaScore: 9
+    },
+    {
+      id: 'content-14',
+      name: 'Stanford Rejection Reaction',
+      description: 'I made this video in 2024 when I applied to transfer from BC and genuinely thought I had a shot at Stanford. It was meant to be a sarcastic joke, filmed right before decisions came out — I talked about random “signs” like how I dreamed I got in, wore a red shirt, and pointed at a tree outside calling it the Stanford tree. When the rejection came, I turned the whole thing into a playful parody with You and Whose Army in the background, plus a few dramatic gym shots and push-ups in the middle of the road for humor. I ended it with a simple “Go Husky,” basically saying UW, I’m coming.',
+      image: '/UI/i2.JPG',
+      gif: '/UI/i2.JPG',
+      links: [
+        { text: 'Watch', url: 'https://youtu.be/QNH_VSecoRQ' }
+      ],
+      timeline: '3.27.24',
+      location: 'YouTube',
+      role: 'Creator',
+      deltaScore: 25
     }
   ]
 }
