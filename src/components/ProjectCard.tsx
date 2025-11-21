@@ -16,7 +16,7 @@ export interface ProjectData {
   timeline: string
   location: string
   role: string
-  deltaScore: number
+  deltaScore: number | string
 }
 
 interface ProjectCardProps {
@@ -80,6 +80,36 @@ const TwitterIcon = () => (
   </svg>
 )
 
+const YoutubeIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.8 4.8C15.8 4.8 15.65 3.7 15.15 3.2C14.5 2.5 13.8 2.5 13.5 2.45C11.2 2.3 8 2.3 8 2.3C8 2.3 4.8 2.3 2.5 2.45C2.2 2.5 1.5 2.5 0.85 3.2C0.35 3.7 0.2 4.8 0.2 4.8C0.2 4.8 0 6.05 0 7.3V8.7C0 9.95 0.2 11.2 0.2 11.2C0.2 11.2 0.35 12.3 0.85 12.8C1.5 13.5 2.35 13.45 2.7 13.55C3.9 13.65 8 13.7 8 13.7C8 13.7 11.2 13.65 13.5 13.5C13.8 13.45 14.5 13.45 15.15 12.8C15.65 12.3 15.8 11.2 15.8 11.2C15.8 11.2 16 9.95 16 8.7V7.3C16 6.05 15.8 4.8 15.8 4.8ZM6.4 10.4V5.6L10.6 8L6.4 10.4Z" />
+  </svg>
+)
+
+const FigmaIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fillRule="evenodd" clipRule="evenodd" d="M4 16C3.46957 16 2.96086 15.7893 2.58579 15.4142C2.21071 15.0391 2 14.5304 2 14C2 13.4696 2.21071 12.9609 2.58579 12.5858C2.96086 12.2107 3.46957 12 4 12H6V14C6 14.5304 5.78929 15.0391 5.41421 15.4142C5.03914 15.7893 4.53043 16 4 16ZM4 2C4.53043 2 5.03914 2.21071 5.41421 2.58579C5.78929 2.96086 6 3.46957 6 4V6H4C3.46957 6 2.96086 5.78929 2.58579 5.41421C2.21071 5.03914 2 4.53043 2 4C2 3.46957 2.21071 2.96086 2.58579 2.58579C2.96086 2.21071 3.46957 2 4 2ZM4 12C3.46957 12 2.96086 11.7893 2.58579 11.4142C2.21071 11.0391 2 10.5304 2 10C2 9.46957 2.21071 8.96086 2.58579 8.58579C2.96086 8.21071 3.46957 8 4 8H6V12H4ZM10 12C10.5304 12 11.0391 11.7893 11.4142 11.4142C11.7893 11.0391 12 10.5304 12 10C12 9.46957 11.7893 8.96086 11.4142 8.58579C11.0391 8.21071 10.5304 8 10 8V12ZM10 2C10.5304 2 11.0391 2.21071 11.4142 2.58579C11.7893 2.96086 12 3.46957 12 4C12 4.53043 11.7893 5.03914 11.4142 5.41421C11.0391 5.78929 10.5304 6 10 6H8V2H10Z" fill="white"/>
+  </svg>
+)
+
+const BehanceIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4.6 7.2H1.4V8.4H4.6V7.2ZM3 3.5C2.2 3.5 1.5 3.8 1.2 4.5H4.8C4.5 3.8 3.8 3.5 3 3.5ZM3 2.5C4.3 2.5 5.3 3.2 5.6 4.3L6 5.5H0V10.5H6V9.3H1.2V6.5H6.2C6.4 5.2 5.7 3.8 4.8 3.1C4.3 2.7 3.7 2.5 3 2.5ZM11.5 5.5C10.1 5.5 9 6.6 9 8C9 9.4 10.1 10.5 11.5 10.5C12.5 10.5 13.3 10 13.7 9.2L12.8 8.6C12.5 9 12.1 9.3 11.5 9.3C11 9.3 10.5 9 10.3 8.5H14C14 8.4 14 8.2 14 8C14 6.6 12.9 5.5 11.5 5.5ZM11.5 6.5C12.1 6.5 12.6 6.9 12.7 7.5H10.3C10.4 6.9 10.9 6.5 11.5 6.5ZM13.5 3.5H9.5V4.5H13.5V3.5Z"/>
+  </svg>
+)
+
+const DiscordIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M13.54 3.6C12.5 3.12 11.4 2.78 10.24 2.58C10.24 2.58 10.02 2.98 9.86 3.36C8.62 3.18 7.38 3.18 6.16 3.36C6 2.98 5.78 2.58 5.78 2.58C4.62 2.78 3.52 3.12 2.48 3.6C0.38 6.74 -0.2 9.8 0.1 12.82C1.38 13.76 2.62 14.34 3.84 14.72C4.14 14.32 4.4 13.88 4.62 13.42C4.18 13.26 3.76 13.06 3.36 12.82C3.46 12.74 3.56 12.66 3.66 12.58C6.5 13.88 9.52 13.88 12.34 12.58C12.44 12.66 12.54 12.74 12.64 12.82C12.24 13.06 11.82 13.26 11.38 13.42C11.6 13.88 11.86 14.32 12.16 14.72C13.4 14.34 14.62 13.76 15.9 12.82C16.26 9.26 15.32 6.22 13.54 3.6ZM5.34 10.72C4.58 10.72 3.96 10.02 3.96 9.16C3.96 8.3 4.56 7.6 5.34 7.6C6.12 7.6 6.74 8.3 6.72 9.16C6.72 10.02 6.12 10.72 5.34 10.72ZM10.68 10.72C9.92 10.72 9.3 10.02 9.3 9.16C9.3 8.3 9.9 7.6 10.68 7.6C11.46 7.6 12.08 8.3 12.06 9.16C12.06 10.02 11.46 10.72 10.68 10.72Z"/>
+  </svg>
+)
+
+const DevPostIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.8 3.2H10.9L13.4 8L10.9 12.8H3.8V3.2ZM2 1.6V14.4H11.8L15.4 8L11.8 1.6H2Z"/>
+  </svg>
+)
+
 // Helper to get icon based on text/url
 const getLinkIcon = (text: string, url: string) => {
   const lowerText = text.toLowerCase()
@@ -89,6 +119,11 @@ const getLinkIcon = (text: string, url: string) => {
   if (lowerText.includes('instagram') || lowerUrl.includes('instagram')) return <InstagramIcon />
   if (lowerText.includes('linkedin') || lowerUrl.includes('linkedin')) return <LinkedinIcon />
   if (lowerText.includes('twitter') || lowerText.includes('x') || lowerUrl.includes('twitter') || lowerUrl.includes('x.com')) return <TwitterIcon />
+  if (lowerText.includes('youtube') || lowerUrl.includes('youtube') || lowerUrl.includes('youtu.be')) return <YoutubeIcon />
+  if (lowerText.includes('figma') || lowerUrl.includes('figma')) return <FigmaIcon />
+  if (lowerText.includes('behance') || lowerUrl.includes('behance')) return <BehanceIcon />
+  if (lowerText.includes('discord') || lowerUrl.includes('discord')) return <DiscordIcon />
+  if (lowerText.includes('devpost') || lowerUrl.includes('devpost')) return <DevPostIcon />
   
   // Default to Globe
   return <GlobeIcon />
@@ -266,19 +301,22 @@ export default function ProjectCard({ project, isExpanded, onExpand, isHovered, 
               </div>
 
               {/* Links */}
-              <div className="flex flex-wrap gap-[clamp(8px,1vw,12px)]">
-                {project.links.map((link, i) => (
-                  <a
-                    key={i}
-                    href={link.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-2 px-[clamp(12px,1.2vw,16px)] py-[clamp(4px,0.6vh,6px)] bg-[rgba(255,255,255,0.2)] hover:bg-[rgba(255,255,255,0.3)] rounded-[25px] transition-colors text-white border border-white box-border text-[clamp(12px,1vw,14px)]"
-                  >
-                    {link.icon || getLinkIcon(link.text, link.url)}
-                    <span>{link.text}</span>
-                  </a>
-                ))}
+              {/* Wrapper with same structure as description: outer container with right padding, inner scrollable */}
+              <div className="relative pr-[clamp(56px,6vw,64px)]">
+                <div className="flex flex-nowrap items-center gap-[clamp(8px,1vw,12px)] overflow-x-auto w-full pb-2 -mb-2 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
+                  {project.links.map((link, i) => (
+                    <a
+                      key={i}
+                      href={link.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex shrink-0 items-center justify-center gap-2 px-[clamp(12px,1.2vw,16px)] py-[clamp(4px,0.6vh,6px)] bg-[rgba(255,255,255,0.2)] hover:bg-[rgba(255,255,255,0.3)] rounded-[25px] transition-colors text-white border border-white box-border text-[clamp(12px,1vw,14px)] whitespace-nowrap"
+                    >
+                      {link.icon || getLinkIcon(link.text, link.url)}
+                      <span>{link.text}</span>
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
 

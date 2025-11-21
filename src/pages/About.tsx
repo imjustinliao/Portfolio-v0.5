@@ -262,7 +262,7 @@ export default function About() {
                     onClick={() => {
                       handleCategoryClick(index)
                     }}
-                    className="w-full text-left py-2 px-4 text-[18px] text-[rgba(255,255,255,0.8)] hover:text-white hover:bg-[rgba(255,255,255,0.1)] transition-colors"
+                    className="w-full text-left py-3 px-4 text-[18px] text-[rgba(255,255,255,0.8)] hover:text-white hover:bg-[rgba(255,255,255,0.1)] transition-colors border-b border-[rgba(255,255,255,0.1)] last:border-b-0"
                   >
                     {category}
                   </button>
@@ -272,17 +272,29 @@ export default function About() {
           </div>
 
           {/* Projects List (Right Side / Bottom) */}
-          <div className="flex-1 flex flex-col gap-8 w-full md:pl-12 lg:pl-20">
-            {displayedProjects.map((project) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                isExpanded={expandedProjectId === project.id}
-                onExpand={handleExpandProject}
-                isHovered={hoveredProjectId === project.id}
-                onHover={handleHoverProject}
-              />
-            ))}
+          <div className="flex-1 flex flex-col gap-[clamp(60px,8vh,100px)] w-full md:pl-12 lg:pl-20">
+            {activeWorkCategory === 1 ? (
+              // Coming Soon Placeholder for Intuitive Arts
+              <div className="w-full min-h-[40vh] flex flex-col items-center justify-center text-center px-4 animate-fade-in-up">
+                <h2 className="text-[clamp(40px,5vw,60px)] font-light text-white mb-8 animate-text-pulse-glow tracking-wide">
+                  Coming soon.
+                </h2>
+                <p className="text-[clamp(16px,1.5vw,20px)] text-[#C9C9C9] font-light max-w-[600px] leading-relaxed">
+                  I'm taking some time to organize what I've created since 2010, such as painting, sketches, photography, and paper arts.
+                </p>
+              </div>
+            ) : (
+              displayedProjects.map((project) => (
+                <ProjectCard 
+                  key={project.id} 
+                  project={project}
+                  isExpanded={expandedProjectId === project.id}
+                  onExpand={handleExpandProject}
+                  isHovered={hoveredProjectId === project.id}
+                  onHover={handleHoverProject}
+                />
+              ))
+            )}
 
             {/* Pagination Controls - Bottom Middle of Third Container */}
             {totalPages > 0 && (

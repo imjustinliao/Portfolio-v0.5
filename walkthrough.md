@@ -1,42 +1,43 @@
-# Walkthrough - Glowing Border Speed Control
+# Walkthrough - Icons and Link Layout
 
-I have parametrized the speed of the `GlowingBorder` component, allowing for different animation durations. This enables the infinite glowing effects (on hover) to run slower than the single-run effects (on load/interaction).
+I have added support for Discord and DevPost icons and optimized the link layout in project cards to prevent overflow and overlap issues on smaller screens.
 
 ## Changes
 
-### 1. Updated GlowingBorder Component
-I modified `src/components/GlowingBorder.tsx` to accept a `duration` prop.
-- **Prop:** `duration?: number` (defaults to `1750` ms).
-- **Usage:** The animation loop now uses this prop to calculate progress.
+### 1. Added Icons
+I added `DiscordIcon` and `DevPostIcon` components to `src/components/ProjectCard.tsx` and updated the detection logic.
 
-**File:** `src/components/GlowingBorder.tsx`
+**File:** `src/components/ProjectCard.tsx`
 
 ```tsx
-const GlowingBorder = ({ infinite = false, duration = 1750 }: { infinite?: boolean; duration?: number }) => {
-  // ...
-  const elapsed = time - startTimeRef.current
-  // duration is used here
-  // ...
-}
+// ... inside getLinkIcon ...
+if (lowerText.includes('discord') || lowerUrl.includes('discord')) return <DiscordIcon />
+if (lowerText.includes('devpost') || lowerUrl.includes('devpost')) return <DevPostIcon />
 ```
 
-### 2. Updated Infinite Usages
-I updated the instances where the border glows infinitely to use a slower duration (`3000` ms), creating a more relaxed "breathing" effect.
+### 2. Optimized Link Layout
+I updated the links container to be a single, horizontally scrollable line. This prevents the links from stacking vertically and pushing content out of bounds or overlapping the back button.
 
-**File:** `src/pages/About.tsx` (Tooltip)
+**File:** `src/components/ProjectCard.tsx`
+
 ```tsx
-<GlowingBorder infinite={true} duration={3000} />
+<div className="flex flex-nowrap items-center gap-[...] overflow-x-auto w-full pr-[60px] ...">
+  {/* ... */}
+  <a className="... whitespace-nowrap ...">
+    {/* ... */}
+  </a>
+</div>
 ```
 
-**File:** `src/components/Hero.tsx` (Home Image)
-```tsx
-<GlowingBorder infinite={true} duration={3000} />
-```
-
-**Note:** The footer buttons in `src/components/Footer.tsx` continue to use the default duration (`1750` ms) for their single-run animation.
+**Key Layout Features:**
+- **`flex-nowrap`**: Forces all links onto a single line.
+- **`overflow-x-auto`**: Enables horizontal scrolling if links exceed the container width.
+- **`pr-[60px]`**: Adds right padding to ensure links don't slide under the "Return" button.
+- **`whitespace-nowrap`**: Prevents text inside buttons from wrapping.
 
 ## Verification Results
 
 ### Manual Verification
-- **Home Image & Tooltip:** The glowing border should move noticeably slower (3 seconds per loop) than before.
-- **Footer Buttons:** The glowing border on the footer buttons should still move at the original speed (1.75 seconds) when triggered.
+- **Icons:** Links with "Discord" or "DevPost" in the text or URL display the correct icons.
+- **Mobile Layout:** On small screens, multiple links stay in one row and can be scrolled horizontally.
+- **Back Button:** The links scroll *under* the area reserved for the back button but do not overlap it visually due to the padding/spacing logic (or at least the user can scroll to see the last link without it being hidden behind the button).

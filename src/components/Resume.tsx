@@ -17,17 +17,17 @@ const education: EducationItem[] = [
   {
     school: 'University of Washington',
     degree: 'Bachelor in Computer Science',
-    date: '24 - 26',
+    date: '2024 - 2026',
   },
   {
     school: 'Coursera Google',
     degree: 'UX Design Professional Certificate',
-    date: '25 - 26',
+    date: '2025 - 2026',
   },
   {
     school: 'Bellevue College & HS',
     degree: 'Associate in Arts & Science',
-    date: '21 - 24',
+    date: '2021 - 2024',
   },
 ]
 
@@ -35,43 +35,43 @@ const experience: ExperienceItem[] = [
   {
     company: 'Reunify Labs',
     role: 'Founder',
-    date: 'May 24 - Present',
+    date: 'May 2024 - Present',
     location: 'Bothell, WA',
   },
   {
     company: 'VibeChk',
     role: 'Founder | Designer',
-    date: 'June 25 - August 25',
+    date: 'June 2025 - August 2025',
     location: 'Bothell, WA',
   },
   {
     company: 'UWB Innovators Hub',
     role: 'Founder | Co-president',
-    date: 'October 24 - Present',
+    date: 'October 2024 - Present',
     location: 'Bothell, WA',
   },
   {
     company: 'UWB ACM',
     role: 'Sponsorship Co-lead | Core Officer',
-    date: 'October 24 - June 25',
+    date: 'September 2024 - June 2025',
     location: 'Bothell, WA',
   },
   {
     company: 'Bellevue College',
     role: 'Math Tutor',
-    date: 'January - June 24',
+    date: 'January 2024 - June 2024',
     location: 'Bellevue, WA',
   },
   {
     company: 'BC Innovators Hub',
     role: 'Founder | President',
-    date: 'July 23 - August 24',
+    date: 'July 2023 - August 2024',
     location: 'Bellevue, WA',
   },
   {
     company: 'BC ACM',
     role: 'Co-VP',
-    date: 'July 23 - June 24',
+    date: 'July 2023 - June 2024',
     location: 'Bellevue, WA',
   },
 ]

@@ -133,6 +133,21 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
   animation: pulse-glow 1.5s infinite ease-in-out;
 }
 
+@keyframes text-pulse-glow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    opacity: 0.6;
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6);
+    opacity: 1;
+  }
+}
+
+.animate-text-pulse-glow {
+  animation: text-pulse-glow 3s infinite ease-in-out;
+}
+
 .animate-slide-in-left {
   animation: slideInLeft 1s ease-out forwards;
 }
