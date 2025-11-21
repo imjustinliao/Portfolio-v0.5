@@ -69,13 +69,13 @@ const InstagramIcon = () => (
 )
 
 const LinkedinIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg">
+  <svg width="14" height="14" viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg">
     <path d="M3.56 2C3.56 2.98 2.76 3.78 1.78 3.78C0.8 3.78 0 2.98 0 2C0 1.02 0.8 0.22 1.78 0.22C2.76 0.22 3.56 1.02 3.56 2ZM3.56 15.56H0V5.33H3.56V15.56ZM15.56 15.56H12V9.78C12 8.33 11.33 7.56 10.22 7.56C9.11 7.56 8.44 8.33 8.44 9.78V15.56H4.89V5.33H8.44V6.67C9.11 5.56 10.22 5.11 11.56 5.11C14.22 5.11 15.56 6.89 15.56 9.78V15.56Z"/>
   </svg>
 )
 
 const TwitterIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg">
+  <svg width="14" height="14" viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg">
     <path d="M9.29 7.34L15.07 0.64H13.7L8.68 6.46L4.67 0.64H0L6.06 9.42L0 16.44H1.37L6.67 10.3L10.89 16.44H15.56L9.29 7.34ZM7.41 9.52L6.8 8.64L1.87 1.59H3.97L7.96 7.3L8.57 8.18L13.7 15.52H11.6L7.41 9.52Z"/>
   </svg>
 )
@@ -270,7 +270,7 @@ export default function ProjectCard({ project, isExpanded, onExpand, isHovered, 
             {/* Top Row: Title (Left) & Delta (Right) */}
             {/* Added relative to create positioning context for absolute Delta */}
             <div className="flex justify-between items-start w-full shrink-0 relative">
-              <h3 className="text-white font-medium leading-tight text-[clamp(20px,2.5vw,32px)]">
+              <h3 className="text-white font-medium leading-tight text-[clamp(20px,2.5vw,32px)] pr-[clamp(40px,5vw,50px)]">
                 {project.name}
               </h3>
               
