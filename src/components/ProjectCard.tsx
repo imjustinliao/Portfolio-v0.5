@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 export interface LinkData {
   icon?: React.ReactNode
@@ -11,7 +11,7 @@ export interface ProjectData {
   name: string
   description: string
   image: string
-  gif: string
+  slideshow: string[]  // Array of images for auto-cycling slideshow
   links: LinkData[]
   timeline: string
   location: string
@@ -118,6 +118,12 @@ const CanvaIcon = () => (
   <span className="font-bold text-white" style={{ fontSize: '14px' }}>C</span>
 )
 
+const AppStoreIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M11.5 7.5L9.8 10.2H13.2L11.5 7.5ZM6.5 4.5L8.2 7.2H4.8L6.5 4.5ZM3.5 10.2H5.2L4.3 11.8H2.8L3.5 10.2ZM13.2 11.8H11.5L10.6 10.2H12.3L13.2 11.8ZM8 0C3.6 0 0 3.6 0 8C0 12.4 3.6 16 8 16C12.4 16 16 12.4 16 8C16 3.6 12.4 0 8 0ZM10.5 12.5H5.5C5.2 12.5 5 12.3 5 12C5 11.9 5 11.8 5.1 11.7L7.6 7.5L6.1 4.8C6 4.6 6.1 4.3 6.3 4.2C6.4 4.1 6.5 4.1 6.6 4.1C6.8 4.1 6.9 4.2 7 4.3L8 6.2L9 4.3C9.2 4.1 9.5 4 9.7 4.2C9.9 4.4 10 4.7 9.9 4.9L8.4 7.5L10.9 11.7C11.1 12 11 12.3 10.7 12.4C10.6 12.5 10.6 12.5 10.5 12.5Z"/>
+  </svg>
+)
+
 // Helper to get icon based on text/url
 const getLinkIcon = (text: string, url: string) => {
   const lowerText = text.toLowerCase()
@@ -133,12 +139,35 @@ const getLinkIcon = (text: string, url: string) => {
   if (lowerText.includes('discord') || lowerUrl.includes('discord')) return <DiscordIcon />
   if (lowerText.includes('devpost') || lowerUrl.includes('devpost')) return <DevPostIcon />
   if (lowerText.includes('canva') || lowerUrl.includes('canva')) return <CanvaIcon />
+  if (lowerText.includes('app store') || lowerUrl.includes('apps.apple.com')) return <AppStoreIcon />
   
   // Default to Globe
   return <GlobeIcon />
 }
 
 export default function ProjectCard({ project, isExpanded, onExpand, isHovered, onHover }: ProjectCardProps) {
+  // Slideshow state
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
+  
+  // Reset media only when hovering to a new card (not when expanding)
+  useEffect(() =>{
+    if (isHovered) {
+      setCurrentSlideIndex(0) // Reset slideshow to first image
+    }
+  }, [isHovered])
+  
+  // Auto-cycle slideshow images
+  useEffect(() => {
+    if (!isHovered && !isExpanded) return
+    
+    const interval = setInterval(() => {
+      setCurrentSlideIndex((prev) => 
+        (prev + 1) % project.slideshow.length
+      )
+    }, 1500) // Change image every 1.5 seconds
+    
+    return () => clearInterval(interval)
+  }, [isHovered, isExpanded, project.slideshow.length])
   
   const handleMouseEnter = () => {
     // On desktop (mouse), hover triggers hover state immediately if not expanded
@@ -197,19 +226,34 @@ export default function ProjectCard({ project, isExpanded, onExpand, isHovered, 
           <img
             src={project.image}
             alt={project.name}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+            className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ${
+              (isHovered || isExpanded) ? 'opacity-0 blur-none' : 'opacity-100 blur-[5px] brightness-[0.8] grayscale-[0.1]'
+            }`}
+          />
+
+          {/* Inner Shadow Overlay */}
+          <div 
+            className={`absolute inset-0 pointer-events-none transition-opacity duration-500 ${
               (isHovered || isExpanded) ? 'opacity-0' : 'opacity-100'
             }`}
+            style={{ boxShadow: 'inset 0 0 65px rgba(255, 255, 255, 1)' }}
           />
           
-          {/* Loopable GIF/Video */}
-          <img
-            src={project.gif}
-            alt={`${project.name} preview`}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-              (isHovered || isExpanded) ? 'opacity-100' : 'opacity-0'
-            }`}
-          />
+          
+          {/* Photo Slideshow - renders all images with cross-fade effect */}
+          {project.slideshow.map((slide, index) => (
+            <img
+              key={`slide-${index}`}
+              src={slide}
+              alt={`${project.name} slide ${index + 1}`}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+                (isHovered || isExpanded) && index === currentSlideIndex
+                  ? 'opacity-100' 
+                  : 'opacity-0'
+              }`}
+              loading="lazy"
+            />
+          ))}
         </div>
 
         {/* Expand Button (Visible on Hover) */}
