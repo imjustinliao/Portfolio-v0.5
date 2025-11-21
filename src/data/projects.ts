@@ -102,8 +102,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'high-delta-4',
       name: 'UWB ACM',
       description: 'I was recruited as a core officer to support general events and an annual Hackathon. For UWB Hacks 25, I co-led the sponsorship team to recruit industry professional judges, meeting with companies and reaching out to hundreds of engineers, designers, and founders to bring in 100+ judges. The event had 500+ participants, which was one of the largest hackathons ever held at UWB.',
-      image: '/UI/i1.JPG',
-      slideshow: ['/UI/i1.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%202.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%203.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%204.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%205.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%206.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%207.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%208.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%209.png'],
       links: [
         { text: 'Official Website', url: 'https://uwbacm.org/' },
         { text: 'LinkedIn', url: 'https://www.linkedin.com/company/uwb-acm-club/' },
@@ -120,8 +120,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'high-delta-5',
       name: 'BC Hacks 24',
       description: 'I worked alongside leaders from four tech clubs to run BC Hacks 2024, a six-month effort that combined planning, funding (over $20k), logistics, and design. I drafted the full event schedule, designed the website and Devpost, and helped shape the judging system while coordinating with sponsors and mentors. During the hackathon, I mentored 50+ students on their pitch decks and presentations, contributing to one of BC’s most successful hackathons.',
-      image: '/UI/i1.JPG',
-      slideshow: ['/UI/i1.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/bch.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/bch.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/bch%202.PNG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/bch%203.PNG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/bch%204.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/bch%205.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/bch%206.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/bch%207.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/bch%208.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/bch%209.JPG'],
       links: [
         { text: 'DevPost', url: 'https://bc-hacks-2024.devpost.com/' },
         { text: 'Website', url: 'https://bchacks.dev/' },
@@ -136,8 +136,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'high-delta-6',
       name: 'AI Entrepreneurial & Networking Event',
       description: 'I designed and hosted a two-hour AI entrepreneurship event featuring YC founders Ehud Halberstam and Prem Kumar, along with 5 special guests from Microsoft. I produced a cinematic trailer, created the full event flow, wrote an intro speech and questions during the panel, and managed marketing & team logistics, which helped attract 142 attendees with high engagement from start to end. It became the highest retention tech event at Bellevue College.',
-      image: '/UI/i1.JPG',
-      slideshow: ['/UI/i1.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/aie.jpeg',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/aie.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/aie2.jpg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/aie3.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/aie4.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/aie5.jpg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/aie6.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/aie7.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/aie8.jpeg'],
       links: [
         { text: 'Recording', url: 'https://youtu.be/LVSiIHz8T_s' },
         { text: 'Trailer', url: 'https://youtu.be/Ftus4xyXoPw' },
@@ -153,8 +153,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'high-delta-7',
       name: 'Bellevue College ASC',
       description: 'This was the first-ever job that I had in my life. I worked as a college math tutor specializing in calculus, linear algebra, and differential equations. On average, I helped 10+ students weekly to solve homework problems with clear, simple explanations. I learned to engage with students of all levels and backgrounds, which enhances my communication on team leadership.',
-      image: '/UI/i1.JPG',
-      slideshow: ['/UI/i1.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/math.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/math.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/math%202.jpg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/math%203.JPG'],
       links: [
         { text: 'Website', url: 'https://www.bellevuecollege.edu/asc/math-lab/' },
         { text: 'Post', url: 'https://www.linkedin.com/posts/justin-liao23_mathtutor-newjob-computerscience-activity-7150271172020981761-FXrO?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEZqj-gBKLiytH8UF5DEfADF8Pv13_WJNX8' }
@@ -168,8 +168,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'high-delta-8',
       name: 'BC Tech Startup Club (aka. Innovators Hub)',
       description: 'I founded Tech Startup Club to build a community of innovators myself, focusing on tech entrepreneurship for students in STEM. I led weekly meetings, designed our brand, recruited new leadership, managed the Discord community, and organized events like a Python ML workshop, private tours with ACM, and the AI Entrepreneurial & Networking Event. The club reached 200 members in a year, and we collaborated with BC Hacks 24 while developing our own “Party App - BAM!” concept through UI design, database planning, and market research.',
-      image: '/UI/i1.JPG',
-      slideshow: ['/UI/i1.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tsc.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tsc.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tsc2.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tsc3.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tsc4.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tsc5.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tsc6.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tsc7.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tsc8.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tsc17.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tsc9.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tsc10.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tsc11.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tsc12.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tsc13.jpg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tsc14.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tsc15.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tsc16.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tsc18.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tsc19.JPG'],
       links: [
         { text: 'Official Website', url: 'https://www.innovatorshub.us/' },
         { text: 'Instagram', url: 'https://www.instagram.com/bc_innovatorshub/' },
@@ -184,8 +184,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'high-delta-9',
       name: 'BC ACM',
       description: 'I joined the Bellevue College ACM leadership team to support a growing community of builders. I mentored a small group of students in front-end development, helped run industry panels / workshops, and worked with the team to organize private company visits (eg. Expedia, Amazon, Microsoft). Our club reached 400+ active members within a year, becoming the largest tech club on campus.',
-      image: '/UI/i1.JPG',
-      slideshow: ['/UI/i1.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/cpc2.jpg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/cpc3.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/cpc4.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/cpc5.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/cpc6.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/cpc7.jpg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/cpc8.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/cpc9.jpg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/cpc10.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/cpc11.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/cpc12.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/cpc13.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/cpc14.PNG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/cpc15.jpeg'],
       links: [
         { text: 'Official Website', url: 'https://www.bellevuecollegeacm.org/' },
         { text: 'LinkedIn', url: 'https://www.linkedin.com/company/acm-bellevue-college/' },
@@ -224,8 +224,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'tech-1',
       name: 'Portofolio Website - v0.5',
       description: 'This is the site you\'re on right now. I designed everything - from the menu and mute / unmute icon, logos, and layout to the glowing flow animations, music player, and custom square cursor effect. I used liquid-glass UI elements throughout the footer and nav bar, along with interactive motion and subtle lighting to create a modern, expressive vibe. It\'s still an evolving project, but v0.5 represents my first step toward building a truly AI-native personal site (for v1).',
-      image: '/UI/i3.JPG',
-      slideshow: ['/UI/i3.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/web1.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/web1.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/web0.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/web2.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/web3.png'],
       links: [
         { text: 'Live Site', url: 'https://justinliao.me/' },
         { text: 'GitHub', url: 'https://github.com/imjustinliao/Portfolio-v0.5' },
@@ -240,8 +240,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'tech-2',
       name: 'VolunTier App',
       description: 'I designed VolunTier, a mobile app that helps students find volunteer opportunities aligned with their skills and goals. I led the Figma UI design across three iterations and co-developed the web app with Thomas while also launching the website to promote beta signups. The app introduces badges, impact tracking, and certificate issuance to make volunteering more fun and accessible for both students and organizers. It was my first time designing a multi-state social project with two user groups (volunteers and organizers), and it taught me how to structure complex flows into a simple, intuitive experience.',
-      image: '/UI/i3.JPG',
-      slideshow: ['/UI/i3.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vol.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vol.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vol2.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vol3.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vol4.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vol5.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vol6.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vol7.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vol8.png'],
       links: [
         { text: 'Official Website', url: 'https://volun-tier.com/' },
         { text: 'Prototype', url: 'https://www.figma.com/proto/A6DiJGu5UNDpXKFgrT6oBM/VolunTier?page-id=0%3A1&node-id=4601-1349&p=f&viewport=103155%2C90978%2C0.83&t=8xjwLgCmoBLleuP2-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=4601%3A1349&show-proto-sidebar=1' },
@@ -255,14 +255,13 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'tech-3',
       name: 'UWB Innovators Hub Website - v0',
       description: 'A website I designed and co-developed for the UWB Innovators Hub. The site serves as a platform for students to connect, collaborate, and innovate. It features sections for events, resources, and member profiles. It is responsive on all devices; this project helped me enhance my web development skills and understand the importance of user experience in design.',
-      image: '/UI/i3.JPG',
-      slideshow: ['/UI/i3.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/innoweb.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/innoweb.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/innoweb2.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/innoweb3.png'],
       links: [
-        { text: 'Official Website', url: 'https://uwinnovators.com/' },
         { text: 'Prototype', url: 'https://www.canva.com/design/DAGZ-3c3KJs/WC4BioaIsnv9Ls016kXRoA/edit?utm_content=DAGZ-3c3KJs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton' }
       ],
       timeline: '1.1.25 - 4.5.25',
-      location: 'Figma: justinliao',
+      location: 'Canva x Figma: justinliao',
       role: 'Lead Designer',
       deltaScore: 18
     },
@@ -270,8 +269,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'tech-4',
       name: 'Desktop Organizing Script',
       description: 'I built this Python script to keep my desktop clean by automatically organizing files from the Downloads folder into categorized folders on my Desktop. Using the watchdog library, the script monitors Downloads for new files and instantly sorts them into folders based on type, such as Images, Videos, Documents...etc. It’s a continuous process that runs in the background, making file management hands-free and time-efficient. This project taught me about file handling, automation, and real-time monitoring with the Watchdog API, creating a streamlined workspace.',
-      image: '/UI/i3.JPG',
-      slideshow: ['/UI/i3.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/desk.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/desk.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/desk2.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/desk3.png'],
       links: [
         { text: 'GitHub', url: 'https://github.com/imjustinliao/Desktop-Organizer' }
       ],
@@ -284,8 +283,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'tech-5',
       name: 'Stock Market Browser Extension',
       description: 'I developed this browser extension to track real-time stock prices and display key data from daily to yearly changes. Using JavaScript, HTML, and CSS, the extension pulls data from the Alpha Vantage API and ensures that the stock list is saved using the Chrome Storage API, even after closing the browser. It features automatic updates every 30 minutes during market hours and a manual refresh button for instant updates. Through this project, I gained experience with API integration, persistent data storage, and UI/UX improvements. Feel free to try it out on my GitHub repo.',
-      image: '/UI/i3.JPG',
-      slideshow: ['/UI/i3.JPG'],
+      image: 'https://github.com/imjustinliao/Stock-Market-Browser-Extension/blob/main/bull.png?raw=true',
+      slideshow: ['https://github.com/imjustinliao/Stock-Market-Browser-Extension/blob/main/bull.png?raw=true', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stock.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stock2.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stock3.png'],
       links: [
         { text: 'GitHub', url: 'https://github.com/imjustinliao/Stock-Market-Browser-Extension' }
       ],
@@ -298,8 +297,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'tech-6',
       name: 'Calingual AI',
       description: 'At Leaner Startup AI Hacks 6.0, my team placed in the top 5 for Callingual AI, an AI-powered customer support agent with emotional intelligence and multilingual voice interaction. I helped design the system architecture, ran competitor analysis, and identified a key gap: most AI agents can’t adapt emotionally. We addressed this by integrating Hume AI for emotion detection and Twilio for real-time voice, allowing dynamic tone shifts, dialect support, and more human-like conversations. I also worked on our business model, mapping subscription pricing and projected operating costs. The project gave me hands-on experience in product strategy, market validation, and designing scalable AI experiences under tight deadlines.',
-      image: '/UI/i3.JPG',
-      slideshow: ['/UI/i3.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/call1.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/call1.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/call12.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/call3.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/call7.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/call4.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/call5.JPG'],
       links: [
         { text: 'Pitch Presentation', url: 'https://youtu.be/HFucELcB4kM' },
         { text: 'Leaner Startup AI Hacks', url: 'https://leanerstartups.com/event-registration/ai-hackathon-may-2024/' }
@@ -313,8 +312,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'tech-7',
       name: 'C$ Stalker',
       description: 'This is a web app that simulates real-time stock trading using mainly Python and Flask. I co-developed with Ethan Leonard, I focused on front-end enhancements to create an engaging and user-friendly experience. Using IEX API, the app lets users simulate stock trading in a dynamic environment with auto-updating charts, while integrated AI chatbots from OpenAI offer instant insights and guidance for the user.',
-      image: '/UI/i3.JPG',
-      slideshow: ['/UI/i3.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/c%24.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/c%24.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/c%243.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/c%244.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/c%245.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/c%246.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/c%242.jpeg'],
       links: [
         { text: 'GitHub', url: 'https://github.com/ethan-leonard/CS_Stockers' }
       ],
@@ -327,8 +326,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'tech-8',
       name: 'BC ACM Website - v1',
       description: 'I co-developed the club website for BC Computer Programming Club (now BC ACM), starting as a member in April 2023 and later being promoted to VP in July 2023. Collaborating with four leaders, I built our first ACM club website from scratch using HTML, CSS, JavaScript, Node.js, and Express.js, which increased club membership to over 250 students. I handled the front-end development and implemented Formspree for the contact page, while also guiding students in setting up collaborative Git environments and creating their portfolio websites.',
-      image: '/UI/i3.JPG',
-      slideshow: ['/UI/i3.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/cpc%20website2.JPG',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/cpc%20website2.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/cpc%20website3.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/cpc%20website.png'],
       links: [
         { text: 'GitHub', url: 'https://github.com/bellevue-college-acm/WebDevTeam' }
       ],
@@ -341,8 +340,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'tech-9',
       name: 'Binary, Octal, Hexadecimal Converters',
       description: 'My coding journey began with this Binary Decimal Converter, a Python tool I created to convert between binary and decimal with flexible precision settings. Developed during my first Python bootcamp back in Taiwan, I expanded to binary-to-octal and binary-to-hexadecimal conversions as I dove deeper into the logic of base conversions. This project sharpened my mathematical thinking, problem-solving, and sparked my passion for programming.',
-      image: '/UI/i3.JPG',
-      slideshow: ['/UI/i3.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/converter1.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/converter1.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/converter2.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/converter3.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/converter4.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/converter5.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/converter6.png'],
       links: [
         { text: 'GitHub', url: 'https://github.com/imjustinliao/Binary-to-Decimal-Converter' }
       ],
