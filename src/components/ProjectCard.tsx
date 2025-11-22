@@ -221,14 +221,19 @@ export default function ProjectCard({ project, isExpanded, onExpand, isHovered, 
       <div className="absolute inset-0 border-[1px] border-white overflow-hidden">
         
         {/* Background Media */}
-        <div className="absolute inset-0 bg-black">
+        <div className="absolute inset-0 bg-white">
           {/* Static Image */}
           <img
             src={project.image}
             alt={project.name}
+            decoding="async"
             className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ${
-              (isHovered || isExpanded) ? 'opacity-0 blur-none' : 'opacity-100 blur-[5px] brightness-[0.8] grayscale-[0.1]'
+              (isHovered || isExpanded) ? 'opacity-0 blur-none' : 'opacity-100 blur-[5px] brightness-[0.8]'
             }`}
+            style={{ 
+              willChange: 'filter, opacity',
+              backfaceVisibility: 'hidden'
+            }}
           />
 
           {/* Inner Shadow Overlay */}
@@ -236,7 +241,7 @@ export default function ProjectCard({ project, isExpanded, onExpand, isHovered, 
             className={`absolute inset-0 pointer-events-none transition-opacity duration-500 ${
               (isHovered || isExpanded) ? 'opacity-0' : 'opacity-100'
             }`}
-            style={{ boxShadow: 'inset 0 0 65px rgba(255, 255, 255, 1)' }}
+            style={{ boxShadow: 'inset 0 0 60px rgba(255, 255, 255, 0.5)' }}
           />
           
           

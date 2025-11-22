@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import ProjectCard from '../components/ProjectCard'
 import GlowingBorder from '../components/GlowingBorder'
 import { projects } from '../data/projects'
+import { useImagePreloader } from '../hooks/useImagePreloader'
 
 const slideOneContent = [
   "Throughout my life, I’m never fond of existing rules and ideologies.",
@@ -40,6 +41,9 @@ export default function About() {
   const [hoveredProjectId, setHoveredProjectId] = useState<string | null>(null)
   const [currentPage, setCurrentPage] = useState(1)
   const ITEMS_PER_PAGE = 3
+
+  // Smart Image Preloading
+  useImagePreloader(projects, activeWorkCategory, currentPage, ITEMS_PER_PAGE)
 
   const projectSectionRef = useRef<HTMLDivElement>(null)
 

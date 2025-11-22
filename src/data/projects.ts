@@ -51,7 +51,7 @@ export const projects: Record<number, ProjectData[]> = {
       name: 'VibeChk Official',
       description: 'I co-founded VibeChk, a location-based social app that helps people meet in real life through creator discovery and coffee chat invites. I designed the entire UI in Figma, coded the front end in Swift, designed the brand through organic UGC, and handled all customer problems while Thomas focused on backend development. We launched on the App Store, grew to 100+ downloads globally, and secured 50+ early waitlist signups through videos and a simple web landing page I built. It was our first fully launched project, giving me real-world experience in prototyping, distribution, product launch, iteration, user interviews, and shipping under tight deadlines. Along the way, I started to grow my personal branding on X, LinkedIn, and Instagram through UGCs.',
       image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%20main.png',
-      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%20main.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%20main%202.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%20main%203.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%20main%204.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%20main%205.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%20main%206.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%20main%207.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%20main%208.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%20main%209.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%20main%2010.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%20main%2011.jpeg'],
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%20main.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%20main%202.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%20main%203.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%20main%204.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%20main%205.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%20main%206.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%20main%207.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%20main%208.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%20main%209.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%20main%2010.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibeA1.PNG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibeA2.PNG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibeA3.PNG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibeA4.PNG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%20main%2011.jpeg'],
       links: [
         { text: 'Official Website', url: 'https://vibechk.io/' },
         { text: 'App Store', url: 'https://apps.apple.com/us/app/vibechk/id6748249688' },
@@ -358,8 +358,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'content-1',
       name: 'Founders x Customer',
       description: 'This is a weekly interview series where I bring tech startup founders face-to-face with their actual customers and challenge them to sell their product on the spot. I’ll pick the founder, pick the customer, set up the meeting, and film the interaction as a way to showcase real persuasion, product thinking, and founder storytelling. It’s meant to be fun, raw, and honest. Coming soon.',
-      image: '/UI/i1.JPG',
-      slideshow: ['/UI/i1.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tba.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tba.png'],
       links: [
         { text: 'YouTube', url: 'https://www.youtube.com/@imjustinliao' },
         { text: 'Instagram', url: 'https://www.instagram.com/imjustinliao/' },
@@ -374,8 +374,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'content-2',
       name: 'Justin\'s Life Vlogs',
       description: 'This is a casual weekly vlog series documenting my life before I move into a new phase—what I worked on, where I went, what I ate, and who I spent time with. It’s filmed in a simple, cinematic style, more like a personal journal than polished content. It’s a way for me to look back on the small details that shaped the journey. Coming soon.',
-      image: '/UI/i2.JPG',
-      slideshow: ['/UI/i2.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tba.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tba.png'],
       links: [
         { text: 'YouTube', url: 'https://www.youtube.com/@imjustinliao' },
         { text: 'Instagram', url: 'https://www.instagram.com/imjustinliao/' }
@@ -389,8 +389,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'content-3',
       name: 'Meta OS Parody',
       description: 'I made this parody after Meta’s OS demo failed during the Ray-Ban AI Glasses launch, mixing memes with my own personality to introduce myself to the tech/startup crowd. I filmed a one-shot scene (redid it 6+ times) pretending to be “Mark,” flipping through Forbes, saying “nonono,” then switching into Enjoy the Ride as I walked into my room singing. I edited everything in CapCut and redesigned the glasses UI in Figma—notifications, WhatsApp calls, overlays, filters, animations, and the final “Shot on iPhone” intro. I also included cameos of tech Twitter creators and friends. It took around three days to film and produce, and it ended up reaching 4.1k on X, 2.5k on LinkedIn, and 2.4k on Instagram, becoming one of my highest-quality edits so far.',
-      image: '/UI/i3.JPG',
-      slideshow: ['/UI/i3.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/mark.jpeg',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/mark.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/mark2.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/mark3.jpg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/mark4.jpg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/mark5.jpg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/mark 6.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/mark7.jpg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/mark9.jpg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/mark10.jpg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/mark11.jpg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/mark12.jpg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/mark13.jpg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/mark14.jpg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/mark15.jpg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/mark16.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/mark17.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/mark18.png'],
       links: [
         { text: 'Watch', url: 'https://youtu.be/OqOVUH60g3E' },
         { text: 'Post', url: 'https://x.com/imjustinliao/status/1970549505209835826?s=20' },
@@ -406,8 +406,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'content-4',
       name: 'VibeChk Official Launch',
       description: 'This was the first cinematic launch film I made for VibeChk, where I acted as the main character and co-directed the entire project. I wrote the outline, recruited 15+ friends for the scenes, and directed the story flow, audio cues, and transitions while Claire Teske and Michael Talluto handled filming and editing. The short follows a narrative I created about a burnt-out Gen Z founder waking up in a 2030 world where people meet in real life again—founders talking on the streets, creators building together, and spontaneous meetups happening everywhere. It became my most ambitious visual project so far and also my highest-engagement post, reaching 4.1k on X, 8.3k on LinkedIn, and 2.3k on Instagram, which brought in new VibeChk users and helped me network with a lot more builders.',
-      image: '/UI/i1.JPG',
-      slideshow: ['/UI/i1.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%201.jpeg',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%201.jpeg', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%202.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%203.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%204.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%205.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%206.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%207.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%208.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%209.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%2010.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%2011.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%2012.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%2013.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vibechk%2014.png'],
       links: [
         { text: 'Watch', url: 'https://youtu.be/2xVtcuz__n4' }, 
         { text: 'Post', url: 'https://www.linkedin.com/posts/justin-liao23_challengeaccepted-startups-activity-7353471282228670465-mQcV?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEZqj-gBKLiytH8UF5DEfADF8Pv13_WJNX8' },
@@ -423,8 +423,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'content-5',
       name: 'VibeChk Pre-Launch',
       description: 'This was the pre-launch edit for VibeChk, but with more of a documentary vibe, using behind-the-scenes shots of the actors I invited while filming the main launch video. I edited it with a NEMZZZ-type beat, which is a popular track in Gen Z startup UGC, and focused on smooth, simple transitions that matched the energy. It reached about 3k views on Instagram, which was the highest on my account at the time (with only ~320 followers), and it helped other young builders discover my work and reach out.',
-      image: '/UI/i2.JPG',
-      slideshow: ['/UI/i2.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vcl1.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vcl1.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vcl2.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vcl3.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vcl4.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vcl5.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vcl6.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vcl7.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vcl8.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vcl9.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vcl10.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vcl11.png'],
       links: [
         { text: 'Post', url: 'https://www.instagram.com/reel/DMW65F8u9td/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
         { text: 'Post', url: 'https://www.linkedin.com/posts/justin-liao23_startups-technology-genzfounders-activity-7353089336680067072-8qu8?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEZqj-gBKLiytH8UF5DEfADF8Pv13_WJNX8' },
@@ -439,8 +439,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'content-6',
       name: 'VibeChk Pre-trailer',
       description: 'I made this pre-trailer to hype the VibeChk launch and introduce the idea of “meet builders IRL,” which fits our Gen Z audience who don’t really vibe with professional LinkedIn culture. It was a full-day edit featuring the rap track Indicisive by Kidwild, a mix of smooth transitions, and a grind-mode aesthetic to show what we were building. It ended with “Launching on Tuesday” and “Comment ‘vibe’ for priority access,” which a lot of people actually did. It became my most engaging piece at the time, hitting 6.5k views on LinkedIn, 2.1k on Instagram, and 1.1k on X.',
-      image: '/UI/i3.JPG',
-      slideshow: ['/UI/i3.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vcp1.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vcp1.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vcp2.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vcp3.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vcp4.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vcp5.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vcp6.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vcp7.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/vcp8.png'],
       links: [
         { text: 'Post', url: 'https://www.instagram.com/reel/DMNvlFWx3tx/?utm_source=ig_web_copy_link' },
         { text: 'Post', url: 'https://www.linkedin.com/posts/justin-liao23_cold-dms-and-emails-are-dead-gen-zs-are-activity-7351640380171280384-dStE?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEZqj-gBKLiytH8UF5DEfADF8Pv13_WJNX8' },
@@ -455,8 +455,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'content-7',
       name: 'Side Hustle Timelapse',
       description: 'This was a quick 13-second timelapse I made to capture the day-and-night grind of me and Thomas building our projects. I used continuous transitions and added short lines of text like “your time is limited,” “we are creating,” and “60 days, three viral apps” to give it that Gen Z hustle-energy vibe. It was meant to be simple but motivational, and it ended up hitting around 2k views across platforms. It’s one of those edits that shows how much can be said in just a few seconds when the pacing and message line up well with the music.',
-      image: '/UI/i1.JPG',
-      slideshow: ['/UI/i1.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tl1.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tl1.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tl2.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tl3.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tl4.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tl5.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tl6.png'],
       links: [
         { text: 'Shorts', url: 'https://youtube.com/shorts/N-KKPQ0Mra4?feature=share' },
         { text: 'Post', url: 'https://www.instagram.com/p/DLvg-nfBIS2/' },
@@ -471,8 +471,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'content-8',
       name: '3 Viral Apps in 60 Days',
       description: 'This was my first UGC-style video to promote my personal brand and build early hype for the VibeChk launch. I spent three days filming and editing with Thomas, shooting over 100 clips because I kept refilming until it felt right. The final cut is a one-minute cinematic edit with filters, transitions, manual voiceover, custom captions, layered sound effects, and a bunch of small details to keep it tight. It reached 2.6k views on X, 2.3k on LinkedIn, and 1.8k on Instagram, which led to random people reaching out, asking what I was building, and signing up for the waitlist.',
-      image: '/UI/i2.JPG',
-      slideshow: ['/UI/i2.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/goat1.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/goat1.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/goat2.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/goat3.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/goat4.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/goat5.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/goat6.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/goat7.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/goat8.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/goat9.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/goat10.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/goat11.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/goat12.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/goat13.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/goat14.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/goat15.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/goat16.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/goat17.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/goat18.png'],
       links: [
         { text: 'Post', url: 'https://x.com/imjustinliao/status/1940804339771064778?s=20' },
         { text: 'Post', url: 'https://www.linkedin.com/posts/justin-liao23_startup-founders-buildinpublic-activity-7346574112409993219-GC2z?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEZqj-gBKLiytH8UF5DEfADF8Pv13_WJNX8' },
@@ -487,8 +487,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'content-9',
       name: 'Demo Day Trailer',
       description: 'I produced a cinematic trailer for Innovators Hub’s Demo Day, blending storytelling, suspense, and humor while introducing the event theme. Everything was filmed on an iPhone 15 Pro and manually edited with CapCut, the trailer introduced the Launchpad program and elevated the overall production quality for over 120+ attendees.',
-      image: '/UI/i3.JPG',
-      slideshow: ['/UI/i3.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/demo1.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/demo1.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/demo2.png','https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/demo3.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/demo4.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/demo5.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/demo6.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/demo7.png','https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/demo8.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/demo9.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/demo10.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/demo11.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/demo12.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/demo13.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/demo14.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/demo15.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/demo16.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/demo17.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/demo18.png','https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/demo19.png','https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/demo20.png','https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/demo21.png','https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/demo22.png'],
       links: [
         { text: 'Watch', url: 'https://youtu.be/vs2VFVVnW2I' },
         { text: 'Post', url: 'https://www.instagram.com/reel/DKiJI0uhTIo/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==' },
@@ -503,8 +503,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'content-10',
       name: 'Porsche GT3RS Edits',
       description: 'I made this Porsche GT3RS edit purely out of passion — literally two hours before a final. I grabbed different GT3RS and GT3R clips from YouTube, mixed them together, and synced everything to the phonk track Sleepwalker. The fun part was matching the music with the engine sound and timing each cut so the video feels fast, smooth, and alive. It was all done in CapCut, and even though it was a quick project, it’s still one of my favorite edits I’ve made.',
-      image: '/UI/i1.JPG',
-      slideshow: ['/UI/i1.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/p1.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/p1.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/p2.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/p3.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/p4.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/p5.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/p6.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/p7.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/p8.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/p9.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/p10.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/p11.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/p12.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/p13.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/p14.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/p15.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/p16.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/p17.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/p18.png'],
       links: [
         { text: 'Watch', url: 'https://youtu.be/1P-xY6MPEeQ' },
         { text: 'Post', url: 'https://x.com/imjustinliao/status/1930396054408900970?s=20' }
@@ -518,8 +518,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'content-11',
       name: 'Steve Jobs Motivation Edits',
       description: 'This edit was inspired by a clip I saw on Instagram. I started by filming my laptop with my phone as Steve Jobs began speaking, then used a glitch transition to jump into full-screen for the main part of the interview. At the end, it transitions back into real life the same way it started. It was a simple idea, but it ended up being my first post on X to pass 1k views, eventually reaching 5k+, which felt big at the time since I was just starting to grow on the platform.',
-      image: '/UI/i2.JPG',
-      slideshow: ['/UI/i2.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/steve1.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/steve1.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/steve2.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/steve3.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/steve4.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/steve5.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/steve6.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/steve7.png'],
       links: [
         { text: 'Watch', url: 'https://youtu.be/DfOIJtyJ9jE' },
         { text: 'Post', url: 'https://x.com/imjustinliao/status/1917674643936473480?s=20' }
