@@ -105,8 +105,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'high-delta-4',
       name: 'UWB ACM',
       description: 'I was recruited as a core officer to support general events and an annual Hackathon. For UWB Hacks 25, I co-led the sponsorship team to recruit industry professional judges, meeting with companies and reaching out to hundreds of engineers, designers, and founders to bring in 100+ judges. The event had 500+ participants, which was one of the largest hackathons ever held at UWB.',
-      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm.png',
-      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%202.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%203.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%204.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%205.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%206.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%207.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%208.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%209.png'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/uwbacm.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/uwbacm.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%202.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%203.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%204.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%205.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%206.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%207.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%208.JPG', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/acm%209.png'],
       links: [
         { text: 'Official Website', url: 'https://uwbacm.org/' },
         { text: 'LinkedIn', url: 'https://www.linkedin.com/company/uwb-acm-club/' },
