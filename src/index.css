@@ -133,6 +133,19 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
   animation: pulse-glow 1.5s infinite ease-in-out;
 }
 
+@keyframes pulse-glow-blue {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(146, 195, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgb(85, 162, 255);
+  }
+}
+
+.animate-pulse-glow-blue {
+  animation: pulse-glow-blue 1.5s infinite ease-in-out;
+}
+
 @keyframes text-pulse-glow {
   0%, 100% {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);

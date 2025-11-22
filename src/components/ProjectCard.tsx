@@ -17,6 +17,7 @@ export interface ProjectData {
   location: string
   role: string
   deltaScore: number | string
+  glowColor?: string
 }
 
 interface ProjectCardProps {
@@ -119,9 +120,7 @@ const CanvaIcon = () => (
 )
 
 const AppStoreIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg">
-    <path d="M11.163 12.44c-.66.96-1.35 1.91-2.43 1.93-1.06.02-1.4-.63-2.62-.63-1.22 0-1.6.61-2.6.65-1.04.04-1.83-1.04-2.5-2.01-1.37-1.98-2.42-5.61-.99-8.1 0 0 .7-.86 1.83-.88 1.02-.02 1.7.68 2.23.68.53 0 1.52-.84 2.56-.71 1.08.13 1.9.55 2.5 1.43-.02.02-1.5.87-1.48 2.59.02 2.06 1.81 2.75 1.81 2.75s-.13.38-.29.88c-.35 1.02-1.17 2.29-1.17 2.29zM10.2 2.92c.56-.68.94-1.63.83-2.57-.81.03-1.79.54-2.37 1.22-.52.6-.97 1.56-.85 2.48.9.07 1.82-.45 2.39-1.13z"/>
-  </svg>
+  <i className="fa-brands fa-apple text-white text-[16px]"></i>
 )
 
 // Helper to get icon based on text/url
@@ -209,7 +208,9 @@ export default function ProjectCard({ project, isExpanded, onExpand, isHovered, 
         ${isExpanded 
           ? 'shadow-[inset_0_0_12px_12px_rgba(255,255,255,0.75)]' 
           : isHovered 
-            ? 'animate-pulse-glow' 
+            ? project.glowColor === '#92C3FF'
+              ? 'animate-pulse-glow-blue'
+              : 'animate-pulse-glow' 
             : ''
         }
       `}

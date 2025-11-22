@@ -27,7 +27,8 @@ export const projects: Record<number, ProjectData[]> = {
       timeline: '9.25.25 - Present',
       location: 'TBA',
       role: 'Co-Founder & C#O',
-      deltaScore: '∞'
+      deltaScore: '∞',
+      glowColor: '#92C3FF'
     },
     {
       id: 'tech-2',
@@ -44,7 +45,8 @@ export const projects: Record<number, ProjectData[]> = {
       timeline: '10.10.25 - Present',
       location: 'Bothell, WA',
       role: 'Co-founder & Lead',
-      deltaScore: 45
+      deltaScore: 45,
+      glowColor: '#92C3FF'
     },
     {
       id: 'VibeChk Official',
@@ -96,7 +98,8 @@ export const projects: Record<number, ProjectData[]> = {
       timeline: 'October 2024 - Present',
       location: 'Bothell, WA',
       role: 'Founder & Co-President',
-      deltaScore: 42
+      deltaScore: 42,
+      glowColor: '#92C3FF'
     },
     {
       id: 'high-delta-4',
@@ -231,7 +234,7 @@ export const projects: Record<number, ProjectData[]> = {
         { text: 'GitHub', url: 'https://github.com/imjustinliao/Portfolio-v0.5' },
         { text: 'Prototype', url: 'https://www.figma.com/proto/7HZt1aXQl4FfILlwF6qQ8V/Side-Projects?page-id=0%3A1&node-id=2070-1559&viewport=22129%2C21298%2C0.17&t=KjUgh41cMKPMT62U-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1834%3A1551&show-proto-sidebar=1' }
       ],
-      timeline: '11.16.25 - 11.20.25',
+      timeline: '11.16.25 - 11.21.25',
       location: 'Localhost: justinliao',
       role: 'Designer & Engineer',
       deltaScore: 55
@@ -368,7 +371,8 @@ export const projects: Record<number, ProjectData[]> = {
       timeline: 'TBA',
       location: 'YouTube | Instagram | LinkedIn',
       role: 'Creator',
-      deltaScore: 60
+      deltaScore: 60,
+      glowColor: '#92C3FF'
     },
     {
       id: 'content-2',
@@ -383,7 +387,8 @@ export const projects: Record<number, ProjectData[]> = {
       timeline: 'TBA',
       location: 'YouTube | Instagram',
       role: 'Creator',
-      deltaScore: 75
+      deltaScore: 75,
+      glowColor: '#92C3FF'
     },
     {
       id: 'content-3',

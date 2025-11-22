@@ -47,9 +47,13 @@ export default function Hero() {
             As a defiant technologist, I{' '}
             <Link 
               to="/about" 
-              className="italic font-normal text-[#92C3FF] no-underline transition-all duration-200 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
+              className="relative group inline-block px-1 -mx-1 rounded-md italic font-normal text-[#92C3FF] no-underline"
             >
-              create
+              <span className="absolute inset-0 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none overflow-hidden">
+                <div className="absolute inset-0 border border-[rgba(146,195,255,0.5)] rounded-md"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(146,195,255,0.4)] to-transparent animate-shimmer"></div>
+              </span>
+              <span className="relative z-10">create</span>
             </Link>{' '}
             immersive experience that is boundless and unconventional.
           </p>
@@ -69,9 +73,13 @@ export default function Hero() {
           <p className="text-[clamp(14px,1.4vw,15px)] sm:text-[clamp(15px,1.5vw,16px)] lg:text-[17px] font-normal leading-[1.5] text-white tracking-[-0.01em]">
             <a 
               href="mailto:justinliao@gmail.com" 
-              className="italic font-normal text-[#92C3FF] no-underline transition-all duration-200 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
+              className="relative group inline-block px-1 -mx-1 rounded-md italic font-normal text-[#92C3FF] no-underline"
             >
-              @Inspire
+              <span className="absolute inset-0 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none overflow-hidden">
+                <div className="absolute inset-0 border border-[rgba(146,195,255,0.5)] rounded-md"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(146,195,255,0.4)] to-transparent animate-shimmer"></div>
+              </span>
+              <span className="relative z-10">@Inspire</span>
             </a>{' '}
             me.
           </p>

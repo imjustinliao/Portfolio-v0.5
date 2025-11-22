@@ -144,7 +144,7 @@ export default function Footer() {
       />
 
       {/* Desktop Footer */}
-      <footer className="fixed bottom-8 left-0 w-full px-[3vw] flex items-end justify-between z-50 pointer-events-none max-md:hidden font-['Arimo',_sans-serif]">
+      <footer className="fixed bottom-8 left-0 w-full px-[3vw] flex items-end justify-between z-50 pointer-events-none max-xl:hidden font-['Arimo',_sans-serif]">
         
         {/* Left: Let's Connect (Expandable) */}
         <div 
@@ -193,7 +193,7 @@ export default function Footer() {
       </footer>
 
       {/* Mobile Footer (Bottom Right Expandable Pill) */}
-      <div className="fixed bottom-4 right-[3vw] z-50 md:hidden flex flex-col items-end justify-end font-['Arimo',_sans-serif]">
+      <div className="fixed bottom-4 right-[3vw] z-50 xl:hidden flex flex-col items-end justify-end font-['Arimo',_sans-serif]">
         <div
             className={`
                 relative overflow-hidden transition-all duration-300 ease-out

@@ -3,6 +3,7 @@ import ProjectCard from '../components/ProjectCard'
 import GlowingBorder from '../components/GlowingBorder'
 import { projects } from '../data/projects'
 import { useImagePreloader } from '../hooks/useImagePreloader'
+import FollowMeCard from '../components/FollowMeCard'
 
 const slideOneContent = [
   "Throughout my life, I’m never fond of existing rules and ideologies.",
@@ -25,7 +26,8 @@ const workCategories = [
   "Leadership",
   "Intuitive Arts",
   "Technical Projects",
-  "Content Creation"
+  "Content Creation",
+  "Follow Me"
 ]
 
 export default function About() {
@@ -195,29 +197,37 @@ export default function About() {
           <div className="hidden md:flex flex-col gap-2 w-full max-w-[clamp(180px,25vw,265px)] sticky top-24 h-fit">
             {workCategories.map((category, index) => {
               const isSelected = activeWorkCategory === index
+              // Check if this is the 5th category (index 4) - "Follow Me"
+              const isFollowMe = index === 4
+              
               return (
                 <button
                   key={index}
                   onClick={() => handleCategoryClick(index)}
                   className={`
                     relative w-full text-left py-[clamp(10px,1.2vh,14px)] px-[clamp(12px,1.5vw,20px)]
-                    text-[clamp(18px,1.8vw,24px)] font-normal text-white
+                    text-[clamp(18px,1.8vw,24px)] font-normal 
+                    ${isFollowMe ? 'text-[#92C3FF]' : 'text-white'}
                     transition-all duration-300 ease-out
                     group
-                    ${isSelected ? 'bg-[rgba(255,255,255,0.15)]' : 'hover:bg-[rgba(255,255,255,0.2)]'}
+                    ${isSelected 
+                      ? isFollowMe ? 'bg-[rgba(146,195,255,0.15)]' : 'bg-[rgba(255,255,255,0.15)]' 
+                      : isFollowMe ? 'hover:bg-[rgba(146,195,255,0.2)]' : 'hover:bg-[rgba(255,255,255,0.2)]'
+                    }
                     rounded-r-[5px]
                   `}
                 >
                   {/* Left Border Selection Indicator */}
                   {/* Inner stroke white 1px 15% transparent */}
                   {isSelected && (
-                    <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-white" />
+                    <div className={`absolute left-0 top-0 bottom-0 w-[1px] ${isFollowMe ? 'bg-[#92C3FF]' : 'bg-white'}`} />
                   )}
 
                   {/* White Rectangle on Hover (Unselected) or Active */}
                   <div 
                     className={`
-                      absolute right-4 top-1/2 -translate-y-1/2 w-[7px] h-[10px] bg-white
+                      absolute right-4 top-1/2 -translate-y-1/2 w-[7px] h-[10px] 
+                      ${isFollowMe ? 'bg-[#92C3FF]' : 'bg-white'}
                       transition-opacity duration-300
                       ${isSelected ? 'animate-blink' : 'opacity-0 group-hover:opacity-100'}
                     `} 
@@ -233,7 +243,7 @@ export default function About() {
           <div className="md:hidden w-full relative z-30">
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className="w-full flex items-center justify-between py-3 px-4 bg-[rgba(255,255,255,0.15)] rounded-[5px] text-white text-[20px] font-normal border border-transparent active:border-[rgba(255,255,255,0.3)] transition-all"
+              className={`w-full flex items-center justify-between py-3 px-4 bg-[rgba(255,255,255,0.15)] rounded-[5px] ${activeWorkCategory === 4 ? 'text-[#92C3FF]' : 'text-white'} text-[20px] font-normal border border-transparent active:border-[rgba(255,255,255,0.3)] transition-all`}
             >
               <span>{workCategories[activeWorkCategory]}</span>
               <svg 
@@ -244,7 +254,7 @@ export default function About() {
                 xmlns="http://www.w3.org/2000/svg"
                 className={`transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : 'rotate-0'}`}
               >
-                <path d="M1 1L7 7L13 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M1 1L7 7L13 1" stroke={activeWorkCategory === 4 ? '#92C3FF' : 'white'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
 
@@ -260,13 +270,14 @@ export default function About() {
             >
               {workCategories.map((category, index) => {
                 if (index === activeWorkCategory) return null
+                const isFollowMe = index === 4
                 return (
                   <button
                     key={index}
                     onClick={() => {
                       handleCategoryClick(index)
                     }}
-                    className="w-full text-left py-3 px-4 text-[18px] text-[rgba(255,255,255,0.8)] hover:text-white hover:bg-[rgba(255,255,255,0.1)] transition-colors border-b border-[rgba(255,255,255,0.1)] last:border-b-0"
+                    className={`w-full text-left py-3 px-4 text-[18px] ${isFollowMe ? 'text-[#92C3FF] hover:text-[#92C3FF]' : 'text-[rgba(255,255,255,0.8)] hover:text-white'} hover:bg-[rgba(255,255,255,0.1)] transition-colors border-b border-[rgba(255,255,255,0.1)] last:border-b-0`}
                   >
                     {category}
                   </button>
@@ -286,6 +297,13 @@ export default function About() {
                 <p className="text-[clamp(16px,1.5vw,20px)] text-[#C9C9C9] font-light max-w-[600px] leading-relaxed">
                   I'm taking some time to organize what I've created since 2010, such as painting, sketches, photography, and paper arts.
                 </p>
+              </div>
+            ) : activeWorkCategory === 4 ? (
+              // Follow Me Card - Centered
+              <div className="w-full h-full flex items-start justify-center animate-fade-in-up">
+                <div className="w-full max-w-[500px]">
+                  <FollowMeCard />
+                </div>
               </div>
             ) : (
               displayedProjects.map((project) => (
