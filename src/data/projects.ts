@@ -533,8 +533,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'content-12',
       name: 'OPTT Stock Analysis',
       description: 'I made this as a troll video in Fall 2024, pretending to be one of those fake YouTube stock “gurus.” It was during the time I first started investing and was bag-holding about $1k of OPTT after buying the top, so I turned the whole situation into a joke. I used the Yahoo Finance intro as a transition, added stock-market background crowd noise, and gave an overly confident breakdown of OPTT and RCAT. I shared it in the stock group I founded and somehow convinced a few friends to buy in too—some made money and some ended up bag-holding with me. It was a fun project and one of my early comedy edits around finance.',
-      image: '/UI/i3.JPG',
-      slideshow: ['/UI/i3.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/optt1.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/optt1.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/optt2.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/optt3.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/optt4.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/optt5.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/optt6.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/optt7.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/optt8.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/optt9.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/optt10.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/optt11.png'],
       links: [
         { text: 'Watch', url: 'https://youtu.be/WB9_A2mhC8U' }
       ],
@@ -547,8 +547,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'content-13',
       name: 'Motiversity Remix',
       description: 'This was a quick comedy edit I made right after the Stanford rejection. I took motivational clips from YouTube and suddenly cut them into me giving random “life advice,” switching back and forth for comedic timing. It was all done in CapCut, and it was my first time mixing viral-style transitions with clips of myself. It ended up being one of those spontaneous edits that turned out funnier than expected.',
-      image: '/UI/i1.JPG',
-      slideshow: ['/UI/i1.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/motiversity1.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/motiversity1.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/motiversity2.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/motiversity3.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/motiversity4.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/motiversity5.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/motiversity6.png'],
       links: [
         { text: 'Watch', url: 'https://youtu.be/1ncohrdTtA4' }
       ],
@@ -561,8 +561,8 @@ export const projects: Record<number, ProjectData[]> = {
       id: 'content-14',
       name: 'Stanford Rejection Reaction',
       description: 'I made this video in 2024 when I applied to transfer from BC and genuinely thought I had a shot at Stanford. It was meant to be a sarcastic joke, filmed right before decisions came out — I talked about random “signs” like how I dreamed I got in, wore a red shirt, and pointed at a tree outside calling it the Stanford tree. When the rejection came, I turned the whole thing into a playful parody with You and Whose Army in the background, plus a few dramatic gym shots and push-ups in the middle of the road for humor. I ended it with a simple “Go Husky,” basically saying UW, I’m coming.',
-      image: '/UI/i2.JPG',
-      slideshow: ['/UI/i2.JPG'],
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stanford1.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stanford1.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stanford2.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stanford3.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stanford4.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stanford5.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stanford6.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stanford7.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stanford8.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stanford9.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stanford.jpeg','https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stanford10.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stanford11.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stanford12.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stanford13.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stanford14.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stanford15.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stanford16.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stanford17.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stanford18.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stanford19.png'],
       links: [
         { text: 'Watch', url: 'https://youtu.be/QNH_VSecoRQ' }
       ],
