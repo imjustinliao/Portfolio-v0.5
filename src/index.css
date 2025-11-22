@@ -173,6 +173,23 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
   animation: fadeInUp 1s ease-out forwards;
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 60s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
 .animate-glow-border {
   position: relative;
   overflow: visible;

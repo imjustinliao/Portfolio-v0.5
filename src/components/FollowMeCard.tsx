@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const socialLinks = {
   cinema: [
@@ -7,7 +8,8 @@ const socialLinks = {
   ],
   knowledge: [
     { name: 'X', url: 'https://x.com/imjustinliao' },
-    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/justin-liao23/' }
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/justin-liao23/' },
+    { name: 'Thinking', url: '/thinking' }
   ],
   work: [
     { name: 'GitHub', url: 'https://github.com/imjustinliao' },
@@ -83,15 +85,25 @@ export default function FollowMeCard() {
           <div className="flex flex-col gap-3">
             <span className="text-white/60 text-sm font-light tracking-wide drop-shadow-[0_0_8px_rgba(0,0,0,0.5)]">Knowledge</span>
             {socialLinks.knowledge.map((link) => (
-              <a 
-                key={link.name}
-                href={link.url}
-                target="_blank"
-                rel="noreferrer"
-                className="text-white text-2xl font-normal hover:text-[#92C3FF] transition-colors drop-shadow-[0_0_8px_rgba(0,0,0,0.5)]"
-              >
-                {link.name}
-              </a>
+              link.url.startsWith('/') ? (
+                <Link
+                  key={link.name}
+                  to={link.url}
+                  className="text-white text-2xl font-normal hover:text-[#92C3FF] transition-colors drop-shadow-[0_0_8px_rgba(0,0,0,0.5)]"
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a 
+                  key={link.name}
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-white text-2xl font-normal hover:text-[#92C3FF] transition-colors drop-shadow-[0_0_8px_rgba(0,0,0,0.5)]"
+                >
+                  {link.name}
+                </a>
+              )
             ))}
           </div>
 

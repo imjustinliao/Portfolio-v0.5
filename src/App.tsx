@@ -18,12 +18,15 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  const location = useLocation()
+  const isThinkingPage = location.pathname === '/thinking'
+
   return (
     <div className="site-wrapper">
       <CustomCursor />
       <ScrollToTop />
       <Navbar />
-      <main>
+      <main className={isThinkingPage ? '!p-0 !w-full !max-w-none' : ''}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
