@@ -33,10 +33,10 @@ const education: EducationItem[] = [
 
 const experience: ExperienceItem[] = [
   {
-    company: 'Reunify Labs',
+    company: 'AI Stealth Project',
     role: 'Founder',
     date: 'May 2024 - Present',
-    location: 'Bothell, WA',
+    location: 'TBA',
   },
   {
     company: 'VibeChk',

@@ -16,17 +16,15 @@ export const projects: Record<number, ProjectData[]> = {
   0: [
     {
       id: 'high-delta-1',
-      name: 'Reunify Labs',
-      description: 'An AI stealth lab I co-founded to explore AI-native ideas that redefines how people experience technology and life. Here’s our thesis: life is about experience, filled with endless possibilities. Whether it’s regarded as positive or negative, the delta must be intense enough to transcend human exploration. Current team: me, Thomas Suen, & Manish Ram.',
+      name: 'AI Stealth Project',
+      description: 'An AI stealth project I co-founded to explore AI-native ideas that redefines how people experience technology and life. Here’s our thesis: life is about experience, filled with endless possibilities. Whether it’s regarded as positive or negative, the delta must be intense enough to transcend human exploration. Current team: me, Thomas Suen, & Manish Ram.',
       image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stealth.png',
       slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/shown.png'],
       links: [
-        { text: 'Official Website', url: 'https://reunifylabs.com' },
-        { text: 'Twitter', url: 'https://x.com/reunifylabs' },
       ],
-      timeline: '9.25.25 - Present',
+      timeline: 'May 2024 - Present',
       location: 'TBA',
-      role: 'Co-Founder & C#O',
+      role: 'Co-Founder',
       deltaScore: '∞',
       glowColor: 'var(--theme-color)'
     },
@@ -63,7 +61,7 @@ export const projects: Record<number, ProjectData[]> = {
       ],
       timeline: '5.30.25 - 9.17.25',
       location: 'Bothell, WA',
-      role: 'Co-founder & CEO',
+      role: 'Co-founder & Designer',
       deltaScore: 48
     },
     {

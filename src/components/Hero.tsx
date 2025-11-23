@@ -91,7 +91,7 @@ export default function Hero() {
 
           {/* Co-founder */}
           <p className="text-[clamp(14px,1.4vw,15px)] sm:text-[clamp(15px,1.5vw,16px)] lg:text-[17px] font-normal leading-[1.5] text-white tracking-[-0.01em]">
-            I'm the co-founder of Reunify Labs.
+            I'm working on an AI Stealth Project.
           </p>
 
           {/* Philosophy */}
