@@ -31,7 +31,7 @@ export default function FollowMeCard() {
       <div 
         className={`
           absolute inset-0 bg-cover bg-center transition-all duration-500 ease-out
-          ${isHovered ? 'blur-sm scale-105 brightness-[0.4]' : 'blur-0 scale-100 brightness-100'}
+          ${isHovered ? 'blur-sm scale-105 brightness-[0.4]' : 'blur-0 scale-100 brightness-[0.65]'}
         `}
         style={{ backgroundImage: 'url(/UI/me.jpeg)' }}
       />
