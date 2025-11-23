@@ -110,7 +110,7 @@ export default function SettingsOverlay() {
           </svg>
         </button>
         
-        <div className="w-[120px] text-center flex justify-center pt-2">
+        <div className="w-[120px] text-center flex justify-center items-center">
           <span className="text-white text-3xl md:text-4xl font-light tracking-widest uppercase select-none transition-opacity duration-200" style={{ opacity: tabOpacity }}>
             {activeTab}
           </span>
@@ -321,7 +321,7 @@ export default function SettingsOverlay() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative group">
-                <div className="w-32 h-32 rounded-full border border-white overflow-hidden relative">
+                <div className="w-32 h-32 rounded-full border-2 border-white overflow-hidden relative">
                   <input
                     type="color"
                     value={themeColor}
