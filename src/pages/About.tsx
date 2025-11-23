@@ -31,6 +31,34 @@ const workCategories = [
 ]
 
 export default function About() {
+  const flowAudioRef = useRef<HTMLAudioElement | null>(null)
+
+  // Initialize audio
+  useEffect(() => {
+    flowAudioRef.current = new Audio('/audio/flow.mp3')
+    flowAudioRef.current.volume = 0.3
+    flowAudioRef.current.loop = true
+    return () => {
+      if (flowAudioRef.current) {
+        flowAudioRef.current.pause()
+        flowAudioRef.current.currentTime = 0
+      }
+    }
+  }, [])
+
+  const playFlowAudio = () => {
+    if (flowAudioRef.current && flowAudioRef.current.paused) {
+      flowAudioRef.current.currentTime = Math.random() * flowAudioRef.current.duration || Math.random() * 3.5
+      flowAudioRef.current.play().catch(() => {})
+    }
+  }
+
+  const stopFlowAudio = () => {
+    if (flowAudioRef.current) {
+      flowAudioRef.current.pause()
+      flowAudioRef.current.currentTime = 0
+    }
+  }
   const [activeState, setActiveState] = useState(0) // 0 or 1
   const [isAnimating, setIsAnimating] = useState(false)
   const [displayText, setDisplayText] = useState(slideOneContent)
@@ -127,7 +155,12 @@ export default function About() {
                 {paragraph.includes("high-delta work") ? (
                   <>
                     {paragraph.split("high-delta work")[0]}
-                    <span className="relative group/tooltip inline-block cursor-help px-1 -mx-1 rounded-md">
+                    <span 
+                      className="relative group/tooltip inline-block cursor-help px-1 -mx-1 rounded-md"
+                      onMouseEnter={playFlowAudio}
+                      onMouseLeave={stopFlowAudio}
+                      onClick={playFlowAudio}
+                    >
                       {/* Continuous Glowing Border Effect (Updated to use component) */}
                       <span className="absolute inset-0 rounded-md opacity-0 group-hover/tooltip:opacity-100 transition-opacity duration-300 pointer-events-none overflow-hidden">
                          <div className="absolute inset-0 border border-[rgba(146,195,255,0.5)] rounded-md"></div>

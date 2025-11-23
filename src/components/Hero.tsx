@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import GlowingBorder from './GlowingBorder'
 
@@ -8,6 +8,20 @@ export default function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(1) // Start at second image
   const [isImageHovered, setIsImageHovered] = useState(false)
   const baseUrl = import.meta.env.BASE_URL
+  const flowAudioRef = useRef<HTMLAudioElement | null>(null)
+
+  // Initialize audio
+  useEffect(() => {
+    flowAudioRef.current = new Audio('/audio/flow.mp3')
+    flowAudioRef.current.volume = 0.3
+    flowAudioRef.current.loop = true
+    return () => {
+      if (flowAudioRef.current) {
+        flowAudioRef.current.pause()
+        flowAudioRef.current.currentTime = 0
+      }
+    }
+  }, [])
 
   // Auto-rotate images every 5 seconds
   useEffect(() => {
@@ -16,6 +30,20 @@ export default function Hero() {
     }, 5000)
     return () => clearInterval(interval)
   }, [])
+
+  const playFlowAudio = () => {
+    if (flowAudioRef.current && flowAudioRef.current.paused) {
+      flowAudioRef.current.currentTime = Math.random() * flowAudioRef.current.duration || Math.random() * 3.5
+      flowAudioRef.current.play().catch(() => {})
+    }
+  }
+
+  const stopFlowAudio = () => {
+    if (flowAudioRef.current) {
+      flowAudioRef.current.pause()
+      flowAudioRef.current.currentTime = 0
+    }
+  }
 
   return (
     <section className="relative w-full min-h-[calc(100vh-180px)] flex items-center justify-center py-[4vh] max-lg:flex-col max-lg:gap-[5vh] px-[3vw]">
@@ -48,6 +76,9 @@ export default function Hero() {
             <Link 
               to="/about" 
               className="relative group inline-block px-1 -mx-1 rounded-md italic font-normal text-[#92C3FF] no-underline"
+              onMouseEnter={playFlowAudio}
+              onMouseLeave={stopFlowAudio}
+              onClick={playFlowAudio}
             >
               <span className="absolute inset-0 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none overflow-hidden">
                 <div className="absolute inset-0 border border-[rgba(146,195,255,0.5)] rounded-md"></div>
@@ -74,6 +105,9 @@ export default function Hero() {
             <a 
               href="mailto:justinliao@gmail.com" 
               className="relative group inline-block px-1 -mx-1 rounded-md italic font-normal text-[#92C3FF] no-underline"
+              onMouseEnter={playFlowAudio}
+              onMouseLeave={stopFlowAudio}
+              onClick={playFlowAudio}
             >
               <span className="absolute inset-0 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none overflow-hidden">
                 <div className="absolute inset-0 border border-[rgba(146,195,255,0.5)] rounded-md"></div>
@@ -93,9 +127,18 @@ export default function Hero() {
         {/* Adjust w-[35vw] to change desktop image size. Adjust max-lg:w-[80vw] for mobile. */}
         <div 
           className="w-[35vw] max-lg:w-[80vw] aspect-square rounded-[15px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.4)] relative"
-          onMouseEnter={() => setIsImageHovered(true)}
-          onMouseLeave={() => setIsImageHovered(false)}
-          onClick={() => setIsImageHovered(true)}
+          onMouseEnter={() => {
+            setIsImageHovered(true)
+            playFlowAudio()
+          }}
+          onMouseLeave={() => {
+            setIsImageHovered(false)
+            stopFlowAudio()
+          }}
+          onClick={() => {
+            setIsImageHovered(true)
+            playFlowAudio()
+          }}
         >
           {/* Layer 1: Images */}
           {images.map((image, index) => (

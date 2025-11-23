@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from 'react'
+import { useMemo, useState, useEffect, useRef } from 'react'
 
 // --- CONFIGURATION: MARQUEE SPEED ---
 // Adjust these values to control the speed for different screen sizes.
@@ -21,63 +21,332 @@ const INFLUENCES = [
   "Richard Branson", "Warren Buffett", "Albert Einstein", "Mike Tyson", 
   "Friedrich Nietzsche", "Henry Ford", "Richard Feynman", "Ray Dalio", 
   "Jack Wu", "Swanand Wagh", "Jamie Dimon", "Kelly Huang", "Malaika Khan", 
-  "Yannis Paniaras", "Dale Carnegie"
+  "Yannis Paniaras", "Dale Carnegie", "Aaron Levie"
 ]
 
 const CATEGORIES = ['Writings', 'Life Principles', 'Inspirations']
 
-// --- DATA: LIFE PRINCIPLES ---
+// DATA: LIFE PRINCIPLES
 const PRINCIPLES = [
-  { id: 1, title: "First Principles Thinking", description: "Break down complicated problems into basic elements and then reassemble them from the ground up. Avoid reasoning by analogy." },
-  { id: 2, title: "High Agency", description: "When told something is impossible, look for a way to make it possible. Take control of your circumstances rather than being controlled by them." },
-  { id: 3, title: "Extreme Ownership", description: "Take full responsibility for everything in your world. No excuses, no blame. Own the problems and the solutions." },
-  { id: 4, title: "Compound Interest", description: "Understand that small, consistent actions over time lead to massive results. This applies to knowledge, relationships, and health, not just finance." },
-  { id: 5, title: "Skin in the Game", description: "Don't trust advice from people who don't share the risk. Ensure your incentives are aligned with your actions and beliefs." },
-  { id: 6, title: "Antifragility", description: "Build systems and mindsets that benefit from shocks and volatility, rather than just withstanding them." },
-  { id: 7, title: "Inversion", description: "Instead of trying to be smart, avoid being stupid. Solve problems backwards to avoid failure modes." },
-  { id: 8, title: "Circle of Competence", description: "Know what you know and what you don't know. Stick to your strengths and expand them slowly." },
-  { id: 9, title: "Memento Mori", description: "Remember that you will die. Use this realization to prioritize what truly matters and live with urgency." },
-  { id: 10, title: "Amor Fati", description: "Love your fate. Accept everything that happens, good or bad, as necessary and essential to your journey." }
+  { id: 1, title: "Think without constraint.", description: "Whether it’s ideology, politics, philosophy, legislation, religion, society, and even emotions, they are all considered mind-constraining. You must continuously break out endless system of constraints to get closer to the truth. The entire universe is never known, and the humanity has been redefining constraints to make sense of themselves, which is how we move forward.", scenario: 'Ψ' },
+  { id: 2, title: "Life is about discovery.", description: "Everything that we do in life has been about the exchange of information, or at its core, discovering new things. Throughout human history, we advance our civilization through self-discovery: knowledge, relationships, communication, action, and reaction. Human are inherently curious about how the universe, including ourselves, changes after some form of experimentations.", scenario: 'Ψ' },
+  { id: 3, title: "Always act in high-delta state.", description: "Whenever you try to do something, such as blinking your eyes or screaming in the park, you are trying to discover some kind of reactions. As we advance our civilization, the contextual impact must be large enough to cause a change. Every single action serves a purpose, which has its own delta, bad or good, big or small. It’s like a spring, small changes stay the same, only big changes can move forward and create new discovery.", scenario: 'Ψ' },
+  { id: 4, title: "Defy the odds.", description: "Life is too short to live in someone else’s dogma. Most people follow norms because they care more about others’ opinions than their own. They want to feel belonged to part of the society, which is a sign of low self-respect. Those who thrive in life constantly challenge the status quo to pursue their own reality.", scenario: '0' },
+  { id: 5, title: "Be yourself, not literally.", description: "Most people think, act, and react like others just to fit in. They often have a miserable life that has no purpose, passion, and goals. They are genuinely lost because they care about the perception of others. Life become so much happier when you truly focus on yourself. In fact, people prefer to stay with people who are being themselves, as it shows confidence and excitements. In a sense, being yourself means to become unpredictable because only you get to know what’s next.", scenario: '0' },
+  { id: 6, title: "Don’t take people’s advice.", description: "I always have a rule of listening to multiple perspectives while forming your core view, and based on your unique situation, apply what fits. We all have to deal with different circumstances, and there’s no single piece of advice or formula that works for everyone.", scenario: 'Ψ' },
+  { id: 7, title: "Empathy over sympathy.", description: "People without self-awareness are easily manipulated through emotions, which can be detrimental to their own believes. You must stay firm in your own belief to protect yourself from getting lost while improving the system as a whole. Understanding others’ perspectives allows you to decipher how they work, giving you advantages in relationships, information, and predictability.", scenario: '0' },
+  { id: 8, title: "To become self-aware, accept everything from zero to one.", description: "The situation around you changes constantly, every single second.  Stay focused by observing your context so you don't fall under other’s control. You must be self-aware, not in a shallow sense, but knowing whatever information out there has no constraint. Whatever perspective you receive, you should always discover it yourself (or don’t as this advice might be a constraint).", scenario: 'Ψ' },
+  { id: 9, title: "Be delusional, practicalism kills your limit.", description: "Many successful people who change the world are the crazy ones, because they believe so hard in their vision eventually made it work. Our world is made up of creations of people who dream super big. You must know that the limit is not bounded by others but yourself. If you’re practical, you begin to focus on the short-term reward and become less risk tolerant, which limits your potential to create new stuff. Being delusional also gives you the advantage of a creativity burst, coming out with crazy ideas everyday that one of them might be real and pays off. You become to think more original, betting on something revolutionary that redefines the world.", scenario: '0' },
+  { id: 10, title: "Intuition over analysis.", description: "Most people make their decisions based on real-time data rather than instinct. They rely on opinions, knowledge, books, and rules whenever they try to solve a problem or create something. The danger in that is you will need data to make decisions, which limits your thoughts and creative mind to solve unprecedented problems. When you know you’re right, do it 100% (high-delta) and make it happen. Never be in the middle state, where you are doubting yourself but care about your ego so you stick to the wrong decision.", scenario: '1' },
+  { id: 11, title: "Win big or fail big.", description: "You either win big or fail miserably in life; never be in the middle state. If you win big, you achieve your goal based on your perception of reality. If you lose big, you know that you tried 100% on things. This sheer effort is fulfilling in itself; it marks an exciting life and leaves a massive impact. The middle is the worst spot to be in because you can’t do anything about it. You suffer from not being at the top, while still having the risk of going back to the bottom again.", scenario: '0' },
+  { id: 12, title: "There is no right or wrong.", description: "Ethics are constantly modified social constructs that have always changed and differ across place, culture, and religion. Essentially, every individual is inherently different, yet adheres to the same set of norms within the macro-reality. Your environment and upbringing, both internal and external, deeply influence your thoughts. You must continuously break free from these predetermined constraints to genuinely discover what aligns with the truth, whether for yourself or for humanity.", scenario: '1' },
+  { id: 13, title: "Passion is the work, not the skill.", description: "People often assume passion requires falling in love with a specific skillset. While this is partially correct, this view is constrained because skills are merely arbitrary definitions created by the people who invented them. Instead, passion is the act of doing. It is found in the process of achieving your goals, building a project, or the act of leading a company. These are not specific skills, such as “passion in coding,” but pure work. Do it if you love the work.", scenario: '0' },
+  { id: 14, title: "Stay humble, stay foolish.", description: "This is the greatest quote from Steve Jobs. Ask “Why” to everyone; never feel shameful for asking questions. If you don’t know about a subject in a group setting with people who know more than you, pretend that you know what you’re talking about until someone corrects you. You must back your arguments, or don’t. Either way, you should admit your fault when you are wrong, and let the people who know more than you win the argument. This is where constructive learning starts.", scenario: '0' },
 ]
 
 // --- DATA: INSPIRATIONS ---
 const INSPIRATIONS = {
   "Startup": [
     { title: "Zero to One", author: "Peter Thiel", type: "Book" },
-    { title: "The Lean Startup", author: "Eric Ries", type: "Book" },
-    { title: "How to Start a Startup", author: "Sam Altman", type: "Course" },
-    { title: "Y Combinator", author: "Paul Graham", type: "Essays" }
+    { title: "The Bezos Letter", author: "Steve Anderson", type: "Book" },
+    { title: "Do things that don't scale", author: "Paul Graham", type: "Article" },
+    { title: "Why to not not start a startup", author: "Paul Graham", type: "Article" },
+    { title: "How to Hire", author: "Sam Altman", type: "Article" },
+    { title: "Prediction: the successor to postmodernism", author: "Alex Danco", type: "Article" }
   ],
   "Life": [
-    { title: "Naval Ravikant", author: "Naval", type: "Podcast" },
-    { title: "Meditations", author: "Marcus Aurelius", type: "Book" },
-    { title: "The Almanack", author: "Naval Ravikant", type: "Book" },
-    { title: "Tim Ferriss Show", author: "Tim Ferriss", type: "Podcast" }
+    { title: "Atomic Habits", author: "James Clear", type: "Book" },
+    { title: "The Daily Stoic", author: "Ryan Holiday", type: "Book" },
+    { title: "What I Wish Someone Had Told Me", author: "Sam Altman", type: "Article" }
   ],
   "Tech": [
-    { title: "Lex Fridman", author: "Lex Fridman", type: "Podcast" },
-    { title: "Stratechery", author: "Ben Thompson", type: "Article" },
-    { title: "Wait But Why", author: "Tim Urban", type: "Blog" },
-    { title: "Hacker News", author: "Y Combinator", type: "Community" }
+    { title: "Abundant Intelligence", author: "Sam Altman", type: "Article" }
   ],
-  "Arts & Design": [
-    { title: "Jony Ive", author: "Leander Kahney", type: "Book" },
-    { title: "Abstract", author: "Netflix", type: "Series" },
-    { title: "Dieter Rams", author: "Gary Hustwit", type: "Documentary" },
-    { title: "Bauhaus", author: "Magdalena Droste", type: "Book" }
+  "Design": [
+    { title: "The Creative Act", author: "Rick Rubin", type: "Book" },
+    { title: "ZAHA HADID", author: "Philip Jodidio", type: "Book" },
+    { title: "The Designer's Dictionary of Color", author: "Sean Adams", type: "Book" }
   ],
   "People": [
-    { title: "Steve Jobs", author: "Walter Isaacson", type: "Book" },
-    { title: "Elon Musk", author: "Walter Isaacson", type: "Book" },
-    { title: "Benjamin Franklin", author: "Walter Isaacson", type: "Book" },
-    { title: "Einstein", author: "Walter Isaacson", type: "Book" }
+    { title: "How to Win Friends and Influence People", author: "Dale Carnegie", type: "Book" },
+    { title: "Steve Jobs", author: "Walter Isaacson", type: "Book" }
   ]
+}
+
+// --- COMPONENT: PRINCIPLE ITEM ---
+const PrincipleItem = ({ 
+  principle, 
+  isExpanded, 
+  onToggle 
+}: { 
+  principle: typeof PRINCIPLES[0], 
+  isExpanded: boolean, 
+  onToggle: () => void 
+}) => {
+  const [displayChar, setDisplayChar] = useState('') // Initial state: not revealed
+  const [isHovered, setIsHovered] = useState(false)
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+
+  // Initialize audio on mount
+  useEffect(() => {
+    audioRef.current = new Audio('/audio/matrix.mp3')
+    audioRef.current.volume = 0.2
+    audioRef.current.loop = true // Enable looping for seamless playback
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause()
+        audioRef.current.currentTime = 0
+      }
+    }
+  }, [])
+
+  // Reset state when collapsed and not hovered
+  useEffect(() => {
+    if (!isExpanded && !isHovered) {
+      setDisplayChar('')
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current)
+        intervalRef.current = null
+      }
+      // Stop audio
+      if (audioRef.current) {
+        audioRef.current.pause()
+        audioRef.current.currentTime = 0
+      }
+    } else if (isExpanded) {
+      // Ensure it's revealed if expanded, but respect running animation
+      if (!intervalRef.current) {
+        setDisplayChar(principle.scenario)
+      }
+    }
+  }, [isExpanded, isHovered, principle.scenario])
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current)
+      if (audioRef.current) {
+        audioRef.current.pause()
+        audioRef.current.currentTime = 0
+      }
+    }
+  }, [])
+
+  // Glitch Effect Logic
+  const triggerGlitch = () => {
+    // Allow re-triggering if interval is not running, even if revealed (for mobile feedback)
+    if (intervalRef.current) return
+
+    // Play audio from random position
+    if (audioRef.current) {
+      // Set random start time (assuming 3.5 second duration)
+      audioRef.current.currentTime = Math.random() * 3.5
+      audioRef.current.play().catch(() => {})
+    }
+
+    let iterations = 0
+    const maxIterations = 10 // 50ms * 10 = 500ms duration
+    const chars = ['0', '1', 'Ψ']
+    
+    // Immediate feedback
+    setDisplayChar(chars[Math.floor(Math.random() * chars.length)])
+    
+    intervalRef.current = setInterval(() => {
+      setDisplayChar(chars[Math.floor(Math.random() * chars.length)])
+      iterations++
+      
+      if (iterations >= maxIterations) {
+        if (intervalRef.current) {
+          clearInterval(intervalRef.current)
+          intervalRef.current = null
+        }
+        setDisplayChar(principle.scenario)
+        // Stop audio when done
+        if (audioRef.current) {
+          audioRef.current.pause()
+          audioRef.current.currentTime = 0
+        }
+      }
+    }, 50)
+  }
+
+  return (
+    <div 
+      className="w-full border-b border-[rgba(255,255,255,0.1)] pb-6 last:border-none relative overflow-hidden px-6 cursor-pointer"
+      onMouseEnter={() => {
+        setIsHovered(true)
+        triggerGlitch()
+      }}
+      onMouseLeave={() => setIsHovered(false)}
+      onClick={() => {
+        triggerGlitch()
+        onToggle()
+      }}
+    >
+      {/* Flow Up Glow Background */}
+      <div 
+        className={`absolute inset-0 bg-gradient-to-t from-[#92C3FF]/10 to-transparent transition-transform duration-500 ease-out origin-bottom ${isHovered ? 'scale-y-100' : 'scale-y-0'}`}
+        style={{ pointerEvents: 'none' }}
+      />
+
+      <div className="w-full flex items-center justify-between group relative z-10">
+        <div className="flex items-center gap-6 flex-1 min-w-0 mr-4">
+          {/* Boxed Scenario Indicator */}
+          <div 
+            className="w-[35px] h-[41px] flex-shrink-0 flex items-center justify-center bg-[rgba(0,0,0,0.2)] rounded-[5px] text-white text-[16px] font-['Source_Code_Pro'] pt-[2px]"
+            style={{ boxShadow: 'inset 0 0 8.4px 0 #FFFFFF' }}
+          >
+            {displayChar}
+          </div>
+
+          {/* Principle Title - Clickable to expand */}
+          <div 
+            className="text-white text-[20px] md:text-[24px] font-light text-left overflow-x-auto whitespace-nowrap w-full [&::-webkit-scrollbar]:hidden"
+            style={{ 
+              scrollbarWidth: 'none', 
+              msOverflowStyle: 'none' 
+            }}
+          >
+            {principle.title}
+          </div>
+        </div>
+
+        {/* Hollow Circle Toggle */}
+        <div 
+          className="text-white transition-opacity hover:opacity-70 flex-shrink-0"
+          aria-label="Toggle description"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle 
+              cx="12" 
+              cy="12" 
+              r="10" 
+              stroke="white" 
+              strokeWidth="3"
+              className="transition-all duration-300 ease-in-out"
+              style={{ 
+                fill: isExpanded ? 'white' : 'transparent' 
+              }}
+            />
+          </svg>
+        </div>
+      </div>
+      
+      <div 
+        className={`
+          overflow-hidden transition-all duration-500 ease-in-out
+          ${isExpanded ? 'max-h-[300px] opacity-100 mt-4' : 'max-h-0 opacity-0'}
+        `}
+      >
+        <div className="pl-[59px] pr-4 max-h-[200px] overflow-y-auto custom-scrollbar">
+          <p className="text-[rgba(255,255,255,0.8)] text-[18px] md:text-[18px] leading-relaxed font-light">
+            {principle.description}
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+const ThinkingDots = () => {
+  const [dots, setDots] = useState('.')
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDots(prev => prev.length >= 3 ? '.' : prev + '.')
+    }, 500)
+    return () => clearInterval(interval)
+  }, [])
+
+  return <span className="inline-block w-[24px] text-left">{dots}</span>
+}
+
+const InspirationItem = ({ item }: { item: { title: string, author: string, type: string } }) => {
+  const [isExpanded, setIsExpanded] = useState(false)
+
+  return (
+    <div 
+      className="flex flex-col items-center cursor-pointer"
+      onMouseEnter={() => setIsExpanded(true)}
+      onMouseLeave={() => setIsExpanded(false)}
+      onClick={() => setIsExpanded(!isExpanded)}
+    >
+      <span 
+        className="text-white text-[19px] md:text-[21px] font-normal transition-all duration-300"
+        style={{
+          textShadow: isExpanded ? '0 0 20px rgba(255, 255, 255, 0.8)' : 'none'
+        }}
+      >
+        {item.title}
+      </span>
+      <div 
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+          isExpanded ? 'max-h-[50px] opacity-100 mt-2' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <span className="text-[rgba(255,255,255,0.5)] text-[14px]">
+          {item.author}
+        </span>
+      </div>
+    </div>
+  )
+}
+
+const GlitchText = ({ text, className }: { text: string, className?: string }) => {
+  const [displayText, setDisplayText] = useState('')
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+  
+  useEffect(() => {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789Ψ#@$%&'
+    let iterations = 0
+    const maxIterations = 20 // Total duration base
+    
+    // Initialize audio
+    audioRef.current = new Audio('/audio/matrix.mp3')
+    audioRef.current.volume = 0.2 // Lower volume for subtle effect
+    
+    // Play audio
+    audioRef.current.play().catch(e => console.log('Audio play failed:', e))
+
+    const interval = setInterval(() => {
+      setDisplayText(
+        text.split('').map((char, index) => {
+          if (iterations >= maxIterations + (index * 5)) return char
+          return chars[Math.floor(Math.random() * chars.length)]
+        }).join('')
+      )
+      
+      iterations++
+      if (iterations > maxIterations + (text.length * 5)) {
+        clearInterval(interval)
+        setDisplayText(text)
+        // Stop audio when done
+        if (audioRef.current) {
+          audioRef.current.pause()
+          audioRef.current.currentTime = 0
+        }
+      }
+    }, 50)
+    
+    return () => {
+      clearInterval(interval)
+      if (audioRef.current) {
+        audioRef.current.pause()
+        audioRef.current.currentTime = 0
+      }
+    }
+  }, [text])
+
+  return <h1 className={className}>{displayText}</h1>
 }
 
 export default function Thinking() {
   const [selectedCategory, setSelectedCategory] = useState('Life Principles')
   const [duration, setDuration] = useState(DURATION_DESKTOP)
   const [expandedPrincipleId, setExpandedPrincipleId] = useState<number | null>(null)
+  
+  // ... (rest of the component) ...
 
   // Handle responsive duration
   useEffect(() => {
@@ -104,13 +373,15 @@ export default function Thinking() {
   }, [])
 
   return (
-    <section className="w-full min-h-screen flex flex-col items-center pt-[50px] pb-[60px] relative" aria-label="Thinking">
+    // Increased top padding from pt-[50px] to pt-[100px]
+    <section className="w-full min-h-screen flex flex-col items-center pt-[100px] pb-[60px] relative" aria-label="Thinking">
       
       {/* EDOM Section - Constrained Width but wider for text */}
       <div className="w-full max-w-[1600px] px-[2vw] flex flex-col items-center text-center mb-[120px] animate-fade-in-up">
-        <h1 className="font-normal text-white text-[clamp(50px,8vw,80px)] leading-none mb-12">
-          EDOM
-        </h1>
+        <GlitchText 
+          text="EDOM" 
+          className="font-normal text-white text-[clamp(50px,8vw,80px)] leading-none mb-12 font-['Helvetica']"
+        />
         
         <div className="w-full max-w-none px-4 group cursor-default transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.6)]">
           <p className="text-white text-[clamp(18px,2.5vw,22px)] leading-[45px] transition-all duration-300 group-hover:text-white">
@@ -203,7 +474,10 @@ export default function Thinking() {
         </div>
 
         {/* Content Section */}
-        <div className="w-full flex flex-col items-center animate-fade-in-up min-h-[200px]">
+        <div 
+          key={selectedCategory}
+          className="w-full flex flex-col items-center animate-fade-in-up min-h-[200px]"
+        >
           
           {/* Writings (Placeholder) */}
           {selectedCategory === 'Writings' && (
@@ -220,38 +494,23 @@ export default function Thinking() {
           {/* Life Principles */}
           {selectedCategory === 'Life Principles' && (
             <div className="w-full max-w-[800px] flex flex-col gap-6">
+              <p className="text-[rgba(255,255,255,0.8)] text-[16px] md:text-[18px] text-center mb-8">
+                My principles apply to 3 scenarios: 0 = inside the system, 1 = outside the system, Ψ =  all together
+              </p>
               {PRINCIPLES.map((principle) => (
-                <div 
+                <PrincipleItem 
                   key={principle.id}
-                  className="w-full border-b border-[rgba(255,255,255,0.1)] pb-6 last:border-none"
-                >
-                  <button 
-                    onClick={() => setExpandedPrincipleId(expandedPrincipleId === principle.id ? null : principle.id)}
-                    className="w-full flex items-center justify-between group text-left"
-                  >
-                    <h3 className="text-white text-[20px] md:text-[24px] font-light group-hover:text-[#92C3FF] transition-colors">
-                      {principle.id}. {principle.title}
-                    </h3>
-                    <span className={`text-[#92C3FF] text-2xl transition-transform duration-300 ${expandedPrincipleId === principle.id ? 'rotate-45' : ''}`}>
-                      +
-                    </span>
-                  </button>
-                  
-                  <div 
-                    className={`
-                      overflow-hidden transition-all duration-500 ease-in-out
-                      ${expandedPrincipleId === principle.id ? 'max-h-[200px] opacity-100 mt-4' : 'max-h-0 opacity-0'}
-                    `}
-                  >
-                    <p className="text-[rgba(255,255,255,0.7)] text-[16px] md:text-[18px] leading-relaxed font-light pl-4 border-l-2 border-[#92C3FF]">
-                      {principle.description}
-                    </p>
-                  </div>
-                </div>
+                  principle={principle}
+                  isExpanded={expandedPrincipleId === principle.id}
+                  onToggle={() => setExpandedPrincipleId(expandedPrincipleId === principle.id ? null : principle.id)}
+                />
               ))}
-              <div className="w-full text-center mt-12 mb-8">
-                <p className="text-[rgba(255,255,255,0.4)] italic text-sm">
-                  Ongoing process...
+              <div className="w-full text-center mt-12 mb-24">
+                <p 
+                  className="text-[#92C3FF] font-['Source_Code_Pro'] text-[18px] md:text-[16px]"
+                  style={{ fontWeight: 200 }}
+                >
+                  justinliao ~ still thinking<ThinkingDots />
                 </p>
               </div>
             </div>
@@ -259,26 +518,24 @@ export default function Thinking() {
 
           {/* Inspirations */}
           {selectedCategory === 'Inspirations' && (
-            <div className="w-full max-w-[1000px] grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
-              {Object.entries(INSPIRATIONS).map(([category, items]) => (
-                <div key={category} className="flex flex-col gap-6 items-center text-center">
-                  <h3 className="text-[#92C3FF] text-[24px] font-normal border-b border-[rgba(146,195,255,0.3)] pb-2 inline-block w-fit">
-                    {category}
-                  </h3>
-                  <div className="flex flex-col gap-4 w-full items-center">
-                    {items.map((item, idx) => (
-                      <div key={idx} className="flex flex-col group cursor-default items-center">
-                        <span className="text-white text-[18px] font-light group-hover:text-[#92C3FF] transition-colors">
-                          {item.title}
-                        </span>
-                        <span className="text-[rgba(255,255,255,0.5)] text-[14px] italic">
-                          {item.author} • {item.type}
-                        </span>
-                      </div>
-                    ))}
+            <div className="w-full max-w-[800px]">
+              <p className="text-[rgba(255,255,255,0.8)] text-[16px] md:text-[18px] text-center mb-8">
+                These are a list of books and articles that I find inspiring: weekly updates.
+              </p>
+              <div className="flex flex-col gap-y-16">
+                {Object.entries(INSPIRATIONS).map(([category, items]) => (
+                  <div key={category} className="flex flex-col gap-6 items-center text-center">
+                    <h3 className="text-[#92C3FF] text-[26px] md:text-[28px] font-normal border-b border-[rgba(146,195,255,0.3)] pb-2 inline-block w-fit">
+                      {category}
+                    </h3>
+                    <div className="flex flex-col gap-8 w-full items-center">
+                      {[...items].sort((a, b) => a.title.localeCompare(b.title)).map((item, idx) => (
+                        <InspirationItem key={idx} item={item} />
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           )}
 

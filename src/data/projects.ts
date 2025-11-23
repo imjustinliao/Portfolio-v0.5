@@ -234,7 +234,7 @@ export const projects: Record<number, ProjectData[]> = {
         { text: 'GitHub', url: 'https://github.com/imjustinliao/Portfolio-v0.5' },
         { text: 'Prototype', url: 'https://www.figma.com/proto/7HZt1aXQl4FfILlwF6qQ8V/Side-Projects?page-id=0%3A1&node-id=2070-1559&viewport=22129%2C21298%2C0.17&t=KjUgh41cMKPMT62U-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1834%3A1551&show-proto-sidebar=1' }
       ],
-      timeline: '11.16.25 - 11.21.25',
+      timeline: '11.16.25 - 11.22.25',
       location: 'Localhost: justinliao',
       role: 'Designer & Engineer',
       deltaScore: 55
