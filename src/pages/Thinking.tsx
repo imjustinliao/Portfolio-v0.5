@@ -21,10 +21,10 @@ const INFLUENCES = [
   "Richard Branson", "Warren Buffett", "Albert Einstein", "Mike Tyson", 
   "Friedrich Nietzsche", "Henry Ford", "Richard Feynman", "Ray Dalio", 
   "Jack Wu", "Swanand Wagh", "Jamie Dimon", "Kelly Huang", "Malaika Khan", 
-  "Yannis Paniaras", "Dale Carnegie", "Aaron Levie", "Dhruv Addanki"
+  "Yannis Paniaras", "Dale Carnegie", "Aaron Levie", "Dhruv Addanki", "Dieter Rams"
 ]
 
-const CATEGORIES = ['Writings', 'Life Principles', 'Inspirations']
+const CATEGORIES = ['Writings', 'Life Principles', 'Quote', 'Inspirations']
 
 // DATA: LIFE PRINCIPLES
 const PRINCIPLES = [
@@ -65,7 +65,8 @@ const INSPIRATIONS = {
   "Design": [
     { title: "The Creative Act", author: "Rick Rubin", type: "Book" },
     { title: "ZAHA HADID", author: "Philip Jodidio", type: "Book" },
-    { title: "The Designer's Dictionary of Color", author: "Sean Adams", type: "Book" }
+    { title: "The Designer's Dictionary of Color", author: "Sean Adams", type: "Book" },
+    { title: "Dieter Rams: As Little Design as Possible", author: "Sophie Lovell", type: "Book" },
   ],
   "People": [
     { title: "How to Win Friends and Influence People", author: "Dale Carnegie", type: "Book" },
@@ -353,10 +354,76 @@ const GlitchText = ({ text, className }: { text: string, className?: string }) =
   return <h1 className={className}>{displayText}</h1>
 }
 
+const ValidationTooltip = ({ message }: { message: string }) => (
+  <div className="absolute left-0 -top-12 z-50 animate-fade-in-up pointer-events-none">
+    <div className="bg-white text-black px-4 py-2 rounded shadow-lg relative flex items-center gap-3">
+       {/* Orange Icon */}
+       <div className="w-5 h-5 bg-[#FF9500] rounded flex items-center justify-center text-white font-bold text-xs flex-shrink-0">!</div>
+       <span className="text-sm font-medium whitespace-nowrap">{message}</span>
+       {/* Arrow */}
+       <div className="absolute top-full left-4 border-8 border-transparent border-t-white"></div>
+    </div>
+  </div>
+)
+
 export default function Thinking() {
   const [selectedCategory, setSelectedCategory] = useState('Life Principles')
   const [duration, setDuration] = useState(DURATION_DESKTOP)
   const [expandedPrincipleId, setExpandedPrincipleId] = useState<number | null>(null)
+  
+  // Form State
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle')
+  const [formErrors, setFormErrors] = useState<{ [key: string]: boolean }>({})
+
+  const handleQuoteSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setFormStatus('submitting')
+    setFormErrors({})
+
+    const formData = new FormData(e.currentTarget)
+    const data = Object.fromEntries(formData.entries())
+    
+    // Validation
+    const errors: { [key: string]: boolean } = {}
+    if (!data.name) errors.name = true
+    if (!data.email || !String(data.email).includes('@')) errors.email = true
+    if (!data.social) errors.social = true
+    if (!data.message) errors.message = true
+
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors)
+      setFormStatus('idle')
+      return
+    }
+
+    try {
+      const response = await fetch('https://formspree.io/f/mankzkrp', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+
+      if (response.ok) {
+        setFormStatus('success')
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setFormStatus('idle')
+          // Optional: clear form fields if needed, but standard behavior is usually fine
+          // If we want to clear, we'd need to control the inputs or reset the form ref
+          const form = e.target as HTMLFormElement
+          form.reset()
+        }, 3000)
+      } else {
+        console.error('Form submission failed')
+        setFormStatus('idle')
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      setFormStatus('idle')
+    }
+  }
   
   // ... (rest of the component) ...
 
@@ -527,9 +594,116 @@ export default function Thinking() {
             </div>
           )}
 
+          {/* Quote Section */}
+          {selectedCategory === 'Quote' && (
+            <div className="w-full max-w-[600px] flex flex-col items-center animate-fade-in-up mb-24">
+              <div className="relative w-full min-h-[400px] flex flex-col items-center">
+                {/* Success Message Overlay */}
+                <div 
+                  className={`
+                    absolute inset-0 flex items-center justify-center z-20 transition-all duration-500 ease-in-out
+                    ${formStatus === 'success' ? 'opacity-100 visible scale-100' : 'opacity-0 invisible scale-95 pointer-events-none'}
+                  `}
+                >
+                  <div className="bg-[rgba(255,255,255,0.1)] backdrop-blur-md border border-[var(--theme-color)] rounded-2xl p-8 text-center shadow-[0_0_30px_rgba(var(--theme-rgb),0.3)]">
+                    <p className="text-white text-xl font-light">
+                      You will get a reply within 24hrs.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Form Content */}
+                <div 
+                  className={`
+                    w-full flex flex-col items-center transition-all duration-500 ease-in-out
+                    ${formStatus === 'success' ? 'opacity-0 blur-sm scale-95' : 'opacity-100 blur-0 scale-100'}
+                  `}
+                >
+                  <p className="text-[rgba(255,255,255,0.8)] text-[16px] md:text-[18px] text-center mb-12 leading-relaxed">
+                    Tell me your quote of the moment, I will put your name and quote if it's thoughtful.
+                  </p>
+                  
+                  <form
+                    onSubmit={handleQuoteSubmit}
+                    noValidate
+                    className="w-full flex flex-col gap-6 p-8 rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-md shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]"
+                  >
+                    {/* Name Field */}
+                    <div className="flex flex-col gap-2 relative group">
+                      <label htmlFor="name" className="text-white/80 text-sm font-light ml-1">Name</label>
+                      <input
+                        id="name"
+                        type="text"
+                        name="name"
+                        required
+                        className={`w-full bg-[rgba(255,255,255,0.05)] border rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:ring-1 transition-all duration-300 ${formErrors.name ? 'border-red-400 focus:border-red-400 focus:ring-red-400' : 'border-[rgba(255,255,255,0.1)] focus:border-[var(--theme-color)] focus:ring-[var(--theme-color)]'}`}
+                        placeholder="Your name"
+                      />
+                      {formErrors.name && <ValidationTooltip message="Please fill out this field." />}
+                    </div>
+
+                    {/* Email Field */}
+                    <div className="flex flex-col gap-2 relative group">
+                      <label htmlFor="email" className="text-white/80 text-sm font-light ml-1">Email</label>
+                      <input
+                        id="email"
+                        type="email"
+                        name="email"
+                        required
+                        className={`w-full bg-[rgba(255,255,255,0.05)] border rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:ring-1 transition-all duration-300 ${formErrors.email ? 'border-red-400 focus:border-red-400 focus:ring-red-400' : 'border-[rgba(255,255,255,0.1)] focus:border-[var(--theme-color)] focus:ring-[var(--theme-color)]'}`}
+                        placeholder="your@email.com"
+                      />
+                      {formErrors.email && <ValidationTooltip message="Please enter a valid email." />}
+                    </div>
+
+                    {/* LinkedIn or X Field */}
+                    <div className="flex flex-col gap-2 relative group">
+                      <label htmlFor="social" className="text-white/80 text-sm font-light ml-1">LinkedIn or X</label>
+                      <input
+                        id="social"
+                        type="text"
+                        name="social"
+                        required
+                        className={`w-full bg-[rgba(255,255,255,0.05)] border rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:ring-1 transition-all duration-300 ${formErrors.social ? 'border-red-400 focus:border-red-400 focus:ring-red-400' : 'border-[rgba(255,255,255,0.1)] focus:border-[var(--theme-color)] focus:ring-[var(--theme-color)]'}`}
+                        placeholder="Your profile URL or handle"
+                      />
+                      {formErrors.social && <ValidationTooltip message="Please fill out this field." />}
+                    </div>
+
+                    {/* Quote Field */}
+                    <div className="flex flex-col gap-2 relative group">
+                      <label htmlFor="message" className="text-white/80 text-sm font-light ml-1">Your Quote</label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        required
+                        rows={4}
+                        className={`w-full bg-[rgba(255,255,255,0.05)] border rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:ring-1 transition-all duration-300 resize-none ${formErrors.message ? 'border-red-400 focus:border-red-400 focus:ring-red-400' : 'border-[rgba(255,255,255,0.1)] focus:border-[var(--theme-color)] focus:ring-[var(--theme-color)]'}`}
+                        placeholder="Share your thought..."
+                      ></textarea>
+                      {formErrors.message && <ValidationTooltip message="Please fill out this field." />}
+                    </div>
+
+                    {/* Submit Button */}
+                    <button
+                      type="submit"
+                      disabled={formStatus === 'submitting'}
+                      className="mt-4 w-full py-3 px-6 bg-[rgba(255,255,255,0.1)] hover:bg-[var(--theme-color)] text-white font-normal rounded-lg transition-all duration-300 border border-[rgba(255,255,255,0.1)] hover:border-transparent hover:shadow-[0_0_15px_rgba(var(--theme-rgb),0.5)] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {formStatus === 'submitting' ? 'Sending...' : 'Send Quote'}
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Inspirations */}
           {selectedCategory === 'Inspirations' && (
-            <div className="w-full max-w-[800px]">
+            <div className="w-full max-w-[800px] mb-24">
+              <p className="text-[rgba(255,255,255,0.8)] text-[16px] md:text-[18px] text-center mb-8">
+                “Learning never exhausts the mind.” — <span className="italic text-[var(--theme-color)]">Leonardo da Vinci</span>
+              </p>
               <p className="text-[rgba(255,255,255,0.8)] text-[16px] md:text-[18px] text-center mb-8">
                 These are a list of books and articles that I find inspiring: weekly updates.
               </p>
