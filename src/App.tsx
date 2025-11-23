@@ -8,6 +8,7 @@ import About from './pages/About'
 import Thinking from './pages/Thinking'
 import SettingsOverlay from './components/SettingsOverlay'
 import { SettingsProvider } from './context/SettingsContext'
+import { useAudioPreloader } from './hooks/useAudioPreloader'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -20,6 +21,7 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  useAudioPreloader()
   const location = useLocation()
   const isThinkingPage = location.pathname === '/thinking'
 
