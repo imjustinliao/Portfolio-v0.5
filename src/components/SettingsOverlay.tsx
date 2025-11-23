@@ -191,7 +191,7 @@ export default function SettingsOverlay() {
               </div>
 
               {/* Center Content Container */}
-              <div className="flex-1 w-full flex flex-col items-center justify-center relative" style={{ paddingBottom: 'clamp(50px, 10%, 70px)', paddingTop: 'clamp(30px, 6%, 50px)' }}>
+              <div className="flex-1 w-full flex flex-col items-center justify-center relative" style={{ paddingBottom: 'clamp(50px, 10%, 70px)', paddingTop: 'clamp(50px, 10%, 70px)' }}>
                 {/* Time Display */}
                 <div className="flex items-center justify-center">
                   {timeMode === 'CLOCK' ? (
@@ -305,7 +305,7 @@ export default function SettingsOverlay() {
               {/* Bottom Quote (Only in Clock Mode) */}
               <div className="w-full text-center z-10 absolute left-0" style={{ bottom: 'clamp(20px, 4%, 35px)', paddingLeft: 'clamp(12px, 3%, 30px)', paddingRight: 'clamp(12px, 3%, 30px)' }}>
                 {timeMode === 'CLOCK' && (
-                  <p className="text-white font-medium italic leading-tight opacity-90" style={{ fontSize: 'clamp(7px, 1.8vw, 16px)' }}>
+                  <p className="text-white font-medium italic leading-tight opacity-90 whitespace-nowrap" style={{ fontSize: 'clamp(6px, 1.8vw, 16px)' }}>
                     “Your time is limited, so don't waste it living in someone else's life” - Steve Jobs <span className="font-normal not-italic opacity-75"></span>
                   </p>
                 )}
