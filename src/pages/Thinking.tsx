@@ -702,10 +702,7 @@ export default function Thinking() {
           {selectedCategory === 'Inspirations' && (
             <div className="w-full max-w-[800px] mb-24">
               <p className="text-[rgba(255,255,255,0.8)] text-[16px] md:text-[18px] text-center mb-8">
-                “Learning never exhausts the mind.” — <span className="italic text-[var(--theme-color)]">Leonardo da Vinci</span>
-              </p>
-              <p className="text-[rgba(255,255,255,0.8)] text-[16px] md:text-[18px] text-center mb-8">
-                These are a list of books and articles that I find inspiring: weekly updates.
+                These are a list of books and articles that I find inspiring, updating weekly.
               </p>
               <div className="flex flex-col gap-y-16">
                 {Object.entries(INSPIRATIONS).map(([category, items]) => (
