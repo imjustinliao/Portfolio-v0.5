@@ -306,8 +306,20 @@ const GlitchText = ({ text, className }: { text: string, className?: string }) =
     audioRef.current = new Audio('/audio/matrix.mp3')
     audioRef.current.volume = 0.2 // Lower volume for subtle effect
     
-    // Play audio
-    audioRef.current.play().catch(e => console.log('Audio play failed:', e))
+    // Play audio with a slight delay to ensure browser readiness and handle refresh
+    const playAudio = async () => {
+      try {
+        if (audioRef.current) {
+          audioRef.current.currentTime = 0
+          await audioRef.current.play()
+        }
+      } catch (e) {
+        console.log('Audio play failed:', e)
+      }
+    }
+    
+    // Small delay to bypass potential race conditions on refresh
+    setTimeout(playAudio, 100)
 
     const interval = setInterval(() => {
       setDisplayText(
@@ -405,26 +417,25 @@ export default function Thinking() {
         {/* Marquee Container - Full Width */}
         <div className="w-full bg-[rgba(146,195,255,0.2)] py-10 overflow-hidden flex">
           {/* Marquee Track - Two independent tracks for seamless loop */}
+          {/* Marquee Track - Single track with duplicated content for seamless loop */}
           <div 
-            className="flex whitespace-nowrap min-w-full items-center"
+            className="flex whitespace-nowrap items-center animate-marquee-infinite"
             style={{ 
               '--marquee-duration': duration 
             } as React.CSSProperties}
           >
-            <div className="flex min-w-full animate-marquee items-center flex-shrink-0">
-              {sortedInfluences.map((name, index) => (
-                <span key={`1-${index}`} className="text-white text-[22px] mx-[35px] font-light italic">
-                  {name}
-                </span>
-              ))}
-            </div>
-            <div className="flex min-w-full animate-marquee items-center flex-shrink-0">
-              {sortedInfluences.map((name, index) => (
-                <span key={`2-${index}`} className="text-white text-[22px] mx-[35px] font-light italic">
-                  {name}
-                </span>
-              ))}
-            </div>
+            {/* First set of names */}
+            {sortedInfluences.map((name, index) => (
+              <span key={`1-${index}`} className="text-white text-[22px] mx-[35px] font-light italic flex-shrink-0">
+                {name}
+              </span>
+            ))}
+            {/* Second set of names (duplicate) */}
+            {sortedInfluences.map((name, index) => (
+              <span key={`2-${index}`} className="text-white text-[22px] mx-[35px] font-light italic flex-shrink-0">
+                {name}
+              </span>
+            ))}
           </div>
         </div>
       </div>

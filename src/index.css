@@ -201,6 +201,25 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
   animation-play-state: paused;
 }
 
+@keyframes marquee-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-infinite {
+  animation: marquee-infinite var(--marquee-duration, 100s) linear infinite;
+  width: max-content;
+  display: flex;
+}
+
+.animate-marquee-infinite:hover {
+  animation-play-state: paused;
+}
+
 .animate-glow-border {
   position: relative;
   overflow: visible;
