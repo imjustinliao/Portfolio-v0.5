@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Link, useLocation } from 'react-router-dom'
+import { useSettings } from '../context/SettingsContext'
 
 interface NavLink {
   href: string
@@ -25,6 +26,7 @@ const normalizePath = (value: string): string => {
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { openSettings } = useSettings()
   const [isScrolled, setIsScrolled] = useState(false)
   const [lastScrollY, setLastScrollY] = useState(0)
   const location = useLocation()
@@ -181,25 +183,24 @@ export default function Navbar() {
           </button>
 
           {/* Reunify Labs Logo */}
-          <a
+          {/* Filter Button (Desktop) */}
+          <button
             className={`
-              h-[calc(100%-1px)] aspect-square flex-shrink-0 flex items-center justify-center relative bg-gradient-to-br from-[rgba(255,255,255,0.1)] to-[rgba(80,80,80,0.04)] backdrop-blur-[18px] backdrop-saturate-[140%] shadow-[inset_0_0_25px_rgba(0,0,0,0.4)] no-underline outline-none hover:shadow-[inset_0_0_25px_rgba(0,0,0,0.4),0_0_4px_rgba(255,255,255,0.5)] focus-visible:shadow-[inset_0_0_25px_rgba(0,0,0,0.4),0_0_4px_rgba(255,255,255,0.5)] max-[900px]:hidden
+              h-[calc(100%-1px)] aspect-square flex-shrink-0 flex items-center justify-center relative bg-gradient-to-br from-[rgba(255,255,255,0.1)] to-[rgba(80,80,80,0.04)] backdrop-blur-[18px] backdrop-saturate-[140%] shadow-[inset_0_0_25px_rgba(0,0,0,0.4)] border-none cursor-pointer outline-none hover:shadow-[inset_0_0_25px_rgba(0,0,0,0.4),0_0_4px_rgba(255,255,255,0.5)] focus-visible:shadow-[inset_0_0_25px_rgba(0,0,0,0.4),0_0_4px_rgba(255,255,255,0.5)] max-[900px]:hidden
               transition-all duration-300 ease-in-out
               ${isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'}
             `}
-            href="https://reunifylabs.com"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Reunify Labs"
+            onClick={openSettings}
+            aria-label="Settings"
           >
             <div className="relative w-full h-full rounded-[10px] flex items-center justify-center overflow-hidden p-3 bg-[rgba(255, 255, 255, 0)] shadow-[inset_0_0_12px_rgba(0,0,0,0.15),0_10px_20px_rgba(0,0,0,0.25)]">
               <img 
-                src={`${baseUrl}UI/rw.svg`}
-                alt="Reunify Labs logo" 
-                className="w-full h-full object-contain"
+                src={`${baseUrl}UI/Filter Button.png`}
+                alt="Settings" 
+                className="w-full h-full object-contain drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] p-1"
               />
             </div>
-          </a>
+          </button>
         </div>
 
         {/* Mobile Dropdown Menu */}
@@ -243,22 +244,17 @@ export default function Navbar() {
               })}
             </div>
             
-            <a
-              className="mt-[35px] inline-flex items-center gap-3 py-[15px] px-[30px] rounded-full bg-[rgba(255,255,255,0.9)] text-[#000c2c] text-xl font-semibold no-underline tracking-[0.05em] shadow-[0_10px_30px_rgba(0,0,0,0.25)]"
-              href="https://reunifylabs.com"
-              target="_blank"
-              rel="noreferrer"
+            <button
+              className="mt-[35px] inline-flex items-center justify-center py-[15px] px-[30px] rounded-full bg-[rgba(255,255,255,0.9)] text-[#000c2c] text-xl font-semibold tracking-[0.05em] shadow-[0_10px_30px_rgba(0,0,0,0.25)] border-none cursor-pointer"
+              onClick={() => {
+                setIsMenuOpen(false)
+                openSettings()
+              }}
             >
-              <img
-                src={`${baseUrl}UI/r.svg`}
-                alt=""
-                className="w-7 h-7 object-contain"
-                aria-hidden="true"
-              />
-              <span className="text-lg font-semibold text-[#000c2c]">
-                Reunify Labs
+              <span className="text-lg font-semibold text-[#000c2c] uppercase">
+                SETTINGS
               </span>
-            </a>
+            </button>
           </div>,
           document.body
         )}

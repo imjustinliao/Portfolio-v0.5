@@ -74,7 +74,7 @@ export default function FollowMeCard() {
                 href={link.url}
                 target="_blank"
                 rel="noreferrer"
-                className="text-white text-2xl font-normal hover:text-[#92C3FF] transition-colors drop-shadow-[0_0_8px_rgba(0,0,0,0.5)]"
+                className="text-white text-2xl font-normal hover:text-[var(--theme-color)] transition-colors drop-shadow-[0_0_8px_rgba(0,0,0,0.5)]"
               >
                 {link.name}
               </a>
@@ -89,7 +89,7 @@ export default function FollowMeCard() {
                 <Link
                   key={link.name}
                   to={link.url}
-                  className="text-white text-2xl font-normal hover:text-[#92C3FF] transition-colors drop-shadow-[0_0_8px_rgba(0,0,0,0.5)]"
+                  className="text-white text-2xl font-normal hover:text-[var(--theme-color)] transition-colors drop-shadow-[0_0_8px_rgba(0,0,0,0.5)]"
                 >
                   {link.name}
                 </Link>
@@ -99,7 +99,7 @@ export default function FollowMeCard() {
                   href={link.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-white text-2xl font-normal hover:text-[#92C3FF] transition-colors drop-shadow-[0_0_8px_rgba(0,0,0,0.5)]"
+                  className="text-white text-2xl font-normal hover:text-[var(--theme-color)] transition-colors drop-shadow-[0_0_8px_rgba(0,0,0,0.5)]"
                 >
                   {link.name}
                 </a>
@@ -116,7 +116,7 @@ export default function FollowMeCard() {
                 href={link.url}
                 target="_blank"
                 rel="noreferrer"
-                className="text-white text-2xl font-normal hover:text-[#92C3FF] transition-colors drop-shadow-[0_0_8px_rgba(0,0,0,0.5)]"
+                className="text-white text-2xl font-normal hover:text-[var(--theme-color)] transition-colors drop-shadow-[0_0_8px_rgba(0,0,0,0.5)]"
               >
                 {link.name}
               </a>

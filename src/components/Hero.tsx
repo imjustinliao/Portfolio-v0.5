@@ -75,16 +75,16 @@ export default function Hero() {
             As a defiant technologist, I{' '}
             <Link 
               to="/about" 
-              className="relative group inline-block px-1 -mx-1 rounded-md italic font-normal text-[#92C3FF] no-underline"
+              className="relative group inline-block px-1 -mx-1 rounded-md italic font-normal text-[var(--theme-color)] no-underline"
               onMouseEnter={playFlowAudio}
               onMouseLeave={stopFlowAudio}
               onClick={playFlowAudio}
             >
               <span className="absolute inset-0 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none overflow-hidden">
-                <div className="absolute inset-0 border border-[rgba(146,195,255,0.5)] rounded-md"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(146,195,255,0.4)] to-transparent animate-shimmer"></div>
+                <div className="absolute inset-0 border border-[rgba(var(--theme-rgb),0.5)] rounded-md"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(var(--theme-rgb),0.4)] to-transparent animate-shimmer"></div>
               </span>
-              <span className="relative z-10">create</span>
+              <span className="text-[var(--theme-color)] font-medium">create</span>
             </Link>{' '}
             immersive experience that is boundless and unconventional.
           </p>
@@ -104,14 +104,14 @@ export default function Hero() {
           <p className="text-[clamp(14px,1.4vw,15px)] sm:text-[clamp(15px,1.5vw,16px)] lg:text-[17px] font-normal leading-[1.5] text-white tracking-[-0.01em]">
             <a 
               href="mailto:justinliao@gmail.com" 
-              className="relative group inline-block px-1 -mx-1 rounded-md italic font-normal text-[#92C3FF] no-underline"
+              className="relative group inline-block px-1 -mx-1 rounded-md italic font-normal text-[var(--theme-color)] no-underline"
               onMouseEnter={playFlowAudio}
               onMouseLeave={stopFlowAudio}
               onClick={playFlowAudio}
             >
               <span className="absolute inset-0 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none overflow-hidden">
-                <div className="absolute inset-0 border border-[rgba(146,195,255,0.5)] rounded-md"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(146,195,255,0.4)] to-transparent animate-shimmer"></div>
+                <div className="absolute inset-0 border border-[rgba(var(--theme-rgb),0.5)] rounded-md"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(var(--theme-rgb),0.4)] to-transparent animate-shimmer"></div>
               </span>
               <span className="relative z-10">@Inspire</span>
             </a>{' '}
@@ -173,7 +173,7 @@ export default function Hero() {
               onClick={() => setCurrentImageIndex(index)}
               className={`w-[21px] h-[7px] rounded-[15px] transition-all duration-300 ease-out cursor-pointer border-none ${
                 index === currentImageIndex 
-                  ? 'bg-[#92C3FF] shadow-[0_0_12px_rgba(146,195,255,0.7),0_0_4px_rgba(146,195,255,0.9)]' 
+                  ? 'bg-[var(--theme-color)] shadow-[0_0_12px_rgba(var(--theme-rgb),0.7),0_0_4px_rgba(var(--theme-rgb),0.9)]' 
                   : 'bg-white hover:bg-white hover:shadow-[0_0_8px_rgba(255,255,255,0.4)]'
               }`}
               aria-label={`Go to image ${index + 1}`}

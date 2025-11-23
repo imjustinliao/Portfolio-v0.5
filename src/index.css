@@ -137,10 +137,10 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
 
 @keyframes pulse-glow-blue {
   0%, 100% {
-    box-shadow: 0 0 15px rgba(146, 195, 255, 0.2);
+    box-shadow: 0 0 15px rgba(var(--theme-rgb), 0.2);
   }
   50% {
-    box-shadow: 0 0 30px rgb(85, 162, 255);
+    box-shadow: 0 0 30px var(--theme-color);
   }
 }
 
@@ -258,7 +258,9 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
   --page-max-width: 1512px;
   --brand-color: #ffffff;
   --accent-color: #d9d9d9;
-  --background-color: #000c2c;
+  --background-color: #000000;
+  --theme-color: #92C3FF;
+  --theme-rgb: 146, 195, 255;
   --font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -301,7 +303,8 @@ body::after {
   content: "";
   position: fixed;
   inset: 0;
-  background: var(--background-color);
+  background: var(--theme-color);
+  opacity: 0.15;
   z-index: -2;
 }
 

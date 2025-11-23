@@ -6,6 +6,8 @@ import CustomCursor from './components/CustomCursor'
 import Home from './pages/Home'
 import About from './pages/About'
 import Thinking from './pages/Thinking'
+import SettingsOverlay from './components/SettingsOverlay'
+import { SettingsProvider } from './context/SettingsContext'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -22,18 +24,21 @@ export default function App() {
   const isThinkingPage = location.pathname === '/thinking'
 
   return (
-    <div className="site-wrapper">
-      <CustomCursor />
-      <ScrollToTop />
-      <Navbar />
-      <main className={isThinkingPage ? '!p-0 !w-full !max-w-none' : ''}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/thinking" element={<Thinking />} />
-        </Routes>
-        <Footer />
-      </main>
-    </div>
+    <SettingsProvider>
+      <div className="site-wrapper">
+        <CustomCursor />
+        <ScrollToTop />
+        <Navbar />
+        <main className={isThinkingPage ? '!p-0 !w-full !max-w-none' : ''}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/thinking" element={<Thinking />} />
+          </Routes>
+          <Footer />
+        </main>
+        <SettingsOverlay />
+      </div>
+    </SettingsProvider>
   )
 }

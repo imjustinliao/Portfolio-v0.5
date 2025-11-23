@@ -39,7 +39,7 @@ export default function CustomCursor() {
     <>
       {/* Blurred white lighting effect - largest layer */}
       <div
-        className="fixed pointer-events-none z-[5] will-change-transform hidden md:block"
+        className="fixed pointer-events-none z-[10000] will-change-transform hidden md:block"
         style={{
           left: `${mousePosition.x}px`,
           top: `${mousePosition.y}px`,
@@ -55,7 +55,7 @@ export default function CustomCursor() {
 
       {/* Cursor center point */}
       <div
-        className="fixed pointer-events-none z-[9999] hidden md:block"
+        className="fixed pointer-events-none z-[10001] hidden md:block"
         style={{
           left: `${mousePosition.x}px`,
           top: `${mousePosition.y}px`,

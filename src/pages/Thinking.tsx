@@ -186,7 +186,7 @@ const PrincipleItem = ({
     >
       {/* Flow Up Glow Background */}
       <div 
-        className={`absolute inset-0 bg-gradient-to-t from-[#92C3FF]/10 to-transparent transition-transform duration-500 ease-out origin-bottom ${isHovered ? 'scale-y-100' : 'scale-y-0'}`}
+        className={`absolute inset-0 bg-gradient-to-t from-[rgba(var(--theme-rgb),0.1)] to-transparent transition-transform duration-500 ease-out origin-bottom ${isHovered ? 'scale-y-100' : 'scale-y-0'}`}
         style={{ pointerEvents: 'none' }}
       />
 
@@ -415,7 +415,7 @@ export default function Thinking() {
         </div>
         
         {/* Marquee Container - Full Width */}
-        <div className="w-full bg-[rgba(146,195,255,0.2)] py-10 overflow-hidden flex">
+        <div className="w-full bg-[rgba(var(--theme-rgb),0.2)] py-10 overflow-hidden flex">
           {/* Marquee Track - Two independent tracks for seamless loop */}
           {/* Marquee Track - Single track with duplicated content for seamless loop */}
           <div 
@@ -518,7 +518,7 @@ export default function Thinking() {
               ))}
               <div className="w-full text-center mt-12 mb-24">
                 <p 
-                  className="text-[#92C3FF] font-['Source_Code_Pro'] text-[18px] md:text-[16px]"
+                  className="text-[var(--theme-color)] font-['Source_Code_Pro'] text-[18px] md:text-[16px]"
                   style={{ fontWeight: 200 }}
                 >
                   justinliao ~ still thinking<ThinkingDots />
@@ -536,7 +536,7 @@ export default function Thinking() {
               <div className="flex flex-col gap-y-16">
                 {Object.entries(INSPIRATIONS).map(([category, items]) => (
                   <div key={category} className="flex flex-col gap-6 items-center text-center">
-                    <h3 className="text-[#92C3FF] text-[26px] md:text-[28px] font-normal border-b border-[rgba(146,195,255,0.3)] pb-2 inline-block w-fit">
+                    <h3 className="text-[var(--theme-color)] text-[26px] md:text-[28px] font-normal border-b border-[rgba(var(--theme-rgb),0.3)] pb-2 inline-block w-fit">
                       {category}
                     </h3>
                     <div className="flex flex-col gap-8 w-full items-center">

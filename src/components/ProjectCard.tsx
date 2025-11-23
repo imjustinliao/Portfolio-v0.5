@@ -208,7 +208,7 @@ export default function ProjectCard({ project, isExpanded, onExpand, isHovered, 
         ${isExpanded 
           ? 'shadow-[inset_0_0_12px_12px_rgba(255,255,255,0.75)]' 
           : isHovered 
-            ? project.glowColor === '#92C3FF'
+            ? project.glowColor === 'var(--theme-color)'
               ? 'animate-pulse-glow-blue'
               : 'animate-pulse-glow' 
             : ''

@@ -156,19 +156,18 @@ export default function About() {
                   <>
                     {paragraph.split("high-delta work")[0]}
                     <span 
-                      className="relative group/tooltip inline-block cursor-help px-1 -mx-1 rounded-md"
+                      className="relative group/tooltip inline-block cursor-help px-1 -mx-1 rounded-md italic text-[var(--theme-color)]"
                       onMouseEnter={playFlowAudio}
                       onMouseLeave={stopFlowAudio}
                       onClick={playFlowAudio}
                     >
                       {/* Continuous Glowing Border Effect (Updated to use component) */}
                       <span className="absolute inset-0 rounded-md opacity-0 group-hover/tooltip:opacity-100 transition-opacity duration-300 pointer-events-none overflow-hidden">
-                         <div className="absolute inset-0 border border-[rgba(146,195,255,0.5)] rounded-md"></div>
+                         <div className="absolute inset-0 border border-[rgba(var(--theme-rgb),0.5)] rounded-md"></div>
                          {/* Shimmer Light Effect */}
-                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(146,195,255,0.4)] to-transparent animate-shimmer"></div>
+                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(var(--theme-rgb),0.4)] to-transparent animate-shimmer"></div>
                       </span>
-                      
-                      <span className="italic text-[#92C3FF] relative z-10">high-delta work</span>
+                                           high-delta work
                       
                       {/* Tooltip */}
                       <span className="absolute bottom-full left-0 mb-4 w-[280px] sm:w-[350px] p-4 rounded-xl 
@@ -199,7 +198,7 @@ export default function About() {
             0
             <span 
               className={`
-                absolute -bottom-1 left-0 h-[2px] bg-[#92C3FF] transition-all duration-500 ease-out
+                absolute -bottom-1 left-0 h-[2px] bg-[var(--theme-color)] transition-all duration-500 ease-out
                 ${activeState === 0 ? 'w-full' : 'w-0'}
               `}
             />
@@ -212,7 +211,7 @@ export default function About() {
             1
             <span 
               className={`
-                absolute -bottom-1 left-0 h-[2px] bg-[#92C3FF] transition-all duration-500 ease-out
+                absolute -bottom-1 left-0 h-[2px] bg-[var(--theme-color)] transition-all duration-500 ease-out
                 ${activeState === 1 ? 'w-full' : 'w-0'}
               `}
             />
@@ -240,12 +239,12 @@ export default function About() {
                   className={`
                     relative w-full text-left py-[clamp(10px,1.2vh,14px)] px-[clamp(12px,1.5vw,20px)]
                     text-[clamp(18px,1.8vw,24px)] font-normal 
-                    ${isFollowMe ? 'text-[#92C3FF]' : 'text-white'}
+                    ${isFollowMe ? 'text-[var(--theme-color)]' : 'text-white'}
                     transition-all duration-300 ease-out
                     group
                     ${isSelected 
-                      ? isFollowMe ? 'bg-[rgba(146,195,255,0.15)]' : 'bg-[rgba(255,255,255,0.15)]' 
-                      : isFollowMe ? 'hover:bg-[rgba(146,195,255,0.2)]' : 'hover:bg-[rgba(255,255,255,0.2)]'
+                      ? isFollowMe ? 'bg-[rgba(var(--theme-rgb),0.15)]' : 'bg-[rgba(255,255,255,0.15)]' 
+                      : isFollowMe ? 'hover:bg-[rgba(var(--theme-rgb),0.2)]' : 'hover:bg-[rgba(255,255,255,0.2)]'
                     }
                     rounded-r-[5px]
                   `}
@@ -253,14 +252,14 @@ export default function About() {
                   {/* Left Border Selection Indicator */}
                   {/* Inner stroke white 1px 15% transparent */}
                   {isSelected && (
-                    <div className={`absolute left-0 top-0 bottom-0 w-[1px] ${isFollowMe ? 'bg-[#92C3FF]' : 'bg-white'}`} />
+                    <div className={`absolute left-0 top-0 bottom-0 w-[1px] ${isFollowMe ? 'bg-[var(--theme-color)]' : 'bg-white'}`} />
                   )}
 
                   {/* White Rectangle on Hover (Unselected) or Active */}
                   <div 
                     className={`
                       absolute right-4 top-1/2 -translate-y-1/2 w-[7px] h-[10px] 
-                      ${isFollowMe ? 'bg-[#92C3FF]' : 'bg-white'}
+                      ${isFollowMe ? 'bg-[var(--theme-color)]' : 'bg-white'}
                       transition-opacity duration-300
                       ${isSelected ? 'animate-blink' : 'opacity-0 group-hover:opacity-100'}
                     `} 
@@ -276,7 +275,7 @@ export default function About() {
           <div className="md:hidden w-full relative z-30">
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className={`w-full flex items-center justify-between py-3 px-4 bg-[rgba(255,255,255,0.15)] rounded-[5px] ${activeWorkCategory === 4 ? 'text-[#92C3FF]' : 'text-white'} text-[20px] font-normal border border-transparent active:border-[rgba(255,255,255,0.3)] transition-all`}
+              className={`w-full flex items-center justify-between py-3 px-4 bg-[rgba(255,255,255,0.15)] rounded-[5px] ${activeWorkCategory === 4 ? 'text-[var(--theme-color)]' : 'text-white'} text-[20px] font-normal border border-transparent active:border-[rgba(255,255,255,0.3)] transition-all`}
             >
               <span>{workCategories[activeWorkCategory]}</span>
               <svg 
@@ -287,7 +286,7 @@ export default function About() {
                 xmlns="http://www.w3.org/2000/svg"
                 className={`transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : 'rotate-0'}`}
               >
-                <path d="M1 1L7 7L13 1" stroke={activeWorkCategory === 4 ? '#92C3FF' : 'white'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M1 1L7 7L13 1" stroke={activeWorkCategory === 4 ? 'var(--theme-color)' : 'white'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
 
@@ -310,7 +309,7 @@ export default function About() {
                     onClick={() => {
                       handleCategoryClick(index)
                     }}
-                    className={`w-full text-left py-3 px-4 text-[18px] ${isFollowMe ? 'text-[#92C3FF] hover:text-[#92C3FF]' : 'text-[rgba(255,255,255,0.8)] hover:text-white'} hover:bg-[rgba(255,255,255,0.1)] transition-colors border-b border-[rgba(255,255,255,0.1)] last:border-b-0`}
+                    className={`w-full text-left py-3 px-4 text-[18px] ${isFollowMe ? 'text-[var(--theme-color)] hover:text-[var(--theme-color)]' : 'text-[rgba(255,255,255,0.8)] hover:text-white'} hover:bg-[rgba(255,255,255,0.1)] transition-colors border-b border-[rgba(255,255,255,0.1)] last:border-b-0`}
                   >
                     {category}
                   </button>
