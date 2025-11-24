@@ -21,7 +21,7 @@ const INFLUENCES = [
   "Richard Branson", "Warren Buffett", "Albert Einstein", "Mike Tyson", 
   "Friedrich Nietzsche", "Henry Ford", "Richard Feynman", "Ray Dalio", 
   "Jack Wu", "Swanand Wagh", "Jamie Dimon", "Kelly Huang", "Malaika Khan", 
-  "Yannis Paniaras", "Dale Carnegie", "Aaron Levie", "Dhruv Addanki", "Dieter Rams"
+  "Yannis Paniaras", "Dale Carnegie", "Aaron Levie", "Dhruv Addanki", "Dieter Rams", "Darren Thamtoro", "Richard Zheng", "Ben Weinstein"
 ]
 
 const CATEGORIES = ['Writings', 'Life Principles', 'Quote', 'Inspirations']
