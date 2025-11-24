@@ -57,7 +57,8 @@ const INSPIRATIONS = {
   "Life": [
     { title: "Atomic Habits", author: "James Clear", type: "Book" },
     { title: "The Daily Stoic", author: "Ryan Holiday", type: "Book" },
-    { title: "What I Wish Someone Had Told Me", author: "Sam Altman", type: "Article" }
+    { title: "What I Wish Someone Had Told Me", author: "Sam Altman", type: "Article" },
+    { title: "Factfulness: Ten Reasons We're Wrong About the World", author: "Hans Rosling", type: "Book" }
   ],
   "Tech": [
     { title: "Abundant Intelligence", author: "Sam Altman", type: "Article" }
