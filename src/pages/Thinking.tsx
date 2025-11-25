@@ -58,16 +58,22 @@ const INSPIRATIONS = {
     { title: "Atomic Habits", author: "James Clear", type: "Book" },
     { title: "The Daily Stoic", author: "Ryan Holiday", type: "Book" },
     { title: "What I Wish Someone Had Told Me", author: "Sam Altman", type: "Article" },
-    { title: "Factfulness: Ten Reasons We're Wrong About the World", author: "Hans Rosling", type: "Book" }
+    { title: "Factfulness: Ten Reasons We're Wrong About the World", author: "Hans Rosling", type: "Book" },
+    { title: "The 38 Letters from J.D. Rockefeller to His Son: Perspectives, Ideology, and Wisdom", author: "J.D. Rockefeller", type: "Book" }
   ],
   "Tech": [
-    { title: "Abundant Intelligence", author: "Sam Altman", type: "Article" }
+    { title: "Abundant Intelligence", author: "Sam Altman", type: "Article" },
+    { title: "Swipe to Unlock: A Primer on Technology and Business Strategy", author: "Aditya Agashe, Neel Mehta, & Parth Detroja", type: "Book" }
   ],
   "Design": [
     { title: "The Creative Act", author: "Rick Rubin", type: "Book" },
     { title: "ZAHA HADID", author: "Philip Jodidio", type: "Book" },
     { title: "The Designer's Dictionary of Color", author: "Sean Adams", type: "Book" },
     { title: "Dieter Rams: As Little Design as Possible", author: "Sophie Lovell", type: "Book" },
+    { title: "The World According to Karl", author: "Jean-Christophe Napias & Sandrine Gulbenkian", type: "Book" }
+  ],
+  "Finance": [
+    { title: "Margin of Trust: The Berkshire Business Model", author: "Lawrence A. Cunningham & Stephanie Cuba", type: "Book" },
   ],
   "People": [
     { title: "How to Win Friends and Influence People", author: "Dale Carnegie", type: "Book" },
