@@ -22,10 +22,13 @@ export const generateResponse = async (message, history = []) => {
       apiKey: process.env.OPENAI_API_KEY,
     });
 
+    // Cost Optimization: Limit Input History (but allow full length)
+    const recentHistory = history.slice(-6); // Keep last 6 exchanges for better context
+
     // Convert DynamoDB history to OpenAI format
     const messages = [
       { role: 'system', content: getSystemPrompt() },
-      ...history.map(item => ([
+      ...recentHistory.map(item => ([
         { role: 'user', content: item.userMessage },
         { role: 'assistant', content: item.aiResponse }
       ])).flat(),
@@ -33,9 +36,9 @@ export const generateResponse = async (message, history = []) => {
     ];
 
     const completion = await openai.chat.completions.create({
-      model: 'gpt-5.1',
+      model: 'gpt-4o-mini', // Cost-effective and fast
       messages: messages,
-      max_completion_tokens: 300,
+      max_completion_tokens: 500, // Increased limit to prevent mid-sentence cutoffs
     });
 
     return completion.choices[0].message.content;
