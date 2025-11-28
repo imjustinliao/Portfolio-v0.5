@@ -34,7 +34,7 @@ export const handler = async (event) => {
     };
   }
 
-  const { message, sessionId } = body;
+  const { message, sessionId, userName } = body;
 
   if (!message || !sessionId) {
     return {
@@ -42,6 +42,14 @@ export const handler = async (event) => {
       body: JSON.stringify({ error: 'Missing message or sessionId' }),
     };
   }
+
+  // Get User IP (CloudFront passes this header)
+  const userIp = headers['cloudfront-viewer-address'] || headers['x-forwarded-for'] || 'Unknown';
+
+  // Get User Location (CloudFront headers)
+  const city = headers['cloudfront-viewer-city'];
+  const country = headers['cloudfront-viewer-country-name'];
+  const userLocation = city && country ? `${city}, ${country}` : (country || 'Unknown');
 
   // ========================================================================
   // 3. Process Chat
@@ -54,7 +62,7 @@ export const handler = async (event) => {
     const aiResponse = await generateResponse(message, history);
     
     // Save to DB
-    await saveConversation(sessionId, message, aiResponse);
+    await saveConversation(sessionId, message, aiResponse, userName, userIp, userLocation);
 
     return {
       statusCode: 200,

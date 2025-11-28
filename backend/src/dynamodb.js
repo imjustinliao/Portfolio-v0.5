@@ -3,7 +3,7 @@ import AWS from 'aws-sdk';
 const dynamoDB = new AWS.DynamoDB.DocumentClient();
 const TABLE_NAME = process.env.TABLE_NAME;
 
-export const saveConversation = async (sessionId, userMessage, aiResponse) => {
+export const saveConversation = async (sessionId, userMessage, aiResponse, userName, userIp, userLocation) => {
   const timestamp = Date.now();
   
   const item = {
@@ -11,6 +11,9 @@ export const saveConversation = async (sessionId, userMessage, aiResponse) => {
     timestamp,
     userMessage,
     aiResponse,
+    userName: userName || 'Anonymous',
+    userIp: userIp || 'Unknown',
+    userLocation: userLocation || 'Unknown',
     createdAt: new Date().toISOString(),
   };
 

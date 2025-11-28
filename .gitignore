@@ -141,3 +141,6 @@ awscliv2.zip
 aws/
 dist/
 *.pkg
+
+# Local Server
+local-server.js

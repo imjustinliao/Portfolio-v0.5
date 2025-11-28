@@ -1,64 +1,83 @@
 import { useState, useRef, useEffect } from 'react'
+import ReactMarkdown from 'react-markdown'
 
 // Module-level state that persists during session but clears on refresh
 let moduleMessages: { sender: 'user' | 'ai', text: string, timestamp: Date }[] = []
 let moduleHasEntered = false
+let moduleUserName = ''
+let moduleIsNameEntered = false
 
 export default function EdomChat() {
   const typingAudioRef = useRef<HTMLAudioElement | null>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const abortControllerRef = useRef<AbortController | null>(null)
+  const nameInputRef = useRef<HTMLInputElement>(null)
   
   // Initialize from module-level state
   const [hasEntered, setHasEntered] = useState(moduleHasEntered)
   const [messages, setMessages] = useState<{ sender: 'user' | 'ai', text: string, timestamp: Date }[]>(moduleMessages)
   const [inputValue, setInputValue] = useState('')
   const [isTyping, setIsTyping] = useState(false)
+  const [isWaiting, setIsWaiting] = useState(false)
+  const [isTypingEffectActive, setIsTypingEffectActive] = useState(false)
   const [typingText, setTypingText] = useState('')
   const [fullAiResponse, setFullAiResponse] = useState('')
+  
+  // Name Collection State
+  const [userName, setUserName] = useState(moduleUserName)
+  const [isNameEntered, setIsNameEntered] = useState(moduleIsNameEntered)
+  const [showNameInput, setShowNameInput] = useState(false)
 
   // Initialize audio
   useEffect(() => {
     typingAudioRef.current = new Audio('/audio/typing.mp3')
   }, [])
 
-  // Play typing sound when showing intro and stop after 2 seconds
+  // Focus name input when shown
   useEffect(() => {
-    if (!hasEntered && typingAudioRef.current) {
+    if (showNameInput && nameInputRef.current) {
+      nameInputRef.current.focus()
+    }
+  }, [showNameInput])
+
+  // Play typing sound logic (unchanged)
+  useEffect(() => {
+    if (!hasEntered && !showNameInput && typingAudioRef.current) {
       const playTimer = setTimeout(() => {
         typingAudioRef.current?.play().catch(e => console.error('Audio play failed:', e))
       }, 100)
       
-      // Stop audio after animation completes (2 seconds)
       const stopTimer = setTimeout(() => {
         if (typingAudioRef.current) {
           typingAudioRef.current.pause()
           typingAudioRef.current.currentTime = 0
         }
-      }, 2100) // 2s animation + 100ms delay
+      }, 2100)
       
       return () => {
         clearTimeout(playTimer)
         clearTimeout(stopTimer)
       }
     }
-  }, [hasEntered])
+  }, [hasEntered, showNameInput])
 
-  // Typing effect for AI responses
+  // Typing effect
   useEffect(() => {
     if (fullAiResponse && typingText.length < fullAiResponse.length) {
+      setIsTypingEffectActive(true)
       const timer = setTimeout(() => {
         setTypingText(fullAiResponse.slice(0, typingText.length + 1))
-      }, 20) // Speed of typing (20ms per character)
+      }, 20)
       
       return () => clearTimeout(timer)
     } else if (fullAiResponse && typingText.length === fullAiResponse.length) {
-      // Typing complete, add to messages
       const finalTimer = setTimeout(() => {
         setMessages(prev => [...prev, { sender: 'ai', text: fullAiResponse, timestamp: new Date() }])
         setTypingText('')
         setFullAiResponse('')
         setIsTyping(false)
+        setIsTypingEffectActive(false)
       }, 100)
       
       return () => clearTimeout(finalTimer)
@@ -72,9 +91,11 @@ export default function EdomChat() {
 
   useEffect(() => {
     moduleHasEntered = hasEntered
-  }, [hasEntered])
+    moduleUserName = userName
+    moduleIsNameEntered = isNameEntered
+  }, [hasEntered, userName, isNameEntered])
 
-  // Auto-resize textarea
+  // Auto-resize textarea (unchanged)
   useEffect(() => {
     if (textareaRef.current) {
       textareaRef.current.style.height = 'auto'
@@ -91,7 +112,20 @@ export default function EdomChat() {
   }, [messages, isTyping, typingText])
 
   const handleEnter = () => {
+    if (isNameEntered) {
+      setHasEntered(true)
+    } else {
+      setShowNameInput(true)
+    }
+  }
+
+  const handleNameSubmit = (e?: React.FormEvent) => {
+    e?.preventDefault()
+    if (!userName.trim()) return
+    
+    setIsNameEntered(true)
     setHasEntered(true)
+    setShowNameInput(false)
   }
 
   const formatTime = (date: Date) => {
@@ -114,22 +148,37 @@ export default function EdomChat() {
     setSessionId(sid)
   }, [])
 
+  const handleStopGeneration = (e: React.MouseEvent) => {
+    e.preventDefault()
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort()
+      abortControllerRef.current = null
+      setIsWaiting(false)
+      setIsTyping(false)
+      setIsTypingEffectActive(false)
+      setFullAiResponse('')
+    }
+  }
+
   const handleSendMessage = async (e?: React.FormEvent) => {
     e?.preventDefault()
-    if (!inputValue.trim()) return
+    if (!inputValue.trim() || isWaiting || isTypingEffectActive) return
 
     const userMessage = inputValue.trim()
     const timestamp = new Date()
     setMessages(prev => [...prev, { sender: 'user', text: userMessage, timestamp }])
     setInputValue('')
+    setIsWaiting(true)
     setIsTyping(true)
 
+    abortControllerRef.current = new AbortController()
+
     try {
-      // Call Backend API (Proxied via CloudFront)
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: userMessage, sessionId })
+        body: JSON.stringify({ message: userMessage, sessionId, userName }),
+        signal: abortControllerRef.current.signal
       })
 
       if (!response.ok) {
@@ -138,9 +187,16 @@ export default function EdomChat() {
 
       const data = await response.json()
       setFullAiResponse(data.response)
-    } catch (error) {
-      console.error('Chat Error:', error)
-      setFullAiResponse("I'm having trouble connecting to my brain right now. Please try again later.")
+    } catch (error: any) {
+      if (error.name === 'AbortError') {
+        console.log('Generation stopped by user')
+      } else {
+        console.error('Chat Error:', error)
+        setFullAiResponse("I'm having trouble connecting to my brain right now. Please try again later.")
+      }
+    } finally {
+      setIsWaiting(false)
+      abortControllerRef.current = null
     }
   }
 
@@ -152,6 +208,53 @@ export default function EdomChat() {
     }
   }
 
+  // Screen 2: Name Input
+  if (showNameInput) {
+    return (
+      <div 
+        className="w-full h-full flex flex-col items-center justify-center animate-fadeIn"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <h2 
+          className="text-white text-2xl mb-8 font-light tracking-wide animate-slideUpFade"
+          style={{ fontFamily: '"Source Code Pro", monospace' }}
+        >
+          What is your name?
+        </h2>
+        
+        <form onSubmit={handleNameSubmit} className="flex flex-col items-center w-full max-w-xs animate-slideUpFade" style={{ animationDelay: '0.1s' }}>
+          <input
+            ref={nameInputRef}
+            type="text"
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+            className="w-full bg-transparent border-b border-white/30 text-white text-center text-xl py-2 mb-8 outline-none focus:border-white transition-colors placeholder-white/20"
+            placeholder="Enter your name"
+            style={{ fontFamily: '"Source Code Pro", monospace' }}
+          />
+          
+          <button
+            type="submit"
+            disabled={!userName.trim()}
+            className="group relative px-8 py-3 overflow-hidden rounded-full transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:hover:scale-100"
+            style={{
+              background: 'rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              boxShadow: '0 0 20px rgba(0, 0, 0, 0.1)',
+            }}
+          >
+            <div className="absolute inset-0 w-full h-full bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="relative text-white font-light tracking-widest uppercase text-sm" style={{ fontFamily: '"Source Code Pro", monospace' }}>
+              Start Chat
+            </span>
+          </button>
+        </form>
+      </div>
+    )
+  }
+
+  // Screen 1: Hello World (Intro)
   if (!hasEntered) {
     return (
       <div 
@@ -243,7 +346,17 @@ export default function EdomChat() {
                 boxShadow: 'inset 0 0 4px 1px rgba(255, 255, 255, 0.25)'
               }}
             >
-              {msg.text}
+              <ReactMarkdown 
+                components={{
+                  a: ({node, ...props}) => <a {...props} target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-200" />,
+                  p: ({node, ...props}) => <p {...props} className="mb-2 last:mb-0" />,
+                  ul: ({node, ...props}) => <ul {...props} className="list-disc ml-4 mb-2" />,
+                  ol: ({node, ...props}) => <ol {...props} className="list-decimal ml-4 mb-2" />,
+                  li: ({node, ...props}) => <li {...props} className="mb-1" />
+                }}
+              >
+                {msg.text}
+              </ReactMarkdown>
             </div>
           </div>
         ))}
@@ -263,7 +376,17 @@ export default function EdomChat() {
             >
               {typingText ? (
                 <div className="text-white" style={{ fontFamily: '"Source Code Pro", monospace', fontSize: '16px', lineHeight: '20px' }}>
-                  {typingText}
+                  <ReactMarkdown 
+                    components={{
+                      a: ({node, ...props}) => <a {...props} target="_blank" rel="noopener noreferrer" className="underline text-blue-300 hover:text-blue-200" />,
+                      p: ({node, ...props}) => <p {...props} className="mb-2 last:mb-0" />,
+                      ul: ({node, ...props}) => <ul {...props} className="list-disc ml-4 mb-2" />,
+                      ol: ({node, ...props}) => <ol {...props} className="list-decimal ml-4 mb-2" />,
+                      li: ({node, ...props}) => <li {...props} className="mb-1" />
+                    }}
+                  >
+                    {typingText}
+                  </ReactMarkdown>
                   <span className="inline-block w-[2px] h-[16px] bg-white ml-[2px] animate-pulse" />
                 </div>
               ) : (
@@ -280,7 +403,15 @@ export default function EdomChat() {
       </div>
 
       {/* Input Area */}
-      <div className="w-full pt-4 pb-2 animate-slideUpFade" style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
+      <div 
+        className="w-full pt-4 pb-2 animate-slideUpFade" 
+        style={{ 
+          animationDelay: '0.3s', 
+          animationFillMode: 'both',
+          marginBottom: 'env(safe-area-inset-bottom)',
+          paddingBottom: 'calc(0.5rem + env(safe-area-inset-bottom))'
+        }}
+      >
         <form 
           onSubmit={handleSendMessage}
           className="relative w-full max-w-2xl mx-auto"
@@ -308,13 +439,25 @@ export default function EdomChat() {
                 padding: 0
               }}
             />
-            <button
-              type="submit"
-              disabled={!inputValue.trim()}
-              className="flex-shrink-0 mb-[2px] ml-3 disabled:opacity-30 transition-opacity duration-200"
-            >
-              <img src="/UI/send.svg" alt="Send" className="w-5 h-5" />
-            </button>
+            {isWaiting || isTypingEffectActive ? (
+              <button
+                type="button"
+                onClick={handleStopGeneration}
+                className="flex-shrink-0 mb-[2px] ml-3 transition-opacity duration-200 hover:opacity-80"
+              >
+                <div className="w-5 h-5 rounded-full bg-white flex items-center justify-center">
+                  <div className="w-2 h-2 bg-black rounded-[1px]" />
+                </div>
+              </button>
+            ) : (
+              <button
+                type="submit"
+                disabled={!inputValue.trim()}
+                className="flex-shrink-0 mb-[2px] ml-3 disabled:opacity-30 transition-opacity duration-200"
+              >
+                <img src="/UI/send.svg" alt="Send" className="w-5 h-5" />
+              </button>
+            )}
           </div>
         </form>
       </div>
