@@ -129,5 +129,15 @@ infrastructure/cdk.out/
 .idea/
 .vscode/
 
-# Private Documentation
+# Private# AWS Deployment Guide (Private)
 AWS_DEPLOYMENT.md
+
+# Infrastructure Secrets
+infrastructure/.env
+infrastructure/cdk.context.json
+
+# AWS CLI Installer
+awscliv2.zip
+aws/
+dist/
+*.pkg

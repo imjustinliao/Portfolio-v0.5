@@ -1,6 +1,10 @@
-# Portfolio v0.5
+# Portfolio v0.5 - Justin Liao
+> The source code for my personal portfolio, where I express my thoughts and work.
 
-This project is a personal portfolio website designed to showcase my work and philosophy. It consists of three main sections: Home, About, and Thinking. I designed the entire interface from scratch in Figma and coded it using React, TypeScript, Vite, and Tailwind CSS.
+**Live Site:** [justinliao.me](https://justinliao.me)
+
+## Overview
+This project is a personal portfolio website designed to express my work and philosophy. It consists of three main sections: Home, About, and Thinking. I designed the entire interface from scratch in Figma and coded it using React, TypeScript, Vite, and Tailwind CSS.
 
 I integrated Google Analytics for tracking and Formspree for handling form submissions. The site features advanced animations and sound effects from Eleven Labs, including background music and interactive audio elements, to create an immersive user experience. I also designed a changeable theme system and a custom clock and timer that functions seamlessly within the application.
 
