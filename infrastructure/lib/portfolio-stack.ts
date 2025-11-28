@@ -1,6 +1,9 @@
 import * as cdk from 'aws-cdk-lib';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as s3deploy from 'aws-cdk-lib/aws-s3-deployment';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 import * as cloudfront from 'aws-cdk-lib/aws-cloudfront';
 import * as origins from 'aws-cdk-lib/aws-cloudfront-origins';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
@@ -37,8 +40,8 @@ export class PortfolioStack extends cdk.Stack {
       environment: {
         TABLE_NAME: chatTable.tableName,
         CLOUDFRONT_SECRET: secretHeaderValue,
-        // OPENAI_API_KEY will be set manually in console or via .env for deployment
-      },
+        OPENAI_API_KEY: process.env.OPENAI_API_KEY || '',
+      }, // OPENAI_API_KEY will be set manually in console or via .env for deployment
       timeout: cdk.Duration.seconds(30), // OpenAI can be slow
     });
 
@@ -115,6 +118,7 @@ export class PortfolioStack extends cdk.Stack {
       destinationBucket: websiteBucket,
       distribution, // Invalidate CloudFront cache after deployment
       distributionPaths: ['/*'],
+      memoryLimit: 1024, // Increase memory to prevent timeouts
     });
 
     // ========================================================================
