@@ -3,10 +3,11 @@ import GlowingBorder from './GlowingBorder'
 
 // Placeholder tracks - user will upload files to /audio/
 const tracks = [
-  '/audio/softcore.mp3',
-  '/audio/eyes.mp3',
   '/audio/Kleos.mp3',
-  '/audio/soul.mp3',
+  '/audio/neoclassic.mp3',
+  '/audio/dance.mp3',
+  '/audio/hear.mp3',
+  '/audio/love.mp3',
 ]
 
 // Custom CSS for the waveform animation
