@@ -103,7 +103,7 @@ export default function Hero() {
           {/* @Inspire me - mailto link */}
           <p className="text-[clamp(14px,1.4vw,15px)] sm:text-[clamp(15px,1.5vw,16px)] lg:text-[17px] font-normal leading-[1.5] text-white tracking-[-0.01em]">
             <a 
-              href="mailto:justinliao@gmail.com" 
+              href="mailto:wjustinliao@gmail.com" 
               className="relative group inline-block px-1 -mx-1 rounded-md italic font-normal text-[var(--theme-color)] no-underline"
               onMouseEnter={playFlowAudio}
               onMouseLeave={stopFlowAudio}

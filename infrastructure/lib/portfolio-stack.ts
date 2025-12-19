@@ -34,7 +34,7 @@ export class PortfolioStack extends cdk.Stack {
     const secretHeaderValue = 'secret-' + Math.random().toString(36).substring(2, 15);
 
     const apiLambda = new lambda.Function(this, 'ApiLambda', {
-      runtime: lambda.Runtime.NODEJS_20_X,
+      runtime: lambda.Runtime.NODEJS_22_X,
       handler: 'src/index.handler',
       code: lambda.Code.fromAsset(path.join(__dirname, '../../backend')),
       environment: {

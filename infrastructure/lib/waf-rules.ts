@@ -2,13 +2,13 @@ import * as wafv2 from 'aws-cdk-lib/aws-wafv2';
 
 export function createWafRules(): wafv2.CfnWebACL.RuleProperty[] {
   return [
-    // 1. Rate Limiting (Block > 100 requests per 5 minutes)
+    // 1. Rate Limiting (Block > 1000 requests per 5 minutes)
     {
       name: 'RateLimit',
       priority: 100,
       statement: {
         rateBasedStatement: {
-          limit: 100,
+          limit: 1000,
           aggregateKeyType: 'IP',
         },
       },

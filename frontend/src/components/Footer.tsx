@@ -3,12 +3,10 @@ import GlowingBorder from './GlowingBorder'
 
 // Placeholder tracks - user will upload files to /audio/
 const tracks = [
-  '/audio/super.mp3',
-  '/audio/memories.mp3',
-  '/audio/line.mp3',
-  '/audio/nights.mp3',
   '/audio/softcore.mp3',
   '/audio/eyes.mp3',
+  '/audio/Kleos.mp3',
+  '/audio/soul.mp3',
 ]
 
 // Custom CSS for the waveform animation
@@ -159,7 +157,7 @@ export default function Footer() {
             
             {/* Social Icons (Visible on Hover) */}
             <div className={`flex items-center ml-[21px] gap-[50px] transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
-              <a href="mailto:justinliao3234@gmail.com" className="text-white hover:text-[#d9d9d9] transition-colors text-[18px] font-thin">@</a>
+              <a href="mailto:wjustinliao@gmail.com" className="text-white hover:text-[#d9d9d9] transition-colors text-[18px] font-thin">@</a>
               <a href="https://x.com/imjustinliao" target="_blank" rel="noreferrer" className="text-white hover:text-[#d9d9d9] transition-colors text-[18px] font-thin">X</a>
               <a href="https://www.linkedin.com/in/justin-liao23/" target="_blank" rel="noreferrer" className="text-white hover:text-[#d9d9d9] transition-colors text-[18px] font-thin">L</a>
               <a href="https://www.instagram.com/imjustinliao/" target="_blank" rel="noreferrer" className="text-white hover:text-[#d9d9d9] transition-colors text-[18px] font-thin">I</a>
@@ -225,7 +223,7 @@ export default function Footer() {
             <a href="https://www.instagram.com/imjustinliao/" target="_blank" rel="noreferrer" className={`text-white hover:text-[#d9d9d9] transition-colors text-[20px] font-thin ${isMobileMenuOpen ? 'block' : 'hidden'}`}>I</a>
             <a href="https://www.linkedin.com/in/justin-liao23/" target="_blank" rel="noreferrer" className={`text-white hover:text-[#d9d9d9] transition-colors text-[20px] font-thin ${isMobileMenuOpen ? 'block' : 'hidden'}`}>L</a>
             <a href="https://x.com/imjustinliao" target="_blank" rel="noreferrer" className={`text-white hover:text-[#d9d9d9] transition-colors text-[20px] font-thin ${isMobileMenuOpen ? 'block' : 'hidden'}`}>X</a>
-            <a href="mailto:justinliao3234@gmail.com" className={`text-white hover:text-[#d9d9d9] transition-colors text-[20px] font-thin ${isMobileMenuOpen ? 'block' : 'hidden'}`}>@</a>
+            <a href="mailto:wjustinliao@gmail.com" className={`text-white hover:text-[#d9d9d9] transition-colors text-[20px] font-thin ${isMobileMenuOpen ? 'block' : 'hidden'}`}>@</a>
 
             {/* Lower Divider (Hidden when closed) */}
             <div className={`w-1/2 h-[1px] bg-[#C9C9C9] shrink-0 ${isMobileMenuOpen ? 'block' : 'hidden'}`} />
