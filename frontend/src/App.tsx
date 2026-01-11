@@ -6,6 +6,7 @@ import CustomCursor from './components/CustomCursor'
 import Home from './pages/Home'
 import About from './pages/About'
 import Thinking from './pages/Thinking'
+import WIT from './pages/writings/WIT'
 import SettingsOverlay from './components/SettingsOverlay'
 import { SettingsProvider } from './context/SettingsContext'
 import { useAudioPreloader } from './hooks/useAudioPreloader'
@@ -36,6 +37,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/thinking" element={<Thinking />} />
+            <Route path="/writings/WIT" element={<WIT />} />
           </Routes>
           <Footer />
         </main>

@@ -1,4 +1,5 @@
 import { useMemo, useState, useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 // --- CONFIGURATION: MARQUEE SPEED ---
 // Adjust these values to control the speed for different screen sizes.
@@ -15,16 +16,20 @@ const INFLUENCES = [
   "Hawa Drammeh", "Marc Andreessen", "Ben Horowitz", "Zaha Hadid", 
   "Mark Zuckerberg", "Paul Graham", "Sam Altman", "Jack Dorsey", "Brian Chesky", 
   "Jony Ive", "Thomas Edison", "Pavel Durov", "Jim Rohn", "Dan Coe", 
-  "Napolean Hill", "Jordan B. Peterson", "Donald Trump", "Rachel Lou", 
+  "Napolean Hill", "Jordan B. Peterson", "Rachel Lou", 
   "Sean Imoto", "Daniil Morozov", "James Floyd", "Roy Lee", 
   "Keli G.", "Abraham Guan", "Ehud Halberstam", "David Lee", "John D. Rockefeller", 
   "Richard Branson", "Warren Buffett", "Albert Einstein", "Mike Tyson", 
   "Friedrich Nietzsche", "Henry Ford", "Richard Feynman", "Ray Dalio", 
   "Jack Wu", "Swanand Wagh", "Jamie Dimon", "Kelly Huang", "Malaika Khan", 
-  "Yannis Paniaras", "Dale Carnegie", "Aaron Levie", "Dhruv Addanki", "Dieter Rams", "Darren Thamtoro", "Richard Zheng", "Ben Weinstein"
+  "Yannis Paniaras", "Dale Carnegie", "Aaron Levie", "Dhruv Addanki", "Dieter Rams", "Darren Thamtoro", "Richard Zheng", "Ben Weinstein", "Tamir Michaely", "Marcus Aurelius", "Seneca", "Aristotle", "René Descartes", "Patricia Tani", "Philip Johnston ", "Arlan Rakhmetzhanov", "Mira Murati", "Michael Truell", "Vicky Ye", "Patrick Collison", "Andrew Ng", "Gabriel Petersson", "Bryan Johnson", "Dylan Field", "Ryo Lu", "Hubert Thieblot", "Brett Adcock"
 ]
 
-const CATEGORIES = ['Writings', 'Life Principles', 'Quote', 'Inspirations']
+const PACKAGES = [
+  { title: "Why I’m Techno-Optimistic", for: "Founders, Builders, VCs", category: "World Reflection", date: "Jan 10, 2026", path: "/writings/WIT" }
+]
+
+const CATEGORIES = ['Life Principles', 'Writings', 'Inspirations', 'Quote']
 
 // DATA: LIFE PRINCIPLES
 const PRINCIPLES = [
@@ -301,6 +306,113 @@ const InspirationItem = ({ item }: { item: { title: string, author: string, type
   )
 }
 
+const WritingRow = ({ item }: { item: typeof PACKAGES[0] }) => {
+  const navigate = useNavigate()
+  const [isHovered, setIsHovered] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(false)
+
+  const handleMainClick = () => {
+    // Navigate immediately if desktop or if explicitly clicking the main area
+    // We want to avoid navigating if the user is trying to interact with the scroll area
+    // But since the scroll area is separate, clicking the "row" should navigate.
+    navigate(item.path)
+  }
+
+  const handleExpandClick = (e: React.MouseEvent) => {
+    e.stopPropagation() // Prevent navigation when clicking the info icon
+    setIsExpanded(!isExpanded)
+  }
+
+  return (
+    <div 
+      className="w-full border-b border-[rgba(255,255,255,0.1)] relative overflow-hidden group"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onClick={handleMainClick}
+    >
+      {/* Hover Background Effect */}
+      <div 
+        className={`absolute inset-0 bg-white/5 transition-transform duration-500 origin-left ${isHovered ? 'scale-x-100' : 'scale-x-0'}`}
+      />
+
+      <div className="relative z-10 w-full flex flex-col md:grid md:grid-cols-[1fr_160px_160px_120px_40px] px-4 py-4 md:py-6 md:items-center gap-2 cursor-pointer">
+        {/* Mobile Header Row: Title + Info Button */}
+        <div className="flex justify-between items-start w-full md:w-auto">
+             <div className="flex-1 min-w-0 pr-4">
+                <h3 className="text-[17px] md:text-2xl text-white font-light group-hover:pl-2 md:group-hover:pl-4 transition-all duration-300 break-words leading-tight">
+                    {item.title}
+                </h3>
+             </div>
+             
+             {/* Mobile Only: Info/Expand Button */}
+             <button 
+                onClick={handleExpandClick}
+                className="md:hidden p-2 -mr-2 text-white/40 active:text-white transition-colors"
+                aria-label="Show details"
+             >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={`transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}>
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 8v8M8 12h8" className={`${isExpanded ? 'hidden' : 'block'}`}/>
+                    <path d="M8 12h8" className={`${isExpanded ? 'block' : 'hidden'}`}/>
+                </svg>
+             </button>
+        </div>
+
+        {/* Mobile Metadata - Expandable */}
+        <div 
+            className={`md:hidden w-full overflow-hidden transition-all duration-300 ease-out ${isExpanded ? 'max-h-[100px] opacity-100 mt-2' : 'max-h-0 opacity-0'}`}
+            onClick={(e) => e.stopPropagation()} // Allow interaction with scroll without triggering nav
+        >
+            <div className="flex gap-4 overflow-x-auto pb-2 [&::-webkit-scrollbar]:hidden w-full" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                <div className="flex flex-col gap-1 min-w-max border-l-2 border-white/10 pl-3">
+                    <span className="text-[10px] text-white/30 uppercase tracking-widest">For</span>
+                    <span className="text-sm font-mono text-white/70">{item.for}</span>
+                </div>
+                <div className="flex flex-col gap-1 min-w-max border-l-2 border-white/10 pl-3">
+                    <span className="text-[10px] text-white/30 uppercase tracking-widest">Category</span>
+                    <span className="text-sm font-mono text-white/70">{item.category}</span>
+                </div>
+                <div className="flex flex-col gap-1 min-w-max border-l-2 border-white/10 pl-3">
+                    <span className="text-[10px] text-white/30 uppercase tracking-widest">Date</span>
+                    <span className="text-sm font-mono text-white/70">{item.date}</span>
+                </div>
+            </div>
+        </div>
+
+        {/* Desktop Metadata */}
+        <div className="hidden md:flex justify-end min-w-0">
+           <div 
+             className="text-[rgba(255,255,255,0.5)] font-mono text-sm break-words text-right max-h-[48px] overflow-y-auto [&::-webkit-scrollbar]:hidden"
+             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+           >
+             {item.for}
+           </div>
+        </div>
+        
+        <div className="hidden md:flex justify-end min-w-0">
+           <div 
+             className="text-[rgba(255,255,255,0.5)] font-mono text-sm break-words text-right max-h-[48px] overflow-y-auto [&::-webkit-scrollbar]:hidden"
+             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+           >
+             {item.category}
+           </div>
+        </div>
+        
+        <div className="hidden md:block text-right text-[rgba(255,255,255,0.5)] font-mono text-sm whitespace-nowrap">
+          {item.date}
+        </div>
+        
+        {/* Desktop Arrow Icon */}
+        <div className="hidden md:flex justify-end w-6 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-2">
+           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5">
+             <path d="M5 12H19M19 12L12 5M19 12L12 19" strokeLinecap="round" strokeLinejoin="round"/>
+           </svg>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 const GlitchText = ({ text, className }: { text: string, className?: string }) => {
   const [displayText, setDisplayText] = useState('')
   const audioRef = useRef<HTMLAudioElement | null>(null)
@@ -566,13 +678,28 @@ export default function Thinking() {
           
           {/* Writings (Placeholder) */}
           {selectedCategory === 'Writings' && (
-            <div className="w-full min-h-[30vh] flex flex-col items-center justify-start text-center px-4">
-              <h2 className="text-[clamp(40px,5vw,60px)] font-light text-white mb-8 animate-text-pulse-glow tracking-wide">
-                Coming soon.
-              </h2>
-              <p className="text-[clamp(16px,1.5vw,20px)] text-[#C9C9C9] font-light max-w-[600px] leading-relaxed">
-                I'm gathering my thoughts across multiple domains and sources. I will also release my exclusive newsletter soon. 
-              </p>
+            <div className="w-full max-w-[1200px] flex flex-col px-4">
+               {/* Header Row (Desktop) */}
+               <div className="hidden md:grid grid-cols-[1fr_160px_160px_120px_40px] gap-4 w-full px-4 mb-4 text-[rgba(255,255,255,0.3)] font-mono text-xs uppercase tracking-wider items-center">
+                  <div className="pl-1">Title</div>
+                  <div className="text-right">For</div>
+                  <div className="text-right">Category</div>
+                  <div className="text-right">Date</div>
+                  <div></div>
+               </div>
+
+               {PACKAGES.map((item, idx) => (
+                 <WritingRow key={idx} item={item} />
+               ))}
+               
+               {/* Empty State / Coming Soon message below list if needed, or if list is empty */}
+               {PACKAGES.length === 0 && (
+                  <div className="w-full min-h-[30vh] flex flex-col items-center justify-start text-center pt-12">
+                     <p className="text-[rgba(255,255,255,0.5)] font-light">
+                        More writings coming soon.
+                     </p>
+                  </div>
+               )}
             </div>
           )}
 

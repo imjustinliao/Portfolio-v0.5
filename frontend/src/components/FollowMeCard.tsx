@@ -31,7 +31,7 @@ export default function FollowMeCard() {
           absolute inset-0 bg-cover bg-center transition-all duration-500 ease-out
           ${isExpanded ? 'blur-sm scale-105 brightness-[0.4]' : 'blur-0 scale-100 brightness-[0.65]'}
         `}
-        style={{ backgroundImage: 'url(/UI/me.jpeg)' }}
+        style={{ backgroundImage: 'url(/EDOM.png)' }}
       />
 
       {/* White Inner Border (Only visible in initial state) */}
