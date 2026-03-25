@@ -22,7 +22,13 @@ const INFLUENCES = [
   "Richard Branson", "Warren Buffett", "Albert Einstein", "Mike Tyson", 
   "Friedrich Nietzsche", "Henry Ford", "Richard Feynman", "Ray Dalio", 
   "Jack Wu", "Swanand Wagh", "Jamie Dimon", "Kelly Huang", "Malaika Khan", 
-  "Yannis Paniaras", "Dale Carnegie", "Aaron Levie", "Dhruv Addanki", "Dieter Rams", "Darren Thamtoro", "Richard Zheng", "Ben Weinstein", "Tamir Michaely", "Marcus Aurelius", "Seneca", "Aristotle", "René Descartes", "Patricia Tani", "Philip Johnston ", "Arlan Rakhmetzhanov", "Mira Murati", "Michael Truell", "Vicky Ye", "Patrick Collison", "Andrew Ng", "Gabriel Petersson", "Bryan Johnson", "Dylan Field", "Ryo Lu", "Hubert Thieblot", "Brett Adcock"
+  "Yannis Paniaras", "Dale Carnegie", "Aaron Levie", "Dhruv Addanki", "Dieter Rams", 
+  "Darren Thamtoro", "Peter Steinberger", "Richard Zheng", "Ben Weinstein", "Tamir Michaely", 
+  "Marcus Aurelius", "Seneca", "Aristotle", "René Descartes", "Ivan Zhao", "Patricia Tani", 
+  "Daniel Kwon", "Philip Johnston", "Arlan Rakhmetzhanov", "Boris Cherny", "Raphael Salaja", 
+  "Zara Zhang", "Tanay Kothari", "Mira Murati", "Michael Truell", "Vicky Ye", "Patrick Collison", 
+  "Andrew Ng", "Gabriel Petersson", "Bryan Johnson", "Dylan Field", "Ryo Lu", "Hubert Thieblot", 
+  "Brett Adcock", "Ethan Wang", "Julia Alvarenga", "Anhphu Nguyen"
 ]
 
 const PACKAGES = [
@@ -57,7 +63,9 @@ const INSPIRATIONS = {
     { title: "Do things that don't scale", author: "Paul Graham", type: "Article" },
     { title: "Why to not not start a startup", author: "Paul Graham", type: "Article" },
     { title: "How to Hire", author: "Sam Altman", type: "Article" },
-    { title: "Prediction: the successor to postmodernism", author: "Alex Danco", type: "Article" }
+    { title: "Prediction: the successor to postmodernism", author: "Alex Danco", type: "Article" },
+    { title: "The Techno-Optimist Manifesto", author: "Marc Andreessen", type: "Book" },
+    { title: "The Hard Things About Hard Things", author: "Ben Horowitz", type: "Book" }
   ],
   "Life": [
     { title: "Atomic Habits", author: "James Clear", type: "Book" },
@@ -75,7 +83,8 @@ const INSPIRATIONS = {
     { title: "ZAHA HADID", author: "Philip Jodidio", type: "Book" },
     { title: "The Designer's Dictionary of Color", author: "Sean Adams", type: "Book" },
     { title: "Dieter Rams: As Little Design as Possible", author: "Sophie Lovell", type: "Book" },
-    { title: "The World According to Karl", author: "Jean-Christophe Napias & Sandrine Gulbenkian", type: "Book" }
+    { title: "The World According to Karl", author: "Jean-Christophe Napias & Sandrine Gulbenkian", type: "Book" },
+    { title: "Taste for Makers", author: "Paul Graham", type: "Article" }
   ],
   "Finance": [
     { title: "Margin of Trust: The Berkshire Business Model", author: "Lawrence A. Cunningham & Stephanie Cuba", type: "Book" },
