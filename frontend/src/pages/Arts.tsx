@@ -45,20 +45,15 @@ export default function Arts() {
     return picks.map(a => a.image)
   }, [])
 
-  // Build gallery rows with a repeating pattern:
-  // Row A: 4 art tiles + 1 quote filler (each 1/5 width)
-  // Row B: 1 featured art (2/5 width) + 2 art tiles + 1 quote filler (each 1/5 width)
-  // Each cycle consumes 7 artworks across 2 rows.
-  // Quote fillers are sprinkled throughout, not just at the end.
+  // Build a flat list: insert a filler quote tile every 4-5 art tiles,
+  // then pad to LCM(5,3,2)=30 so every breakpoint has complete rows.
   type GalleryItem =
-    | { type: 'art'; art: Artwork; featured: boolean }
+    | { type: 'art'; art: Artwork }
     | { type: 'filler'; text: string; rotation: number }
 
-  const galleryRows = useMemo(() => {
-    const rows: GalleryItem[][] = []
-    let i = 0
+  const galleryItems = useMemo(() => {
+    const items: GalleryItem[] = []
     let quoteIdx = 0
-    const items = shuffled
 
     const nextFiller = (): GalleryItem => {
       const f: GalleryItem = {
@@ -70,37 +65,24 @@ export default function Arts() {
       return f
     }
 
-    while (i < items.length) {
-      // Row A: 4 art + 1 filler = 5 slots
-      const rowA: GalleryItem[] = []
-      const artCountA = Math.min(4, items.length - i)
-      for (let j = 0; j < artCountA; j++, i++) {
-        rowA.push({ type: 'art', art: items[i], featured: false })
+    // Insert a filler after every 8th art tile — enough to feel sprinkled, not overwhelming
+    shuffled.forEach((art, i) => {
+      items.push({ type: 'art', art })
+      if ((i + 1) % 8 === 0) {
+        items.push(nextFiller())
       }
-      // Insert filler at a varied position
-      const fillerPosA = (rows.length % 3) + 1 // position 1, 2, or 3
-      rowA.splice(Math.min(fillerPosA, rowA.length), 0, nextFiller())
-      // Pad if needed
-      while (rowA.length < 5) rowA.push(nextFiller())
-      rows.push(rowA)
+    })
 
-      if (i >= items.length) break
-
-      // Row B: 1 featured (2x) + 2 art + 1 filler = 4 slots (5 units wide)
-      const rowB: GalleryItem[] = []
-      rowB.push({ type: 'art', art: items[i], featured: true })
-      i++
-      const artCountB = Math.min(2, items.length - i)
-      for (let j = 0; j < artCountB; j++, i++) {
-        rowB.push({ type: 'art', art: items[i], featured: false })
-      }
-      rowB.push(nextFiller())
-      // Pad if needed (featured + 3 normal-width = 4 items)
-      while (rowB.length < 4) rowB.push(nextFiller())
-      rows.push(rowB)
+    // Pad to nearest multiple of 5 (max col count) so last row is full on desktop.
+    // On tablet (3 cols) and mobile (2 cols) a partial last row of 1 filler is acceptable.
+    const cols = 5
+    const remainder = items.length % cols
+    if (remainder !== 0) {
+      const pad = cols - remainder
+      for (let p = 0; p < pad; p++) items.push(nextFiller())
     }
 
-    return rows
+    return items
   }, [shuffled])
 
   // Intro animation sequence
@@ -283,73 +265,59 @@ export default function Arts() {
             Row A: 5 equal tiles
             Row B: 1 featured (2x wide) + 3 equal tiles
             Filler tiles with quotes pad any incomplete rows. */}
-        <div className="max-w-[1400px] mx-auto flex flex-col" style={{ gap: 'clamp(3px, 0.4vw, 6px)' }}>
-          {galleryRows.map((row, rowIdx) => {
-            const hasFeatured = row.some(item => item.type === 'art' && item.featured)
-            return (
-              <div key={rowIdx} className="flex w-full" style={{ gap: 'clamp(3px, 0.4vw, 6px)' }}>
-                {row.map((item, colIdx) => {
-                  const globalIdx = rowIdx * 5 + colIdx
-                  if (item.type === 'filler') {
-                    const isFeaturedSlot = hasFeatured && colIdx === 0
-                    return (
-                      <div
-                        key={`filler-${rowIdx}-${colIdx}`}
-                        className="arts-filler arts-tile"
-                        style={{
-                          flex: isFeaturedSlot ? '2' : '1',
-                          animationDelay: `${globalIdx * 35}ms`,
-                        }}
-                      >
-                        <div className={`relative w-full ${isFeaturedSlot ? 'pb-[50%]' : 'pb-[100%]'}`}>
-                          <div className="filler-line absolute top-[20%] left-[15%] w-[70%] h-[1px]" style={{ transform: `rotate(${item.rotation}deg)` }}></div>
-                          <div className="filler-line absolute top-[50%] left-[10%] w-[80%] h-[1px]" style={{ transform: `rotate(${-item.rotation * 0.6}deg)` }}></div>
-                          <div className="filler-line absolute top-[80%] left-[20%] w-[60%] h-[1px]" style={{ transform: `rotate(${item.rotation * 0.3}deg)` }}></div>
-                          <div className="absolute inset-0 flex items-center justify-center p-3">
-                            <span className="filler-text">{item.text}</span>
-                          </div>
-                        </div>
-                      </div>
-                    )
-                  }
-                  const isFeatured = item.featured
-                  return (
-                    <div
-                      key={item.art.id}
-                      className="arts-tile group relative overflow-hidden cursor-pointer"
-                      style={{
-                        flex: isFeatured ? '2' : '1',
-                        animationDelay: `${globalIdx * 35}ms`,
-                      }}
-                      onClick={() => setSelectedArt(item.art)}
-                    >
-                      <div className={`relative w-full overflow-hidden bg-white/[0.02] ${isFeatured ? 'pb-[50%]' : 'pb-[100%]'}`}>
-                        {!imageLoaded[item.art.id] && (
-                          <div className="absolute inset-0 bg-white/[0.03] animate-pulse"></div>
-                        )}
-                        <img
-                          src={item.art.image}
-                          alt={item.art.title || 'Artwork'}
-                          loading="lazy"
-                          onLoad={() => handleImageLoad(item.art.id)}
-                          className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.06] group-hover:brightness-110 ${
-                            imageLoaded[item.art.id] ? 'opacity-100' : 'opacity-0'
-                          }`}
-                        />
-                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: 'radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.5) 100%)' }}></div>
-                        <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                          <div className="absolute top-2.5 left-2.5 w-4 h-4 border-t border-l border-white/30"></div>
-                          <div className="absolute top-2.5 right-2.5 w-4 h-4 border-t border-r border-white/30"></div>
-                          <div className="absolute bottom-2.5 left-2.5 w-4 h-4 border-b border-l border-white/30"></div>
-                          <div className="absolute bottom-2.5 right-2.5 w-4 h-4 border-b border-r border-white/30"></div>
-                        </div>
-                        <div className="absolute inset-0 flex items-end justify-center pb-3 pointer-events-none opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
-                          <span className="text-[10px] tracking-[0.3em] uppercase text-white/60 font-light drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">View</span>
-                        </div>
-                      </div>
+        {/* Flatten all items into a single CSS grid.
+            Desktop: 5 cols, featured spans 2. Mobile: 2 cols, all span 1. */}
+        <div className="arts-gallery-grid max-w-[1400px] mx-auto">
+          {galleryItems.map((item, idx) => {
+            if (item.type === 'filler') {
+              return (
+                <div
+                  key={`filler-${idx}`}
+                  className="arts-filler arts-tile"
+                  style={{ animationDelay: `${idx * 35}ms` }}
+                >
+                  <div className="relative w-full pb-[100%]">
+                    <div className="filler-line absolute top-[20%] left-[15%] w-[70%] h-[1px]" style={{ transform: `rotate(${item.rotation}deg)` }}></div>
+                    <div className="filler-line absolute top-[50%] left-[10%] w-[80%] h-[1px]" style={{ transform: `rotate(${-item.rotation * 0.6}deg)` }}></div>
+                    <div className="filler-line absolute top-[80%] left-[20%] w-[60%] h-[1px]" style={{ transform: `rotate(${item.rotation * 0.3}deg)` }}></div>
+                    <div className="absolute inset-0 flex items-center justify-center p-3">
+                      <span className="filler-text">{item.text}</span>
                     </div>
-                  )
-                })}
+                  </div>
+                </div>
+              )
+            }
+            return (
+              <div
+                key={item.art.id}
+                className="arts-tile group relative overflow-hidden cursor-pointer"
+                style={{ animationDelay: `${idx * 35}ms` }}
+                onClick={() => setSelectedArt(item.art)}
+              >
+                <div className="relative w-full overflow-hidden bg-white/[0.02] pb-[100%]">
+                  {!imageLoaded[item.art.id] && (
+                    <div className="absolute inset-0 bg-white/[0.03] animate-pulse"></div>
+                  )}
+                  <img
+                    src={item.art.image}
+                    alt={item.art.title || 'Artwork'}
+                    loading="lazy"
+                    onLoad={() => handleImageLoad(item.art.id)}
+                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.06] group-hover:brightness-110 ${
+                      imageLoaded[item.art.id] ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  />
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={{ background: 'radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.5) 100%)' }}></div>
+                  <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="absolute top-2.5 left-2.5 w-4 h-4 border-t border-l border-white/30"></div>
+                    <div className="absolute top-2.5 right-2.5 w-4 h-4 border-t border-r border-white/30"></div>
+                    <div className="absolute bottom-2.5 left-2.5 w-4 h-4 border-b border-l border-white/30"></div>
+                    <div className="absolute bottom-2.5 right-2.5 w-4 h-4 border-b border-r border-white/30"></div>
+                  </div>
+                  <div className="absolute inset-0 flex items-end justify-center pb-3 pointer-events-none opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
+                    <span className="text-[10px] tracking-[0.3em] uppercase text-white/60 font-light drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">View</span>
+                  </div>
+                </div>
               </div>
             )
           })}
