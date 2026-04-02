@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import ProjectCard from '../components/ProjectCard'
 import GlowingBorder from '../components/GlowingBorder'
 import { projects } from '../data/projects'
@@ -31,6 +32,7 @@ const workCategories = [
 ]
 
 export default function About() {
+  const navigate = useNavigate()
   const flowAudioRef = useRef<HTMLAudioElement | null>(null)
 
   // Initialize audio
@@ -321,14 +323,21 @@ export default function About() {
           {/* Projects List (Right Side / Bottom) */}
           <div className="flex-1 flex flex-col gap-[clamp(60px,8vh,100px)] w-full md:pl-12 lg:pl-20">
             {activeWorkCategory === 1 ? (
-              // Coming Soon Placeholder for Intuitive Arts
+              // Intuitive Arts — Enter Gallery
               <div className="w-full min-h-[40vh] flex flex-col items-center justify-center text-center px-4 animate-fade-in-up">
-                <h2 className="text-[clamp(40px,5vw,60px)] font-light text-white mb-8 animate-text-pulse-glow tracking-wide">
-                  Coming soon.
+                <h2 className="text-[clamp(32px,4vw,52px)] font-extralight text-white mb-4 tracking-[0.06em]">
+                  Intuitive Arts
                 </h2>
-                <p className="text-[clamp(16px,1.5vw,20px)] text-[#C9C9C9] font-light max-w-[600px] leading-relaxed">
-                  I'm taking some time to organize what I've created since 2010, such as painting, sketches, photography, and paper arts.
+                <p className="text-[clamp(14px,1.3vw,18px)] text-white/50 font-light max-w-[500px] leading-relaxed mb-10">
+                  A collection of paintings, sketches, and sculptures since 2010.
                 </p>
+                <button
+                  onClick={() => navigate('/arts')}
+                  className="arts-enter-btn group relative px-12 py-4 bg-transparent border border-white/20 hover:border-white/60 text-white/80 hover:text-white text-[clamp(13px,1.2vw,16px)] font-light tracking-[0.25em] uppercase transition-all duration-500 overflow-hidden"
+                >
+                  <span className="relative z-10">Enter Gallery</span>
+                  <div className="absolute inset-0 bg-white/[0.06] translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
+                </button>
               </div>
             ) : activeWorkCategory === 4 ? (
               // Follow Me Card - Centered

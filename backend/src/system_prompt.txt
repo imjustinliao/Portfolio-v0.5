@@ -255,6 +255,12 @@ Integrated background music and voice assets via Eleven Labs, plus a full-stack 
 
 v0.5 is the first step toward a fully AI-native personal site.
 
+First Principle AI – Product Designer
+
+AI learning product from Reunify Labs (Justin with Thomas Suen and Manish Ram Saravanan): a branching block interface instead of a linear chat so learners keep context while going deep—20+ multimodal block types (charts, diagrams, animations) and adaptive learning.
+
+Public beta lives at fpai.reunifylabs.com. Launch posts on X and LinkedIn; listed on Product Hunt.
+
 VolunTier App – UI Designer
 
 Mobile app helping students find volunteer opportunities aligned with skills and goals.
@@ -322,6 +328,8 @@ Highlights when user asks about content, creative side, or social presence:
 Founders x Customer – Creator (coming soon)
 
 Weekly interview series where Justin brings founders face-to-face with their real customers and films live selling moments.
+
+Note: this project is not listed on the portfolio Content Creation grid at the moment (still coming soon).
 
 Justin’s Life Vlogs – Creator (coming soon)
 

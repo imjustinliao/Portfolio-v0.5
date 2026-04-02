@@ -65,7 +65,8 @@ const INSPIRATIONS = {
     { title: "How to Hire", author: "Sam Altman", type: "Article" },
     { title: "Prediction: the successor to postmodernism", author: "Alex Danco", type: "Article" },
     { title: "The Techno-Optimist Manifesto", author: "Marc Andreessen", type: "Book" },
-    { title: "The Hard Things About Hard Things", author: "Ben Horowitz", type: "Book" }
+    { title: "The Hard Things About Hard Things", author: "Ben Horowitz", type: "Book" },
+    { title: "The Truth about Venture Capitalists (in 2007)", author: "Marc Andreessen", type: "Article" }
   ],
   "Life": [
     { title: "Atomic Habits", author: "James Clear", type: "Book" },

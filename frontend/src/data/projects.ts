@@ -211,6 +211,34 @@ export const projects: Record<number, ProjectData[]> = {
   // Category 2: Technical Projects
   2: [
     {
+      id: 'tech-fpai',
+      name: 'First Principle AI',
+      description: 'Imagine Notion and ChatGPT had a baby. It started from a problem I had while cramming for a midterm with ChatGPT: I would paste in my notes, ask it to teach me something from scratch, then get confused halfway through, ask a follow-up, then another one, and soon the chat became long, messy, and I lost context of where I left off. Modern LLM interfaces suck for in-depth learning, so we (Thomas, Manish, and I) decided to change that. Instead of a linear chat, we built a block interface where questions branch out to the right like a tree, so you can always track your progress and never lose context. We also added multimodality with 20+ block types like charts, diagrams, and animations, plus adaptive learning so each session builds on what you\'ve already learned and adjusts to your current level. First Principle is built to help you think like a scientist, because we believe the future belongs to people who can connect ideas across domains and create new things.',
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/fpai_home.png',
+      slideshow: [
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/fpai_home.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/fpai_home2.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/fpai_about.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/fpai_about2.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/fpai_app.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/fpai_multimodality.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/fpai_done.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/fpai_media.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/fpai_blocks.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/fpai_settings.png',
+      ],
+      links: [
+        { text: 'Live Site', url: 'https://fpai.reunifylabs.com/' },
+        { text: 'X Post Launch', url: 'https://x.com/imjustinliao/status/2029628694701174787' },
+        { text: 'LinkedIn Post Launch', url: 'https://www.linkedin.com/posts/justin-liao23_challengeaccepted-startups-founderslife-activity-7435394239708082176-Fk26?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEZqj-gBKLiytH8UF5DEfADF8Pv13_WJNX8' },
+        { text: 'Product Hunt', url: 'https://www.producthunt.com/p/first-principle-ai' },
+      ],
+      timeline: '12.12.25 - 3.12.26',
+      location: 'Reunify Labs',
+      role: 'Product Designer',
+      deltaScore: 65
+    },
+    {
       id: 'tech-1',
       name: 'Portofolio Website - v0.5',
       description: 'This is the site you\'re on right now. I designed everything - from the menu and mute / unmute icon, logos, and layout to the glowing flow animations, music player, and custom square cursor effect. I used liquid-glass UI elements throughout the footer and nav bar, along with interactive motion and subtle lighting to create a modern, expressive vibe. I also designed a settings overlay with a neumorphic clock and timer, paired with subtle sound effects and a Steve Jobs quote about living fully in the present, which adds a more personal, reflective layer to the site. The overlay includes a theme selector that lets visitors switch between different expressions depending on the mood or setting — something I intentionally designed into the UI. It\'s still an evolving project, but v0.5 represents my first step toward building a truly AI-native personal site (for v1).',
@@ -344,7 +372,7 @@ export const projects: Record<number, ProjectData[]> = {
 
   // Category 3: Content Creation
   3: [
-    {
+    /* {
       id: 'content-1',
       name: 'Founders x Customer',
       description: 'This is a weekly interview series where I bring tech startup founders face-to-face with their actual customers and challenge them to sell their product on the spot. I’ll pick the founder, pick the customer, set up the meeting, and film the interaction as a way to showcase real persuasion, product thinking, and founder storytelling. It’s meant to be fun, raw, and honest. Coming soon.',
@@ -360,7 +388,7 @@ export const projects: Record<number, ProjectData[]> = {
       role: 'Creator',
       deltaScore: 60,
       glowColor: 'var(--theme-color)'
-    },
+    }, */
     {
       id: 'content-2',
       name: 'Justin\'s Life Vlogs',

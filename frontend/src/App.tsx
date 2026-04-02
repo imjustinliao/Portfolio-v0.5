@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import CustomCursor from './components/CustomCursor'
 import Home from './pages/Home'
 import About from './pages/About'
+import Arts from './pages/Arts'
 import Thinking from './pages/Thinking'
 import WIT from './pages/writings/WIT'
 import SettingsOverlay from './components/SettingsOverlay'
@@ -25,6 +26,22 @@ export default function App() {
   useAudioPreloader()
   const location = useLocation()
   const isThinkingPage = location.pathname === '/thinking'
+  const isArtsPage = location.pathname === '/arts'
+
+  // Arts page has its own layout (own navbar, no footer)
+  if (isArtsPage) {
+    return (
+      <SettingsProvider>
+        <div className="site-wrapper">
+          <CustomCursor />
+          <ScrollToTop />
+          <Routes>
+            <Route path="/arts" element={<Arts />} />
+          </Routes>
+        </div>
+      </SettingsProvider>
+    )
+  }
 
   return (
     <SettingsProvider>

@@ -123,11 +123,22 @@ const AppStoreIcon = () => (
   <i className="fa-brands fa-apple text-white text-[16px]"></i>
 )
 
+const ProductHuntIcon = () => (
+  <img
+    src="https://cdn.simpleicons.org/producthunt/ffffff"
+    alt=""
+    width={16}
+    height={16}
+    className="w-4 h-4 shrink-0"
+  />
+)
+
 // Helper to get icon based on text/url
 const getLinkIcon = (text: string, url: string) => {
   const lowerText = text.toLowerCase()
   const lowerUrl = url.toLowerCase()
   
+  if (lowerText.includes('product hunt') || lowerUrl.includes('producthunt.com')) return <ProductHuntIcon />
   if (lowerText.includes('github') || lowerUrl.includes('github')) return <GithubIcon />
   if (lowerText.includes('instagram') || lowerUrl.includes('instagram')) return <InstagramIcon />
   if (lowerText.includes('linkedin') || lowerUrl.includes('linkedin')) return <LinkedinIcon />

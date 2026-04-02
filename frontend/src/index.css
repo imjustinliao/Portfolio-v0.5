@@ -346,6 +346,100 @@ main {
   border: 0;
 }
 
+/* ── Arts Museum Gallery ── */
+
+/* Tile reveal animation */
+.arts-tile {
+  animation: artsTileReveal 0.7s ease-out both;
+}
+
+/* Filler tiles — uses theme color */
+.arts-filler {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(var(--theme-rgb), 0.08);
+  border: 1px solid rgba(var(--theme-rgb), 0.15);
+  overflow: hidden;
+  position: relative;
+}
+
+.arts-filler .filler-line {
+  position: absolute;
+  background: rgba(var(--theme-rgb), 0.1);
+}
+
+@keyframes fillerPulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+.arts-filler .filler-text {
+  font-size: clamp(11px, 1vw, 14px);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+  text-align: center;
+  padding: 12px;
+  line-height: 1.6;
+  animation: fillerPulse 4s ease-in-out infinite;
+}
+
+/* Tile reveal animation */
+@keyframes artsTileReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Lightbox — backdrop appears instantly, image animates in after */
+@keyframes artsLightboxBg {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.arts-lightbox-bg {
+  animation: artsLightboxBg 0.2s ease-out both;
+}
+
+@keyframes artsLightboxImg {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.arts-lightbox-img {
+  animation: artsLightboxImg 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+
+/* Enter Gallery button underline */
+.arts-enter-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.4);
+  transition: width 0.5s ease-out;
+}
+
+.arts-enter-btn:hover::after {
+  width: 80%;
+}
+
 @media (max-width: 900px) {
   main {
     padding: 32px 20px 64px;
