@@ -19,19 +19,23 @@ export const projects: Record<number, ProjectData[]> = {
     },
     {
       id: 'tech-2',
-      name: 'DubMatch Official',
-      description: 'DubMatch is a college-only dating app my capstone teammate Andriy and I are building, inspired by what I learned from launching VibeChk — basically VibeChk 2.0, but redesigned for dating and college life. I designed and launched our website, helped grow early signups, and I’m responsible for the product vision, front-end development, and distribution. The app focuses on meeting in person first instead of endless texting, using personalized matching and real-time campus cues to make meetups feel natural and spontaneous. We’re preparing to launch on iOS for Valentine’s Day 2026, bringing back a simple, fun way for students to connect in real life.',
-      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/dubmatch.png',
-      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/dubmatch%202.png', 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/dubmatch%201.png'],
+      name: 'Serene App',
+      description: 'Serene is a location-based dating app for college students designed to bring romance back into real life. Instead of pushing endless swiping, perfect profiles, and texting that goes nowhere, it helps people connect through timing, proximity, authenticity, and a safer in person first experience. I designed and built the frontend experience in Figma and SwiftUI, currently working on the backend using Python and Firebase. Launching by May 2026.',
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/Serene1.png',
+      slideshow: [
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/Serene1.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/Serene2.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/Serene3.png',
+      ],
       links: [
+        { text: 'Demo', url: 'https://youtube.com/shorts/u6hU4qahp8Q?feature=share' },
         { text: 'Official Website', url: 'https://dubmatch.com/' },
         { text: 'Instagram', url: 'https://www.instagram.com/dubmatch25/' },
-        { text: 'TikTok', url: 'https://www.tiktok.com/@dubmatch25' },
         { text: 'Prototype', url: 'https://www.figma.com/design/m50V6Hlxk3bKwDOwDQOw1a/DubMatch?node-id=0-1&t=6P8TPQrrmq4w7BMR-1' }
       ],
       timeline: '10.10.25 - Present',
       location: 'Bothell, WA',
-      role: 'Co-founder & Lead',
+      role: 'Product Lead',
       deltaScore: 45,
       glowColor: 'var(--theme-color)'
     },
@@ -50,7 +54,7 @@ export const projects: Record<number, ProjectData[]> = {
       ],
       timeline: '5.30.25 - 9.17.25',
       location: 'Bothell, WA',
-      role: 'Co-founder & Designer',
+      role: 'Product Lead & Growth',
       deltaScore: 48
     },
     {
@@ -211,6 +215,31 @@ export const projects: Record<number, ProjectData[]> = {
   // Category 2: Technical Projects
   2: [
     {
+      id: 'tech-polaroid',
+      name: 'Polaroid Camera',
+      description: 'I made this Polaroid web app to bring back the feeling of using an instant camera on your browser across all devices. You give it camera access, choose a frame theme, and take up to 10 photos that you can view, delete, or download in a Polaroid style. I designed and vibecoded it with Gen Z in mind, and added old-school camera sound effects plus photo caching, so your pictures still stay there even if you refresh.',
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/polaroid1.png',
+      slideshow: [
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/polaroid1.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/polaroid2.PNG',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/polaroid3.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/polaroid4.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/polaroid5.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/polaroid6.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/polaroid7.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/polaroid8.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/polaroid9.PNG',
+      ],
+      links: [
+        { text: 'Live Site', url: 'https://imjustinliao.github.io/polaroid-camera/' },
+        { text: 'GitHub', url: 'https://github.com/imjustinliao/polaroid-camera' }
+      ],
+      timeline: '3.28.26 - 3.30.26',
+      location: 'Localhost: justinliao',
+      role: 'Design Engineer',
+      deltaScore: 30
+    },
+    {
       id: 'tech-fpai',
       name: 'First Principle AI',
       description: 'Imagine Notion and ChatGPT had a baby. It started from a problem I had while cramming for a midterm with ChatGPT: I would paste in my notes, ask it to teach me something from scratch, then get confused halfway through, ask a follow-up, then another one, and soon the chat became long, messy, and I lost context of where I left off. Modern LLM interfaces suck for in-depth learning, so we (Thomas, Manish, and I) decided to change that. Instead of a linear chat, we built a block interface where questions branch out to the right like a tree, so you can always track your progress and never lose context. We also added multimodality with 20+ block types like charts, diagrams, and animations, plus adaptive learning so each session builds on what you\'ve already learned and adjusts to your current level. First Principle is built to help you think like a scientist, because we believe the future belongs to people who can connect ideas across domains and create new things.',
@@ -235,7 +264,7 @@ export const projects: Record<number, ProjectData[]> = {
       ],
       timeline: '12.12.25 - 3.12.26',
       location: 'Reunify Labs',
-      role: 'Product Designer',
+      role: 'Product Lead',
       deltaScore: 65
     },
     {
@@ -251,7 +280,7 @@ export const projects: Record<number, ProjectData[]> = {
       ],
       timeline: '11.16.25 - 11.28.25',
       location: 'Localhost: justinliao',
-      role: 'Designer & Engineer',
+      role: 'Design Engineer',
       deltaScore: 55
     },
     {
@@ -280,7 +309,7 @@ export const projects: Record<number, ProjectData[]> = {
       ],
       timeline: '1.1.25 - 4.5.25',
       location: 'Canva x Figma: justinliao',
-      role: 'Lead Designer',
+      role: 'UI Designer',
       deltaScore: 18
     },
     {
@@ -294,7 +323,7 @@ export const projects: Record<number, ProjectData[]> = {
       ],
       timeline: '10.24.24 - 11.7.24',
       location: 'Localhost: justinliao',
-      role: 'Engineer',
+      role: 'Developer',
       deltaScore: 23
     },
     {
@@ -308,7 +337,7 @@ export const projects: Record<number, ProjectData[]> = {
       ],
       timeline: '10.18.24 - 10.24.24',
       location: 'Localhost: justinliao',
-      role: 'Engineer',
+      role: 'Developer',
       deltaScore: 22
     },
     {
@@ -323,7 +352,7 @@ export const projects: Record<number, ProjectData[]> = {
       ],
       timeline: '5.19.24',
       location: 'Seattle, WA',
-      role: 'Co-founder & Engineer',
+      role: 'Co-founder & Developer',
       deltaScore: 25
     },
     {
@@ -337,7 +366,7 @@ export const projects: Record<number, ProjectData[]> = {
       ],
       timeline: '11.8.23 - 11.25.23',
       location: 'Localhost: justinliao',
-      role: 'Front-end Engineer & Co-developer',
+      role: 'Co-developer',
       deltaScore: 12
     },
     {
@@ -351,7 +380,7 @@ export const projects: Record<number, ProjectData[]> = {
       ],
       timeline: 'March 2023 - October 2023',
       location: 'Localhost: justinliao',
-      role: 'Front-end Engineer & Co-developer',
+      role: 'Co-developer',
       deltaScore: 8
     },
     {
@@ -365,7 +394,7 @@ export const projects: Record<number, ProjectData[]> = {
       ],
       timeline: 'March 2021',
       location: 'Localhost: justinliao',
-      role: 'Engineer',
+      role: 'Developer',
       deltaScore: 25
     }
   ],

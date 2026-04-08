@@ -345,16 +345,13 @@ export default function About() {
                   </button>
                 </div>
               ) : (
-                // Music & performance — coming soon
-                <div className="w-full min-h-[40vh] flex flex-col items-center justify-center text-center px-4 animate-fade-in-up">
-                  <h2 className="text-[clamp(32px,4vw,52px)] font-extralight text-white mb-4 tracking-[0.06em]">
-                    Music &amp; performance
+                // Music & performance — same “Coming soon” placeholder styling as Thinking › Writings (v3)
+                <div className="w-full min-h-[30vh] flex flex-col items-center justify-start text-center px-4 animate-fade-in-up">
+                  <h2 className="text-[clamp(40px,5vw,60px)] font-light text-white mb-8 animate-text-pulse-glow tracking-wide">
+                    Coming soon.
                   </h2>
-                  <p className="text-[clamp(14px,1.3vw,18px)] text-white/50 font-light max-w-[560px] leading-relaxed mb-6">
-                    From piano and bands to music production—years of playing, performing, and making sound. I&apos;m gathering highlights and stories from this side of my creative life.
-                  </p>
-                  <p className="text-[clamp(13px,1.2vw,16px)] text-white/35 font-light tracking-[0.2em] uppercase">
-                    Coming soon
+                  <p className="text-[clamp(16px,1.5vw,20px)] text-[#C9C9C9] font-light max-w-[600px] leading-relaxed">
+                    Music &amp; performance — from piano and bands to music production: years of playing, performing, and making sound. I&apos;m gathering highlights and stories from this side of my creative life.
                   </p>
                 </div>
               )
