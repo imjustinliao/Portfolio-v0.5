@@ -391,8 +391,8 @@ export const projects: Record<number, ProjectData[]> = {
     }, */
     {
       id: 'content-2',
-      name: 'Justin\'s Life Vlogs',
-      description: 'This is a casual weekly vlog series documenting my life before I move into a new phase—what I worked on, where I went, what I ate, and who I spent time with. It’s filmed in a simple, cinematic style, more like a personal journal than polished content. It’s a way for me to look back on the small details that shaped the journey. Coming soon.',
+      name: 'I\'m Justin Liao',
+      description: 'This is an upcoming content series across Instagram and YouTube where I\'ll document my life through creation. It brings together the things I care about most: daily moments, sketching and visual art, UI and UX design, music covers, and experiments with sound experience design. It\'s a personal record of how I think and see the world as I move into a new phase of life.',
       image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tba.png',
       slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/tba.png'],
       links: [

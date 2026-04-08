@@ -8,13 +8,24 @@ export interface Artwork {
 
 const R2 = 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev'
 
-export const artworks: Artwork[] = Array.from({ length: 49 }, (_, i) => ({
-  id: `art-${i + 1}`,
-  image: `${R2}/art${i + 1}.JPEG`,
-  title: '',
-  description: '',
-  year: '',
-}))
+/** R2 objects use mixed extensions per file. */
+function artImageUrl(n: number): string {
+  if (n >= 1 && n <= 49) return `${R2}/art${n}.JPEG`
+  if (n === 50 || n === 51) return `${R2}/art${n}.jpg`
+  if (n >= 52 && n <= 62) return `${R2}/art${n}.jpeg`
+  throw new Error(`No art asset configured for art ${n}`)
+}
+
+export const artworks: Artwork[] = Array.from({ length: 62 }, (_, i) => {
+  const n = i + 1
+  return {
+    id: `art-${n}`,
+    image: artImageUrl(n),
+    title: '',
+    description: '',
+    year: '',
+  }
+})
 
 // Fisher-Yates shuffle for randomizing gallery order
 export function shuffleArtworks(arr: Artwork[]): Artwork[] {
