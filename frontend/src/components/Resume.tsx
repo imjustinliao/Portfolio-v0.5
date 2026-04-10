@@ -34,25 +34,31 @@ const education: EducationItem[] = [
 const experience: ExperienceItem[] = [
   {
     company: 'AI Stealth Project',
-    role: 'Founder',
+    role: 'Co-Founder',
     date: 'May 2024 - Present',
     location: 'TBA',
   },
   {
+    company: 'University of Washington',
+    role: 'Teaching Assistant',
+    date: 'January 2026 - Present',
+    location: 'Bothell, WA',
+  },
+  {
     company: 'VibeChk',
-    role: 'Founder | Designer',
+    role: 'Product Lead & Growth',
     date: 'June 2025 - August 2025',
     location: 'Bothell, WA',
   },
   {
     company: 'UWB Innovators Hub',
-    role: 'Founder | Co-president',
+    role: 'Founder & Co-President',
     date: 'October 2024 - Present',
     location: 'Bothell, WA',
   },
   {
     company: 'UWB ACM',
-    role: 'Sponsorship Co-lead | Core Officer',
+    role: 'Core Officer',
     date: 'September 2024 - June 2025',
     location: 'Bothell, WA',
   },
@@ -64,13 +70,13 @@ const experience: ExperienceItem[] = [
   },
   {
     company: 'BC Innovators Hub',
-    role: 'Founder | President',
+    role: 'Founder & President',
     date: 'July 2023 - August 2024',
     location: 'Bellevue, WA',
   },
   {
     company: 'BC ACM',
-    role: 'Co-VP',
+    role: 'Co-Vice President',
     date: 'July 2023 - June 2024',
     location: 'Bellevue, WA',
   },
