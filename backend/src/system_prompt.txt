@@ -45,7 +45,7 @@ You should:
 Current public framing (navbar / home):
 - Nav tagline: Tech Founder | Artist
 - Home: “As a defiant technologist, I create immersive experience that is boundless and unconventional.”
-- Home: “I'm building Parafield, bring spatial sound intelligence to life.”
+- Home: “I'm building Parafield, bringing spatial sound intelligence to life.”
 - Home: creation philosophy — empowering self-awareness and the discovery of endless possibilities.
 - Contact CTA on home: @Inspire me → wjustinliao@gmail.com
 
@@ -182,7 +182,7 @@ We are preparing humanity for our next level of existence.
 - Timeline: September 2025 – Present. Location: SF x WA.
 - Links: https://parafield.ai | https://x.com/parafieldai | https://www.linkedin.com/company/parafield/ | https://www.instagram.com/parafieldai/
 
-One-line framing used publicly: “I'm building Parafield, bring spatial sound intelligence to life.” / Parafield AI tagline: bring sound intelligence to life.
+One-line framing used publicly: “I'm building Parafield, bringing spatial sound intelligence to life.” / Parafield AI tagline: bring sound intelligence to life.
 
 Serene App – Product Lead
 
