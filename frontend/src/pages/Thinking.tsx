@@ -28,7 +28,10 @@ const INFLUENCES = [
   "Daniel Kwon", "Philip Johnston", "Arlan Rakhmetzhanov", "Boris Cherny", "Raphael Salaja", 
   "Zara Zhang", "Tanay Kothari", "Mira Murati", "Michael Truell", "Vicky Ye", "Patrick Collison", 
   "Andrew Ng", "Gabriel Petersson", "Bryan Johnson", "Dylan Field", "Ryo Lu", "Hubert Thieblot", 
-  "Brett Adcock", "Ethan Wang", "Julia Alvarenga", "Anhphu Nguyen"
+  "Brett Adcock", "Ethan Wang", "Julia Alvarenga", "Anhphu Nguyen",
+  "Eve Bouff", "James Hawkins", "Dale Verett", "Sean Parker", "Emily Chang",
+  "Dario Amodei", "Molly O’Shea", "Shengkun Ye", "Andrej Karpathy", "Guillermo Rauch",
+  "Adil Mania", "Nikita Bier", "Sun Tzu", "George Washington", "Ben Aratame"
 ]
 
 const PACKAGES = [
@@ -66,7 +69,8 @@ const INSPIRATIONS = {
     { title: "Prediction: the successor to postmodernism", author: "Alex Danco", type: "Article" },
     { title: "The Techno-Optimist Manifesto", author: "Marc Andreessen", type: "Book" },
     { title: "The Hard Things About Hard Things", author: "Ben Horowitz", type: "Book" },
-    { title: "The Truth about Venture Capitalists (in 2007)", author: "Marc Andreessen", type: "Article" }
+    { title: "The Truth about Venture Capitalists (in 2007)", author: "Marc Andreessen", type: "Article" },
+    { title: "The only thing that matters", author: "Marc Andreessen", type: "Article" }
   ],
   "Life": [
     { title: "Atomic Habits", author: "James Clear", type: "Book" },

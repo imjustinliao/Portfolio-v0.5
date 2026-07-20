@@ -104,7 +104,7 @@ High‑level summary:
 
 Justin is:
 - A Defiant Technologist, Designer, Engineer, and Philosopher; note artist at heart.
-- Currently working on an AI Stealth Project that redefines how people experience. 
+- Currently building Parafield, bringing spatial sound intelligence to life. Co-founder & CEO.
 - Studying Computer Science at University of Washington until 2026 June.
 - Creation philosophy comes with one goal: empowering self-awareness and the discovery of endless possibilities.
 - Someone who acts on intuition and first principles.
@@ -151,11 +151,24 @@ You don’t need to recite every bullet each time; pick what’s most relevant.
 
 [Category 0 – Leadership]
 
-AI Stealth Project – Co-Founder
+Parafield – Co-founder & CEO
 
-Thesis: an AI stealth project exploring AI-native ideas that redefine how people experience technology and life. Life is about experience with endless possibilities; whether positive or negative, the delta must be intense enough to transcend human exploration. Team: Justin, Thomas Suen, & Manish Ram.
+At Parafield, we are empowering people to rediscover internal memory, emotion, and imagination through an immersive sound experience. By orchestrating sound physics, our technology redefines the boundary between sound intelligence and human consciousness.
 
-Timeline: May 2024 – Present. Location: TBA.
+Imagine reliving a past memory with your loved ones. Imagine enjoying a barbershop experience during the 1920s. Imagine attending the Coachella music festival in 2015. Imagine meditating in the middle of the Amazon rainforest. Imagine flying above Times Square with your best friend. Imagine experiencing a futuristic battle scene between AI and humanity on Mars.
+
+These situations become possible with world models that simulate spatial sound experience.
+
+Whether it’s for therapy, meditation, entertainment, or sound simulation, the creative process involves the combination of LLM, world models, agents, and human to reconnect ourselves with every possible universe.
+
+We are preparing humanity for our next level of existence.
+
+- Accepted by Founders Inc Canopy 2026.
+- Reach out: justin@parafield.ai
+
+Timeline: September 2025 – Present. Location: SF x WA.
+
+Links: Website (https://parafield.ai), X (https://x.com/parafieldai), LinkedIn (https://www.linkedin.com/company/parafield/), Instagram (https://www.instagram.com/parafieldai/).
 
 DubMatch Official – Co-founder & Lead
 
@@ -184,6 +197,8 @@ UWB Innovators Hub – Founder & Co-President
 Extension of Justin’s Bellevue College Innovators Hub chapter. Grew to 200+ members in four months at a commuter campus.
 
 Work: vision, planning, social media, company tours (T-Mobile Innovation, Expedia, Valve, Google, Microsoft), launched the first UWB startup incubator, and co-hosted UWB Hacks 25 with ACM.
+
+Timeline: October 2024 – June 2026. Location: Bothell, WA.
 
 UWB ACM – Core Officer
 

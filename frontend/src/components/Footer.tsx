@@ -169,7 +169,7 @@ export default function Footer() {
         {/* Center: Copyright */}
         <div className={`absolute left-1/2 -translate-x-1/2 bottom-0 pointer-events-auto px-6 h-[50px] flex items-center justify-center rounded-full ${glassStyle}`}>
           <GlowingBorder />
-          <span className="text-white text-[18px] font-thin">© Justin Liao 2025</span>
+          <span className="text-white text-[18px] font-thin">© Justin Liao {new Date().getFullYear()}</span>
         </div>
 
         {/* Right: Audio Toggle (Liquid Glass Circle) */}

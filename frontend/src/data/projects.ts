@@ -5,15 +5,19 @@ export const projects: Record<number, ProjectData[]> = {
   0: [
     {
       id: 'high-delta-1',
-      name: 'AI Stealth Project',
-      description: 'An AI stealth project I co-founded to explore AI-native ideas that redefines how people experience technology and life. Here’s our thesis: life is about experience, filled with endless possibilities. Whether it’s regarded as positive or negative, the delta must be intense enough to transcend human exploration. Current team: me, Thomas Suen, & Manish Ram.',
-      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/stealth.png',
-      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/shown.png'],
+      name: 'Parafield',
+      description: 'At Parafield, we are empowering people to rediscover internal memory, emotion, and imagination through an immersive sound experience. By orchestrating sound physics, our technology redefines the boundary between sound intelligence and human consciousness.\n\nImagine reliving a past memory with your loved ones. Imagine enjoying a barbershop experience during the 1920s. Imagine attending the Coachella music festival in 2015. Imagine meditating in the middle of the Amazon rainforest. Imagine flying above Times Square with your best friend. Imagine experiencing a futuristic battle scene between AI and humanity on Mars.\n\nThese situations become possible with world models that simulate spatial sound experience.\n\nWhether it’s for therapy, meditation, entertainment, or sound simulation, the creative process involves the combination of LLM, world models, agents, and human to reconnect ourselves with every possible universe.\n\nWe are preparing humanity for our next level of existence.\n\n- Accepted by Founders Inc Canopy 2026.\n- Reach out: justin@parafield.ai',
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/Justin%20Liao%20-%20Banner%202.2.png',
+      slideshow: ['https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/Justin%20Liao%20-%20Banner%202.2.png'],
       links: [
+        { text: 'Website', url: 'https://parafield.ai' },
+        { text: 'X', url: 'https://x.com/parafieldai' },
+        { text: 'LinkedIn', url: 'https://www.linkedin.com/company/parafield/' },
+        { text: 'Instagram', url: 'https://www.instagram.com/parafieldai/' },
       ],
-      timeline: 'May 2024 - Present',
-      location: 'TBA',
-      role: 'Co-Founder',
+      timeline: 'September 2025 - Present',
+      location: 'SF x WA',
+      role: 'Co-founder & CEO',
       deltaScore: '∞',
       glowColor: 'var(--theme-color)'
     },
@@ -86,7 +90,7 @@ export const projects: Record<number, ProjectData[]> = {
         { text: 'Instagram', url: 'https://www.instagram.com/uwb_innovatorshub/' },
         { text: 'Discord', url: 'https://discord.gg/4nx2TmENhQ' }
       ],
-      timeline: 'October 2024 - Present',
+      timeline: 'October 2024 - June 2026',
       location: 'Bothell, WA',
       role: 'Founder & Co-President',
       deltaScore: 42,
@@ -419,6 +423,33 @@ export const projects: Record<number, ProjectData[]> = {
       glowColor: 'var(--theme-color)'
     }, */
     {
+      id: 'content-parafield-launch',
+      name: 'Parafield Launch!',
+      description: 'Steve: what did you build?\n\nme: a time machine.\n\nSteve: how?\n\nme: through sound.\n\nit’s time to bring your memory back IRL.',
+      image: 'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/Parafield%20Launch/a.png',
+      slideshow: [
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/Parafield%20Launch/a.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/Parafield%20Launch/b.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/Parafield%20Launch/c.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/Parafield%20Launch/d.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/Parafield%20Launch/e.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/Parafield%20Launch/f.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/Parafield%20Launch/g.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/Parafield%20Launch/h.png',
+        'https://pub-1fa58c73c1d64a9d90e1268507133a6e.r2.dev/Parafield%20Launch/i.png',
+      ],
+      links: [
+        { text: 'Post', url: 'https://x.com/imjustinliao/status/2054980386703446455?s=20' },
+        { text: 'Post', url: 'https://www.linkedin.com/feed/update/urn:li:activity:7462188835469185024/' },
+        { text: 'Post', url: 'https://www.instagram.com/p/DYfSFXci6Nb/' },
+      ],
+      timeline: '5.12.26 - 5.14.26',
+      location: 'X | LinkedIn | Instagram',
+      role: 'Creator',
+      deltaScore: 70,
+      glowColor: 'var(--theme-color)'
+    },
+    /* {
       id: 'content-2',
       name: 'I\'m Justin Liao',
       description: 'This is an upcoming content series across Instagram and YouTube where I\'ll document my life through creation. It brings together the things I care about most: daily moments, sketching and visual art, UI and UX design, music covers, and experiments with sound experience design. It\'s a personal record of how I think and see the world as I move into a new phase of life.',
@@ -433,7 +464,7 @@ export const projects: Record<number, ProjectData[]> = {
       role: 'Creator',
       deltaScore: 75,
       glowColor: 'var(--theme-color)'
-    },
+    }, */
     {
       id: 'content-3',
       name: 'Meta OS Parody',

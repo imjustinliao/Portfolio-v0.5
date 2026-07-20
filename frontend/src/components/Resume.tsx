@@ -33,15 +33,15 @@ const education: EducationItem[] = [
 
 const experience: ExperienceItem[] = [
   {
-    company: 'AI Stealth Project',
-    role: 'Co-Founder',
-    date: 'May 2024 - Present',
-    location: 'TBA',
+    company: 'Parafield',
+    role: 'Co-founder & CEO',
+    date: 'September 2025 - Present',
+    location: 'SF x WA',
   },
   {
     company: 'University of Washington',
     role: 'Teaching Assistant',
-    date: 'January 2026 - Present',
+    date: 'January 2026 - June 2026',
     location: 'Bothell, WA',
   },
   {
@@ -53,7 +53,7 @@ const experience: ExperienceItem[] = [
   {
     company: 'UWB Innovators Hub',
     role: 'Founder & Co-President',
-    date: 'October 2024 - Present',
+    date: 'October 2024 - June 2026',
     location: 'Bothell, WA',
   },
   {

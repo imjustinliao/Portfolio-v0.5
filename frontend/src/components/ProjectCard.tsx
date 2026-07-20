@@ -364,7 +364,7 @@ export default function ProjectCard({ project, isExpanded, onExpand, isHovered, 
                 
                 {/* Text Block - Scrollable if exceeds height */}
                 <div className="w-full h-full overflow-y-auto pl-4 pr-2 scrollbar-thin scrollbar-thumb-white/50 scrollbar-track-transparent">
-                  <p className="text-white font-normal leading-[1.6] text-[clamp(14px,1.3vw,18px)]">
+                  <p className="text-white font-normal leading-[1.6] text-[clamp(14px,1.3vw,18px)] whitespace-pre-line">
                     {project.description}
                   </p>
                 </div>
