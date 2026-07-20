@@ -97,7 +97,7 @@ export default function Navbar() {
           <span className="text-[clamp(23px,3vw,27px)] font-semibold tracking-[0.04em] leading-none">Justin Liao</span>
           <span className="text-[clamp(15px,2vw,17px)] font-normal leading-[1.2] tracking-[0.02em] max-[900px]:hidden">
             <span className="font-bold mr-1">Tech</span>
-            Designer | Philosopher
+            Founder | Artist
           </span>
         </div>
 
@@ -128,7 +128,7 @@ export default function Navbar() {
             `}
           >
             <span className="font-bold text-white mr-1 drop-shadow-[inherit]">Tech</span>
-            Designer | Philosopher
+            Founder | Artist
           </span>
         </div>
 
